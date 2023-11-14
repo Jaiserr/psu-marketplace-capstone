@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,11 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], function() {
 
 
+});
+
+// ** Route for seller
+Route::group(['middleware' => ['auth', 'role:seller', 'verified']], function() {
+    Route::resource('admin-products', ProductsController::class);
 });
 
 Route::middleware('auth')->group(function () {
