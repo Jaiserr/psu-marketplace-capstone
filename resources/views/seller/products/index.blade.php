@@ -77,7 +77,8 @@
                                     </a>
                                     <a href="#"
                                         class="ml-4 font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
-                                    <a href="#" class="ml-4 font-medium text-blue-600  hover:underline">More</a>
+                                    <a href="{{ route('admin-products.show', $product) }}"
+                                        class="ml-4 font-medium text-blue-600  hover:underline">More</a>
                                 </td>
                             </tr>
                             @endforeach
