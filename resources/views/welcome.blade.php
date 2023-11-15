@@ -22,13 +22,9 @@
             <div class="top-0 right-0 left-0 z-[50] bg-white fixed">
                 <div
                     class=" flex justify-between items-center max-w-7xl mx-auto px-4  sm:px-6 md:justify-start md:space-x-10 lg:px-8">
-                    <div class="flex justify-start lg:w-0 lg:flex-1">
-                        <a href="#">
-                            <span class="sr-only">Workflow</span>
-                            <img class="h-8 w-auto sm:h-10"
-                                src="https://tailwindui.com/img/logos/workflow-mark-purple-600-to-indigo-600.svg"
-                                alt="">
-                        </a>
+                    <div class="flex justify-start items-center gap-2 lg:w-0 lg:flex-1">
+                        <img src="{{ asset('logo.png') }}" alt="Logo" class="h-10" />
+                        <spa class="sm:text-2xl">PSU Marketplace</span>
                     </div>
                     <div class="flex items-center justify-end md:flex-1 lg:w-0">
                         @if (Route::has('login'))

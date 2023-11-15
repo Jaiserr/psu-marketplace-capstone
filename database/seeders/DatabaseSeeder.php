@@ -23,6 +23,14 @@ class DatabaseSeeder extends Seeder
 
         $seller->addRole('seller');
 
+        $superadministrator = \App\Models\User::factory()->create([
+            'name' => 'PSU Marketplace',
+            'email' => 'psuaccmarketplace@gmail.com',
+            'password' => Hash::make('psumarketplace_1'),
+        ]);
+
+        $superadministrator->addRole('superadministrator');
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
