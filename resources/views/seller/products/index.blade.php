@@ -71,7 +71,8 @@
                                     {{ $product->availability }}
                                 </td>
                                 <td class="px-6 py-4  gap-2 items-center">
-                                    <a href="" class="font-medium text-indigo-900 dark:text-indigo-900 hover:underline">
+                                    <a href="{{ route('admin-products.edit', $product) }}"
+                                        class="font-medium text-indigo-900 dark:text-indigo-900 hover:underline">
                                         Edit
                                     </a>
                                     <a href="#"

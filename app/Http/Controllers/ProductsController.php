@@ -71,17 +71,60 @@ class ProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Products $products)
+    public function edit(Products $admin_product)
     {
-        //
+        return view('seller.products.edit', [
+            "product" => $admin_product
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, Products $admin_product)
     {
-        //
+
+        $formFields = $request->validate([
+            'product_name' => 'required',
+            'category' => 'required',
+            'condition' => 'required',
+            'price' => 'required',
+            'availability' => 'required',
+            'images' => ['nullable'],
+        ]);
+
+        if($request->hasfile('images')){
+            $_multiple_images_ = array();
+            foreach($request->file('images') as $imgs)
+            {
+                $path =  $imgs->store('product', 'public');
+                $_multiple_images_[] = $path;
+            }
+        } else {
+            $_multiple_images_[] = $admin_product->images;
+        }
+
+
+
+
+
+
+     /*    if($request->hasFile('product_image')) {
+            $product_image = $request->file('product_image')->store('products', 'public');
+        } else {
+            $product_image =  $product->product_image;
+        }; */
+
+        $admin_product->update([
+            'product_name' => $request->product_name,
+            'price' => $request->price,
+            'category' => $request->category,
+            'condition' => $request->condition,
+            'availability' => $request->availability,
+            'images' => implode('|', $_multiple_images_),
+        ]);
+
+        return redirect(route('admin-products.index'));
     }
 
     /**
