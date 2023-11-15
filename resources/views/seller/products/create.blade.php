@@ -5,14 +5,16 @@
                 <div class="p-8 px-4 bg-indigo-700 rounded-lg">
                     <div class="grid grid-cols-1 lg:grid-cols-1 gap-6">
                         <div>
-                            <form action="#" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin-products.store') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="px-4 mb-6">
                                     <label for="product_name" class="block mb-2 text-sm font-medium text-white"> Product
                                         Name</label>
-                                    <input id="product_name"
+                                    <input id="product_name" value="{{ old('product_name') }}"
                                         class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded "
                                         type="text" name="product_name" placeholder="Enter product name">
+                                    <x-input-error :messages="$errors->get('product_name')" class="mt-2" />
                                 </div>
                                 <div class="flex flex-wrap items-center">
                                     <div class="w-full px-4 mb-6 lg:w-2/4">
@@ -42,6 +44,7 @@
                                                     </path>
                                                 </svg>
                                             </div>
+                                            <x-input-error :messages="$errors->get('category')" class="mt-2" />
                                         </div>
                                     </div>
                                     <div class="w-full px-4 mb-6 lg:w-2/4">
@@ -67,6 +70,7 @@
                                                     </path>
                                                 </svg>
                                             </div>
+                                            <x-input-error :messages="$errors->get('condition')" class="mt-2" />
                                         </div>
                                     </div>
                                 </div>
@@ -75,9 +79,10 @@
                                     <div class="w-full px-4 mb-6 lg:w-2/4">
                                         <label for="price" class="block mb-2 text-sm font-medium text-white"> Product
                                             Price</label>
-                                        <input
+                                        <input value="{{ old('price') }}"
                                             class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded "
                                             type="number" name="price" id="price" placeholder="Enter product price">
+                                        <x-input-error :messages="$errors->get('price')" class="mt-2" />
                                     </div>
                                     <div class="w-full px-4 mb-6 lg:w-2/4">
                                         <label for="availability" class="block mb-2 text-sm font-medium text-white">
@@ -100,6 +105,7 @@
                                                     </path>
                                                 </svg>
                                             </div>
+                                            <x-input-error :messages="$errors->get('availability')" class="mt-2" />
                                         </div>
                                     </div>
                                 </div>
@@ -107,13 +113,15 @@
                                     <label for="images" class="block mb-2 text-sm font-medium text-white"
                                         for="file_input">Upload
                                         file</label>
-                                    <input name="images[]" multiple accept="image/*" id="images"
+                                    <input value="{{ old('images[]') }}" name="images[]" multiple accept="image/*"
+                                        id="images"
                                         class="block w-full text-sm text-gray-600 border border-gray-200 rounded cursor-pointer file:hover:bg-gray-200 file:border-solid file:border-0 file:cursor-pointer  file:mr-5 file:px-5 file:py-3 bg-gray-50   file:border-r file:border-gray-300 file:bg-gray-100 "
                                         type="file">
+                                    <x-input-error :messages="$errors->get('images')" class="mt-2" />
                                 </div>
                                 <div class="px-4 ">
                                     <div class="flex ">
-                                        <button type="button"
+                                        <button type="submit"
                                             class="inline-block px-6 py-2.5 bg-blue-500  text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-600 hover:shadow-lg ">Submit</button>
                                     </div>
                                 </div>

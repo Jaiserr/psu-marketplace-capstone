@@ -28,7 +28,35 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'product_name' => 'required',
+            'category' => 'required',
+            'condition' => 'required',
+            'price' => 'required',
+            'availability' => 'required',
+            'images' => ['required'],
+        ]);
+
+
+        if($request->hasfile('images')){
+            $_multiple_images_ = array();
+            foreach($request->file('images') as $imgs)
+            {
+                $path =  $imgs->store('product', 'public');
+                $_multiple_images_[] = $path;
+            }
+        }
+
+        $request->user()->products()->create([
+            'product_name' => $request->product_name,
+            'price' => $request->price,
+            'category' => $request->category,
+            'condition' => $request->condition,
+            'availability' => $request->availability,
+            'images' => implode('|', $_multiple_images_),
+        ]);
+
+        return view('seller.products.index');
     }
 
     /**
