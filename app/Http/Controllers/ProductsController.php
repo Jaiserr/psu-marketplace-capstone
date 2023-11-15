@@ -125,8 +125,10 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Products $products)
+    public function destroy(Products $admin_product)
     {
-        //
+        $admin_product->delete();
+
+        return redirect(route('admin-products.index'));
     }
 }
