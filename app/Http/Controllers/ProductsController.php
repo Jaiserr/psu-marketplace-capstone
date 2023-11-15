@@ -12,7 +12,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('seller.products.index');
+        $products = Products::latest()->get();
+        return view('seller.products.index', compact('products'));
     }
 
     /**
