@@ -36,6 +36,7 @@ class ProductsController extends Controller
             'price' => 'required',
             'availability' => 'required',
             'images' => ['required'],
+            'details' => 'nullable',
         ]);
 
 
@@ -54,10 +55,11 @@ class ProductsController extends Controller
             'category' => $request->category,
             'condition' => $request->condition,
             'availability' => $request->availability,
+            'details' => $request->details,
             'images' => implode('|', $_multiple_images_),
         ]);
 
-        return view('seller.products.index');
+        return redirect(route('admin-products.index'));
     }
 
     /**
@@ -93,6 +95,7 @@ class ProductsController extends Controller
             'price' => 'required',
             'availability' => 'required',
             'images' => ['nullable'],
+            'details' => ['nullable'],
         ]);
 
         if($request->hasfile('images')){
@@ -106,23 +109,13 @@ class ProductsController extends Controller
             $_multiple_images_[] = $admin_product->images;
         }
 
-
-
-
-
-
-     /*    if($request->hasFile('product_image')) {
-            $product_image = $request->file('product_image')->store('products', 'public');
-        } else {
-            $product_image =  $product->product_image;
-        }; */
-
         $admin_product->update([
             'product_name' => $request->product_name,
             'price' => $request->price,
             'category' => $request->category,
             'condition' => $request->condition,
             'availability' => $request->availability,
+            'details' => $request->details,
             'images' => implode('|', $_multiple_images_),
         ]);
 

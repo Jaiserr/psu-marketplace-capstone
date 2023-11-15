@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('price');
             $table->string('availability');
             $table->string('images');
+            $table->longText('details')->nullable();
             $table->timestamps();
         });
     }

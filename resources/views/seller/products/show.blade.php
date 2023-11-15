@@ -19,14 +19,12 @@
                                 <p class="inline-block mb-6 text-4xl font-bold ">
                                     <span>₱{{ $product->price }}</span>
                                 </p>
+                                @if ($product->details)
                                 <p class="max-w-md text-gray-50">
-                                    Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor
-                                    amet
-                                    Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor
-                                    amet
+                                    {{ $product->details }}
                                 </p>
+                                @endif
                             </div>
-
 
                             <div class="mb-8">
                                 <div>

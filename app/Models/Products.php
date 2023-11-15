@@ -16,6 +16,7 @@ class Products extends Model
         'price',
         'availability',
         'images',
+        'details',
     ];
 
     public function product() {
