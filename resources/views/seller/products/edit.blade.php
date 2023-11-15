@@ -154,6 +154,22 @@
                                         type="file">
                                     <x-input-error :messages="$errors->get('images')" class="mt-2" />
                                 </div>
+                                <div class=" mb-6">
+                                    <div class="flex flex-wrap">
+                                        <div class="w-full">
+                                            <label for="details" class="text-sm ml-3 font-semibold text-white">
+                                                Details
+                                            </label>
+                                        </div>
+                                        <div class="w-full p-3">
+                                            <textarea rows="4" id="details" name="details"
+                                                placeholder="Enter the details of the product" required
+                                                class="block w-full px-4 py-4 leading-tight placeholder-gray-400 border rounded ">{{ old('details', $product->details) }}</textarea>
+                                        </div>
+                                    </div>
+
+                                    <x-input-error :messages="$errors->get('details')" class="mt-2" />
+                                </div>
                                 <div class="px-4 ">
                                     <div class="flex ">
                                         <button type="submit"

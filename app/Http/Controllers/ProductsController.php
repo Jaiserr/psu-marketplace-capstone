@@ -36,6 +36,7 @@ class ProductsController extends Controller
             'price' => 'required',
             'availability' => 'required',
             'images' => ['required'],
+            'details' => 'nullable',
         ]);
 
 
@@ -54,18 +55,21 @@ class ProductsController extends Controller
             'category' => $request->category,
             'condition' => $request->condition,
             'availability' => $request->availability,
+            'details' => $request->details,
             'images' => implode('|', $_multiple_images_),
         ]);
 
-        return view('seller.products.index');
+        return redirect(route('admin-products.index'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Products $products)
+    public function show(Products $admin_product)
     {
-        //
+        return view('seller.products.show', [
+            "product" => $admin_product
+        ]);
     }
 
     /**
@@ -91,6 +95,7 @@ class ProductsController extends Controller
             'price' => 'required',
             'availability' => 'required',
             'images' => ['nullable'],
+            'details' => ['nullable'],
         ]);
 
         if($request->hasfile('images')){
@@ -104,23 +109,13 @@ class ProductsController extends Controller
             $_multiple_images_[] = $admin_product->images;
         }
 
-
-
-
-
-
-     /*    if($request->hasFile('product_image')) {
-            $product_image = $request->file('product_image')->store('products', 'public');
-        } else {
-            $product_image =  $product->product_image;
-        }; */
-
         $admin_product->update([
             'product_name' => $request->product_name,
             'price' => $request->price,
             'category' => $request->category,
             'condition' => $request->condition,
             'availability' => $request->availability,
+            'details' => $request->details,
             'images' => implode('|', $_multiple_images_),
         ]);
 
@@ -130,8 +125,10 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Products $products)
+    public function destroy(Products $admin_product)
     {
-        //
+        $admin_product->delete();
+
+        return redirect(route('admin-products.index'));
     }
 }
