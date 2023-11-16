@@ -16,9 +16,13 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @role('seller')
+                    @auth
+                    @if (auth()->user()->approved !== null && auth()->user()->approved !== "")
                     <x-nav-link :href="route('admin-products.index')" :active="request()->routeIs('admin-products.*')">
                         {{ __('Products') }}
                     </x-nav-link>
+                    @endif
+                    @endauth
                     @endrole
                 </div>
             </div>
