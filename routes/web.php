@@ -26,8 +26,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
 // ** Route for superadministrator
 Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], function() {
-
-
+    Route::post('approve-seller', [DashboardController::class, 'approve'])->name('approve-seller');
 });
 
 // ** Route for seller

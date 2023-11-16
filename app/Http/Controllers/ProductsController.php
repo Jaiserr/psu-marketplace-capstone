@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -12,6 +13,10 @@ class ProductsController extends Controller
      */
     public function index()
     {
+        if (Auth::check()) {
+            if (Auth::user()->approved == null && Auth::user()->approved == "") {
+            abort(403, 'You are not approved to access this resource.');
+        }}
         $products = Products::latest()->get();
         return view('seller.products.index', compact('products'));
     }
