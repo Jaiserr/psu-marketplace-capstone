@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
@@ -19,6 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
+Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
+Route::post('/contact-us', [ContactUsController::class, 'submitForm']);
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
