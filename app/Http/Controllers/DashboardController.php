@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,8 @@ class DashboardController extends Controller
         } elseif (Auth::user()->hasRole('seller')) {
             return view('seller.dashboard.index');
         }  elseif (Auth::user()->hasRole('customer')) {
-            return view('customer.dashboard.index');
+            $products = Products::all();
+            return view('customer.dashboard.index', compact('products'));
         };
     }
 
