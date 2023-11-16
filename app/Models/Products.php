@@ -22,4 +22,12 @@ class Products extends Model
     public function product() {
         return $this->belongsTo(User::class);
     }
+
+    // app/Product.php
+
+public function wishlists()
+{
+    return $this->hasMany(Wishlist::class);
+}
+
 }
