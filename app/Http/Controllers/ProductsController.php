@@ -13,11 +13,12 @@ class ProductsController extends Controller
      */
     public function index()
     {
+        // dd(auth()->user()->id);
         if (Auth::check()) {
             if (Auth::user()->approved == null && Auth::user()->approved == "") {
             abort(403, 'You are not approved to access this resource.');
         }}
-        $products = Products::latest()->get();
+        $products = Products::where("user_id",auth()->user()->id)->latest()->get();
         return view('seller.products.index', compact('products'));
     }
 
