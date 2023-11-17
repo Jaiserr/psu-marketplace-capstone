@@ -42,7 +42,7 @@ class ContactUsController extends Controller
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'subject' => $data['subject'],
-                'comment' => $data['message'],                
+                'message' => $data['message'],                
             ];
 
             Mail::send('emails.contact',$messageData,function($message)use($email) {
