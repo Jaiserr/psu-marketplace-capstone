@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -50,11 +51,13 @@ class MessagesController extends Controller
      *
      * @return mixed
      */
-    public function create()
+    public function create($id)
     {
         $users = User::where('id', '!=', Auth::id())->get();
 
-        return view('messenger.create', compact('users'));
+        $product = Products::findOrFail($id);
+
+        return view('messenger.create', compact('users', 'product'));
     }
 
     /**

@@ -16,12 +16,12 @@
                     @endif
 
                     <div class="grid grid-cols-12 gap-x-4">
-                        <div class="col-span-3">
+                        {{-- <div class="col-span-3">
                             <a href="{{ route('messages.create') }}"
                                 class="block w-full p-2 text-center text-white bg-indigo-400 hover:bg-indigo-600">New
                                 Message</a>
-                        </div>
-                        <div class="col-span-9">
+                        </div> --}}
+                        <div class="col-span-12">
                             <table class="min-w-full leading-normal">
                                 <thead class="border-b bg-gray-50">
                                     <th

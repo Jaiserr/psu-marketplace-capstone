@@ -9,7 +9,6 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-
                     <form action="{{ route('messages.store') }}" method="post">
                         {{ csrf_field() }}
                         <div class="col-md-6">
@@ -25,9 +24,9 @@
                                 <x-input-label for="recipient" :value="__('Recipient')" />
                                 <select name="recipient"
                                     class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                                    @foreach ($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
+                                    {{-- @foreach ($users as $user) --}}
+                                    <option value="{{ $product->user_id }}">{{ $product->user->name }}</option>
+                                    {{-- @endforeach --}}
                                 </select>
                             </div>
 

@@ -57,7 +57,8 @@ Route::middleware('auth')->group(function () {
 
 Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'], function () {
     Route::get('/', [MessagesController::class, 'index']);
-    Route::get('create', [MessagesController::class, 'create'])->name('.create');
+    // Route::get('create', [MessagesController::class, 'create'])->name('.create');
+    Route::get('{thread}/create', [MessagesController::class, 'create'])->name('.create');
     Route::post('/', [MessagesController::class, 'store'])->name('.store');
     Route::get('{thread}', [MessagesController::class, 'show'])->name('.show');
     Route::put('{thread}', [MessagesController::class, 'update'])->name('.update');

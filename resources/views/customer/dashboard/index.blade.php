@@ -31,6 +31,9 @@
                                 <p>
                                     {{ $product->details }}
                                 </p>
+                                <p class="mb-4">
+                                    Seller: {{ $product->user->name }}
+                                </p>
 
                                 <form action="{{ route('wishlist.add', $product) }}" method="POST">
                                     @csrf
@@ -39,6 +42,11 @@
                                         Add to wishlist
                                     </button>
                                 </form>
+
+                                <a href="{{ route('messages.create', $product) }}"
+                                    class="transform active:scale-[.98] mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-[#DE3151] py-3 px-8 text-base font-medium text-white hover:bg-[#d22544] focus:outline-none focus:ring-2 focus:ring-[#DE3151] focus:ring-offset-2">
+                                    Message
+                                </a>
                             </div>
                         </div>
                         @endforeach
