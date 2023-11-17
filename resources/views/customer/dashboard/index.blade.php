@@ -54,6 +54,11 @@
                                     Seller: {{ $product->user->name }}
                                 </p>
 
+                                <a href="{{ route('seller-profile.show',$product->user->id ) }}">
+
+                                    seller
+                                </a>
+
                                 @if ($product->availability === "Available")
                                 <form action="{{ route('wishlist.add', $product) }}" method="POST">
                                     @csrf
