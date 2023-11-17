@@ -109,10 +109,13 @@
                                         <p>
                                             {{ $product->details }}
                                         </p>
-                                        <button
-                                            class="w-full px-4 py-2 text-base font-bold text-white uppercase bg-blue-500 border border-blue-500 rounded focus:outline-none focus:border-blue-700 hover:bg-blue-600">
-                                            Add to wishlist
-                                        </button>
+                                        <form action="{{ route('wishlist.add', $product) }}" method="POST">
+                                            @csrf
+                                            <button
+                                                class="w-full px-4 py-2 text-base font-bold text-white uppercase bg-blue-500 border border-blue-500 rounded focus:outline-none focus:border-blue-700 hover:bg-blue-600">
+                                                Add to wishlist
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 @endforeach
