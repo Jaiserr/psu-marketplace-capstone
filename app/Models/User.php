@@ -24,6 +24,7 @@ class User extends Authenticatable implements LaratrustUser
         'name',
         'email',
         'password',
+        'approved',
     ];
 
     /**
@@ -49,5 +50,10 @@ class User extends Authenticatable implements LaratrustUser
     public function products(): HasMany
     {
         return $this->hasMany(Products::class);
+    }
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
     }
 }

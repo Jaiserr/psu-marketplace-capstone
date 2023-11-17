@@ -22,13 +22,9 @@
             <div class="top-0 right-0 left-0 z-[50] bg-white fixed">
                 <div
                     class=" flex justify-between items-center max-w-7xl mx-auto px-4  sm:px-6 md:justify-start md:space-x-10 lg:px-8">
-                    <div class="flex justify-start lg:w-0 lg:flex-1">
-                        <a href="#">
-                            <span class="sr-only">Workflow</span>
-                            <img class="h-8 w-auto sm:h-10"
-                                src="https://tailwindui.com/img/logos/workflow-mark-purple-600-to-indigo-600.svg"
-                                alt="">
-                        </a>
+                    <div class="flex justify-start items-center gap-2 lg:w-0 lg:flex-1">
+                        <img src="{{ asset('logo.png') }}" alt="Logo" class="h-10" />
+                        <spa class="sm:text-2xl">PSU Marketplace</span>
                     </div>
                     <div class="flex items-center justify-end md:flex-1 lg:w-0">
                         @if (Route::has('login'))
@@ -88,8 +84,52 @@
                             </div>
                         </div>
                     </div>
+                    {{-- --}}
+                    <section class="flex items-center mt-10">
+                        <div class="p-4 mx-auto ">
+                            <div class="grid grid-cols-1 gap-4 lg:gap-4 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                                @foreach ($products as $product)
+                                @php
+                                $imagePathsArray = explode('|', $product->images);
+                                @endphp
+
+                                <div class="overflow-hidden border  rounded shadow-lg">
+                                    <a href="#" class="relative block h-64 overflow-hidden">
+                                        <img class="object-cover w-full h-full transition-all hover:scale-110"
+                                            src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="">
+                                    </a>
+                                    <div class="relative  z-20 p-8 -mt-14 ">
+                                        <span
+                                            class="inline-block px-4 py-2 mb-3 text-base font-bold text-white bg-blue-500 rounded">
+                                            ₱{{ $product->price }}
+                                        </span>
+                                        <h2 class="mb-2 text-xl font-bold text-black">
+                                            {{ $product->product_name }}
+                                        </h2>
+                                        <p>
+                                            {{ $product->details }}
+                                        </p>
+                                        <form action="{{ route('wishlist.add', $product) }}" method="POST">
+                                            @csrf
+                                            <button
+                                                class="w-full px-4 py-2 text-base font-bold text-white uppercase bg-blue-500 border border-blue-500 rounded focus:outline-none focus:border-blue-700 hover:bg-blue-600">
+                                                Add to wishlist
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                                @endforeach
+
+                                <!-- Repeat similar structure for other product cards -->
+                            </div>
+                        </div>
+                    </section>
+
                 </div>
             </div>
+
+
+
         </main>
 
         <footer class="bg-white">

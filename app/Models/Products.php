@@ -9,6 +9,8 @@ class Products extends Model
 {
     use HasFactory;
 
+    protected $with = ['user'];
+
     protected $fillable = [
         'product_name',
         'category',
@@ -19,7 +21,15 @@ class Products extends Model
         'details',
     ];
 
-    public function product() {
+    public function user() {
         return $this->belongsTo(User::class);
     }
+
+    // app/Product.php
+
+public function wishlists()
+{
+    return $this->hasMany(Wishlist::class);
+}
+
 }
