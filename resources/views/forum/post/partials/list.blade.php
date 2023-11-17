@@ -1,5 +1,5 @@
 <div @if (! $post->trashed())id="post-{{ $post->sequence }}"@endif
-    class="bg-white border mb-2 rounded-md {{ $post->trashed() || $thread->trashed() ? 'opacity-50' : '' }}"
+    class="bg-gradient-to-r from-sky-500 to-indigo-500 shadow-sm border mb-2 rounded-md {{ $post->trashed() || $thread->trashed() ? 'opacity-50' : '' }}"
     :class="{ 'border-blue-500': selectedPosts.includes({{ $post->id }}) }">
     <div class="bg-gray-100 border-b px-4 py-2 flex justify-between flex-row-reverse rounded-t-md">
         @if (! isset($single) || ! $single)
@@ -43,7 +43,7 @@
         @if (! isset($single) || ! $single)
             <div class="flex items-center gap-4 justify-end">
                 @if (! $post->trashed())
-                    <a href="{{ Forum::route('post.show', $post) }}" class="text-gray-500">{{ trans('forum::general.permalink') }}</a>
+                    <a href="{{ Forum::route('post.show', $post) }}" class="text-white">{{ trans('forum::general.permalink') }}</a>
                     @if ($post->sequence != 1)
                         @can ('deletePosts', $post->thread)
                             @can ('delete', $post)
@@ -52,10 +52,10 @@
                         @endcan
                     @endif
                     @can ('edit', $post)
-                        <a href="{{ Forum::route('post.edit', $post) }}" class="text-blue-500">{{ trans('forum::general.edit') }}</a>
+                        <a href="{{ Forum::route('post.edit', $post) }}" class="text-white">{{ trans('forum::general.edit') }}</a>
                     @endcan
                     @can ('reply', $post->thread)
-                        <a href="{{ Forum::route('post.create', $post) }}" class="text-blue-500">{{ trans('forum::general.reply') }}</a>
+                        <a href="{{ Forum::route('post.create', $post) }}" class="text-white">{{ trans('forum::general.reply') }}</a>
                     @endcan
                 @else
                     @can ('restorePosts', $post->thread)

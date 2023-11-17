@@ -1,5 +1,5 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="alert alert-{{ $type }} alert-dismissable rounded-md bg-green-100 mb-4 text-green-700 p-4 flex justify-between gap-4">
+    <div class="alert alert-{{ $type }} alert-dismissable rounded-md bg-green-100 border border-green-400 text-green-700 p-4 flex justify-between gap-4">
         <div class="message">
             {!! $message !!}
         </div>

@@ -42,66 +42,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.23.2/vuedraggable.umd.min.js"></script>
 </head>
 <body class="bg-gray-100">
-    {{-- <nav class="v-navbar bg-white shadow py-4">
-        <div class="container mx-auto px-4 md:flex md:items-center md:gap-4">
-            <div class="flex justify-between items-center">
-                <a class="text-lg" href="{{ url(config('forum.web.router.prefix')) }}">Laravel Forum</a>
-                <button class="navbar-toggler block md:hidden border rounded-md px-2 py-1" type="button" :class="{ collapsed: isCollapsed }" @click="isCollapsed = ! isCollapsed">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="navbar-toggler-icon w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
-            </div>
-            <div class="grow justify-between navbar-collapse" :class="{ 'flex flex-col': !isCollapsed, 'hidden md:flex': isCollapsed }">
-                <ul class="flex flex-col md:flex-row gap-3 mb-4 md:mb-0">
-                    <li>
-                        <a class="text-gray-500" href="{{ url(config('forum.web.router.prefix')) }}">{{ trans('forum::general.index') }}</a>
-                    </li>
-                    <li>
-                        <a class="text-gray-500" href="{{ route('forum.recent') }}">{{ trans('forum::threads.recent') }}</a>
-                    </li>
-                    @auth
-                        <li>
-                            <a class="text-gray-500" href="{{ route('forum.unread') }}">{{ trans('forum::threads.unread_updated') }}</a>
-                        </li>
-                    @endauth
-                    @can ('moveCategories')
-                        <li>
-                            <a class="text-gray-500" href="{{ route('forum.category.manage') }}">{{ trans('forum::general.manage') }}</a>
-                        </li>
-                    @endcan
-                </ul>
-                <ul class="navbar-nav flex gap-4 flex-col md:flex-row">
-                    @if (Auth::check())
-                        <li class="nav-item dropdown relative">
-                            <a class="dropdown-toggle text-gray-500 flex items-center gap-1" href="#" id="navbarDropdownMenuLink" @click="isUserDropdownCollapsed = ! isUserDropdownCollapsed">
-                                {{ $username }}
-
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                </svg>
-                            </a>
-                            <div class="border absolute left-0 bg-white rounded-md w-44 divide-y" :class="{ hidden: isUserDropdownCollapsed }" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="block px-4 py-2" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Log out
-                                </a>
-                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/login') }}">Log in</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/register') }}">Register</a>
-                        </li>
-                    @endif
-                </ul>
-            </div>
-        </div>
-    </nav> --}}
     <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,72 +56,18 @@
     
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="url(config('forum.web.router.prefix'))" :active="request()->routeIs('forum.web.router.prefix')">
-                            {{ trans('forum::general.index') }}
-                        </x-nav-link>
                         <x-nav-link :href="route('forum.recent')" :active="request()->routeIs('forum.recent')">
                             {{ trans('forum::threads.recent') }}
                         </x-nav-link>
-                        @auth
-                        <x-nav-link :href="route('forum.unread')" :active="request()->routeIs('forum.unread')">
-                            {{ trans('forum::threads.unread_updated') }}
-                        </x-nav-link>
-                        @endauth
-                        @can ('moveCategories') 
+                        {{-- @can ('moveCategories')  --}}
+                        @role('seller')
                         <x-nav-link :href="route('forum.category.manage')" :active="request()->routeIs('forum.category.manage')">
                             {{ trans('forum::general.manage') }}
                         </x-nav-link>
-                        @endcan
+                        @endrole
+                        {{-- @endcan --}}
                     </div>
                 </div>
-    
-                <!-- Settings Dropdown -->
-                {{-- <div class="hidden sm:flex sm:items-center sm:ms-6">
-                    <x-dropdown align="right" width="48">
-                        <x-slot name="trigger">
-                            <div class="flex items-center gap-1">
-                                <button type="button"
-                                    class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                    id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                    <span class="sr-only">Open user menu</span>
-                                    <img class="h-8 w-8 rounded-full"
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOcpeNCQ_ugTxUhfbrpc7qXfVMHOcXr-S2aagGtAU&s"
-                                        alt="">
-                                </button>
-                                <button
-                                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                    <div>{{ Auth::user()->name }}</div>
-    
-                                    <div class="ms-1">
-                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </button>
-                            </div>
-    
-                        </x-slot>
-    
-                        <x-slot name="content">
-                            <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
-                            </x-dropdown-link>
-    
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-    
-                                <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </x-dropdown-link>
-                            </form>
-                        </x-slot>
-                    </x-dropdown>
-                </div> --}}
                 <div class="flex items-center justify-end md:flex-1 lg:w-0">
                     @if (Route::has('login'))
                     <div class=" p-6 text-right z-10">
@@ -223,17 +109,9 @@
         <!-- Responsive Navigation Menu -->
         <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="url(config('forum.web.router.prefix'))" :active="request()->routeIs('forum.web.router.prefix')">
-                    {{ trans('forum::general.index') }}
-                </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('forum.recent')" :active="request()->routeIs('forum.recent')">
                     {{ trans('forum::threads.recent') }}
                 </x-responsive-nav-link>
-                @auth
-                <x-responsive-nav-link :href="route('forum.unread')" :active="request()->routeIs('forum.unread')">
-                    {{ trans('forum::threads.unread_updated') }}
-                </x-responsive-nav-link>
-                @endauth
                 @can ('moveCategories')
                 <x-responsive-nav-link :href="route('forum.category.manage')" :active="request()->routeIs('forum.category.manage')">
                     {{ trans('forum::general.manage') }}

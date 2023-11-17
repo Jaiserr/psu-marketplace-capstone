@@ -1,11 +1,11 @@
-<div class="bg-white  {{ $thread->pinned ? 'pinned' : '' }} {{ $thread->locked ? 'locked' : '' }} {{ $thread->trashed() ? 'deleted' : '' }}" :class="{ 'border border-blue-500': selectedThreads.includes({{ $thread->id }}) }">
+<div class="bg-gradient-to-r from-sky-500 to-indigo-500 shadow-lg rounded-lg mb-4 {{ $thread->pinned ? 'pinned' : '' }} {{ $thread->locked ? 'locked' : '' }} {{ $thread->trashed() ? 'deleted' : '' }}" :class="{ 'border border-blue-500': selectedThreads.includes({{ $thread->id }}) }">
     <div class="flex flex-col md:items-start md:flex-row md:justify-between md:gap-4 p-4">
         <div class="md:w-3/6 text-center md:text-left">
             <span class="lead">
                 <a href="{{ Forum::route('thread.show', $thread) }}" @if (isset($category))style="color: {{ $category->color }};"@endif class="text-lg">{{ $thread->title }}</a>
             </span>
             <br>
-            {{ $thread->authorName }} <span class="text-gray-500">@include ('forum.partials.timestamp', ['carbon' => $thread->created_at])</span>
+            {{ $thread->authorName }} <span class="text-white">@include ('forum.partials.timestamp', ['carbon' => $thread->created_at])</span>
 
             @if (! isset($category))
                 <br>
@@ -32,11 +32,11 @@
         </div>
 
         @if ($thread->lastPost)
-            <div class="md:w-2/6 text-gray-500 flex justify-center md:flex-col md:items-end">
-                <a href="{{ Forum::route('thread.show', $thread->lastPost) }}" class="text-blue-500">{{ trans('forum::posts.view') }} &raquo;</a>
+            <div class="md:w-2/6 text-white flex justify-center md:flex-col md:items-end">
+                <a href="{{ Forum::route('thread.show', $thread->lastPost) }}" class="text-white">{{ trans('forum::posts.view') }} &raquo;</a>
                 <div>
                     <span>{{ $thread->lastPost->authorName }}</span>
-                    <span class="text-gray-500">@include ('forum.partials.timestamp', ['carbon' => $thread->lastPost->created_at])</span>
+                    <span class="text-white">@include ('forum.partials.timestamp', ['carbon' => $thread->lastPost->created_at])</span>
                 </div>
             </div>
         @endif

@@ -21,14 +21,6 @@
                             <x-forum.button-link href="{{ Forum::route('thread.create', $category) }}" class="btn btn-primary float-end">{{ trans('forum::threads.new_thread') }}</x-forum.button-link>
                         @endcan
                     @endif
-        
-                    <x-forum.button-group>
-                        @can ('manageCategories')
-                            <x-forum.button-secondary type="button" data-open-modal="edit-category">
-                                {{ trans('forum::general.edit') }}
-                            </x-forum.button-secondary>
-                        @endcan
-                    </x-forum.button-group>
                 </div>
         
                 @if (! $category->children->isEmpty())

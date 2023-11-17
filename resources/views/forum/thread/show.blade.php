@@ -97,7 +97,6 @@
                     <div>
                         {{ $posts->links('forum.pagination') }}
                     </div>
-                    {{-- cnnxcz --}}
                     <div class="flex justify-end">
                         @if (! $thread->trashed())
                             @can ('reply', $thread)

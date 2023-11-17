@@ -1,8 +1,8 @@
 <div class="my-4">
-    <div class="bg-blue-200 shadow-md rounded-md relative">
+    <div class="bg-gradient-to-r from-sky-500 to-indigo-500 shadow-md rounded-md relative">
         <div class="flex flex-col md:items-start md:flex-row md:justify-between md:gap-4 p-4">
             <div class="md:w-3/6 text-center md:text-left">
-                <h5 class="text-lg">
+                <h5 class="text-lg font-bold">
                     <a href="{{ Forum::route('category.show', $category) }}" style="color: {{ $category->color }};">{{ $category->title }}</a>
                 </h5>
                 <p class="text-dark">{{ $category->description }}</p>
@@ -17,11 +17,11 @@
                     </x-forum.badge>
                 @endif
             </div>
-            <div class="md:w-2/6 text-gray-500 flex flex-col items-center md:items-end">
+            <div class="md:w-2/6 text-white flex flex-col items-center md:items-end">
                 @if ($category->accepts_threads)
                     @if ($category->newestThread)
                         <div>
-                            <a href="{{ Forum::route('thread.show', $category->newestThread) }}" class="text-blue-500">{{ $category->newestThread->title }}</a>
+                            <a href="{{ Forum::route('thread.show', $category->newestThread) }}" class="text-dark underline hover:underline-offset-4">{{ $category->newestThread->title }}</a>
                             @include ('forum.partials.timestamp', ['carbon' => $category->newestThread->created_at])
                         </div>
                     @endif
