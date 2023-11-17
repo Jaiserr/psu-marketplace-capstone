@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\SellerProfileController;
 use App\Http\Controllers\WishlistController;
 use App\Models\Products;
@@ -34,7 +35,7 @@ Route::post('/contact-us', [ContactUsController::class, 'submitForm']);
 Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/seller-profile', SellerProfileController::class);
-
+    Route::resource('/reviews', ReviewsController::class);
 });
 
 // ** Route for superadministrator

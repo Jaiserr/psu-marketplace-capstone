@@ -58,8 +58,9 @@ class User extends Authenticatable implements LaratrustUser
         return $this->hasMany(Wishlist::class);
     }
 
-    public function profile(): HasOne
+    public function reviews(): HasMany
     {
-        return $this->hasOne(SellerProfile::class);
+        return $this->hasMany(Reviews::class, 'review_id');
+
     }
 }
