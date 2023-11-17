@@ -21,7 +21,7 @@
                     <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')">
                         {{ __('About Us') }}
                     </x-nav-link>
-                    
+
                     @role('seller')
                     @auth
                     @if (auth()->user()->approved !== null && auth()->user()->approved !== "")
@@ -33,7 +33,7 @@
                     @endrole
                 </div>
             </div>
-
+            {{--
             <div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
                 <div class="max-w-lg w-full lg:max-w-xs">
                     <label for="search" class="sr-only">Search</label>
@@ -52,7 +52,7 @@
                             placeholder="Search" type="search">
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
