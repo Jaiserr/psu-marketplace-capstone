@@ -31,6 +31,14 @@ class DatabaseSeeder extends Seeder
 
         $superadministrator->addRole('superadministrator');
 
+        $customer = \App\Models\User::factory()->create([
+            'name' => 'John Doe',
+            'email' => 'johndoe@gmail.com',
+            'password' => Hash::make('johndoe@gmail.com'),
+        ]);
+
+        $customer->addRole('customer');
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

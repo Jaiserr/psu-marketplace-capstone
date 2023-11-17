@@ -50,13 +50,10 @@
                                 <p>
                                     {{ $product->details }}
                                 </p>
-                                <p class="mb-4">
+
+                                <a class="mb-4 block underline text-indigo-600"
+                                    href="{{ route('seller-profile.show',$product->user->id ) }}">
                                     Seller: {{ $product->user->name }}
-                                </p>
-
-                                <a href="{{ route('seller-profile.show',$product->user->id ) }}">
-
-                                    seller
                                 </a>
 
                                 @if ($product->availability === "Available")
