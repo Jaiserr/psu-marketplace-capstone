@@ -3,6 +3,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex gap-2 items-center justify-between">
                 <h2 class="text-lg">Available Products</h2>
+
             </div>
             <section class="flex items-center mt-10">
                 <div class="p-4 mx-auto ">
@@ -31,6 +32,11 @@
                                 <p class="mb-4">
                                     Seller: {{ $product->user->name }}
                                 </p>
+
+                                <a href="{{ route('seller-profile.show',$product->user->id ) }}">
+
+                                    seller
+                                </a>
 
                                 @if ($product->availability === "Available")
                                 <form action="{{ route('wishlist.add', $product) }}" method="POST">
