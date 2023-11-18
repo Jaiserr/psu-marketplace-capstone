@@ -15,6 +15,70 @@
                     {{ __("You're logged in seller!") }}
                 </div>
 
+
+                <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+                    <div class="text-center p-10">
+                        <h1 class="font-bold text-4xl mb-4">Products</h1>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
+                        @foreach ($products as $product)
+                        @php
+                        $imagePathsArray = explode('|', $product->images);
+                        @endphp
+                        <div class=" relative bg-white border border-gray-200 rounded-lg flex flex-col overflow-hidden">
+                            <div class="aspect-w-3 aspect-h-4 bg-gray-200 sm:aspect-none sm:h-96">
+                                <img src="{{ asset('storage/' . $imagePathsArray[0]) }}"
+                                    alt="Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green."
+                                    class="w-full h-full object-center object-cover sm:w-full sm:h-full">
+                            </div>
+                            <div class="flex-1 p-4 space-y-2 flex flex-col">
+                                <h3 class="text-sm font-bold text-gray-900">
+                                    <a href="#">
+                                        <span aria-hidden="true" class="absolute inset-0"></span>
+                                        {{ $product->product_name }}
+                                    </a>
+                                </h3>
+                                <span
+                                    class="mr-3 uppercase text-xs {{ $product->availability === 'Available' ? 'text-green-500' : 'text-red-500' }}">{{
+                                    $product->availability }}</span>
+
+                                <p class="text-sm text-gray-500">{{ $product->category }}</p>
+                                <div class="flex-1 flex flex-col justify-end">
+                                    {{-- <p class="text-sm text-gray-500">{{ $product->category }}</p> --}}
+                                    <p class="text-base font-medium text-gray-900">₱{{ $product->price }}</p>
+                                </div>
+
+                                @if ($product->availability === "Available")
+                                <form class="z-[100]" action="{{ route('wishlist.add', $product) }}" method="POST">
+                                    @csrf
+                                    <button type="submit"
+                                        class="w-full px-4 py-2 text-base font-bold text-white uppercase bg-blue-500 border border-blue-500 rounded focus:outline-none focus:border-blue-700 hover:bg-blue-600">
+                                        Add to wishlist
+                                    </button>
+                                </form>
+
+                                {{-- <a href="{{ route('messages.create', $product) }}"
+                                    class="transform active:scale-[.98] mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-[#DE3151] py-3 px-8 text-base font-medium text-white hover:bg-[#d22544] focus:outline-none focus:ring-2 focus:ring-[#DE3151] focus:ring-offset-2">
+                                    Message
+                                </a>
+                                --}}
+                                @else
+                                <button
+                                    class="transform active:scale-[.98] mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-[#DE3151] py-3 px-8 text-base font-medium text-white hover:bg-[#d22544] focus:outline-none focus:ring-2 focus:ring-[#DE3151] focus:ring-offset-2">
+                                    Sold
+                                </button>
+                                @endif
+
+
+                            </div>
+                        </div>
+                        @endforeach
+                        <!-- More products... -->
+                    </div>
+                </div>
+
                 @endif
 
 
@@ -96,5 +160,5 @@
             </div>
             <p class="mt-8 text-center text-base text-gray-400">&copy; 2020 Workflow, Inc. All rights reserved.</p>
         </div>
-    </footer>    
+    </footer>
 </x-app-layout>

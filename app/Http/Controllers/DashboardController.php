@@ -14,7 +14,8 @@ class DashboardController extends Controller
             $sellers = User::whereHasRole('seller')->get();
             return view('administrator.dashboard.index', compact('sellers'));
         } elseif (Auth::user()->hasRole('seller')) {
-            return view('seller.dashboard.index');
+            $products = Products::all();
+            return view('seller.dashboard.index', compact('products'));
         }  elseif (Auth::user()->hasRole('customer')) {
             $products = Products::all();
             $wishlistItemsCount = auth()->user()->wishlists->count();

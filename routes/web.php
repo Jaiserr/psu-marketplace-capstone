@@ -36,6 +36,9 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/seller-profile', SellerProfileController::class);
     Route::resource('/reviews', ReviewsController::class);
+
+    Route::get('/wishlists', [WishlistController::class, 'index'])->name('wishlist.index');
+    Route::post('/wishlist/add/{product}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
 });
 
 // ** Route for superadministrator
@@ -45,8 +48,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
 
 // ** Route for seller
 Route::group(['middleware' => ['auth', 'role:customer', 'verified']], function() {
-    Route::get('/wishlists', [WishlistController::class, 'index'])->name('wishlist.index');
-    Route::post('/wishlist/add/{product}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
+
 });
 // ** Route for seller
 Route::group(['middleware' => ['auth', 'role:seller', 'verified']], function() {
