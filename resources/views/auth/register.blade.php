@@ -94,8 +94,8 @@
             <!-- Address -->
             <div>
                 <x-input-label for="address" :value="__('Address')" />
-                <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')"
-                    required />
+                <x-text-input id="address" class="block mt-1 w-full" type="text" name="address"
+                    :value="old('address')" />
                 <x-input-error :messages="$errors->get('address')" class="mt-2" />
             </div>
 
@@ -103,7 +103,7 @@
             <div class="mt-4">
                 <x-input-label for="id_number" :value="__('ID Number')" />
                 <x-text-input id="id_number" class="block mt-1 w-full" type="text" name="id_number"
-                    :value="old('id_number')" required />
+                    :value="old('id_number')" />
                 <x-input-error :messages="$errors->get('id_number')" class="mt-2" />
             </div>
 
@@ -111,7 +111,7 @@
             <div class="mt-4">
                 <x-input-label for="phone_number" :value="__('Phone Number')" />
                 <x-text-input id="phone_number" class="block mt-1 w-full" type="text" name="phone_number"
-                    :value="old('phone_number')" required />
+                    :value="old('phone_number')" />
                 <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
             </div>
 

@@ -28,6 +28,27 @@
                     </div>
                     <h2 class="text-2xl font-extrabold text-gray-900">Collections</h2>
 
+                    <div>
+                        <!-- Add this code to your view file -->
+                        <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
+                            href="{{ route('products.by.category', 'Men\'s Fashion') }}">Men's Fashion</a>
+                        <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
+                            href="{{ route('products.by.category', 'Women\'s Fashion') }}">Women's Fashion</a>
+                        <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
+                            href="{{ route('products.by.category', 'Mobile Phones & Gadgets') }}">Mobile Phones &
+                            Gadgets</a>
+                        <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
+                            href="{{ route('products.by.category', 'Computer & Techs') }}">Computer & Techs</a>
+                        <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
+                            href="{{ route('products.by.category', 'School Uniforms and Supplies') }}">School Uniforms
+                            and Supplies</a>
+                        <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
+                            href="{{ route('products.by.category', 'Food and Drinks') }}">Food and Drinks</a>
+                        <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
+                            href="{{ route('products.by.category', 'Musical Instruments') }}">Musical Instruments</a>
+
+                    </div>
+
                     <div class="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
                         <div class="group relative">
                             <div
@@ -91,9 +112,10 @@
                 @endphp
                 <div class=" relative bg-white border border-gray-200 rounded-lg flex flex-col overflow-hidden">
                     <div class="aspect-w-3 aspect-h-4 bg-gray-200 sm:aspect-none sm:h-96">
-                        <a href="{{ route('product.details', $product->id) }}"><img src="{{ asset('storage/' . $imagePathsArray[0]) }}"
-                            alt="Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green."
-                            class="w-full h-full object-center object-cover sm:w-full sm:h-full"></a>
+                        <a href="{{ route('product.details', $product->id) }}"><img
+                                src="{{ asset('storage/' . $imagePathsArray[0]) }}"
+                                alt="Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green."
+                                class="w-full h-full object-center object-cover sm:w-full sm:h-full"></a>
                     </div>
                     <div class="flex-1 p-4 space-y-2 flex flex-col">
                         <h3 class="text-sm font-bold text-gray-900">
@@ -108,23 +130,23 @@
 
                         <p class="text-sm text-gray-500">{{ $product->category }}</p>
                         <div class="flex-1 flex flex-col justify-end">
-                            
+
                             {{-- <p class="text-sm text-gray-500">{{ $product->category }}</p> --}}
                             <p class="text-base font-medium text-gray-900">₱{{ $product->price }}</p>
                             @if ($product->availability === "Available")
-                        <form class="z-[100]" action="{{ route('wishlist.add', $product) }}" method="POST">
-                            @csrf
-                            <button type="submit"
-                                class="w-full px-4 py-2 text-base font-bold text-white uppercase bg-blue-400 border border-blue-400 rounded focus:outline-none focus:border-blue-700 hover:bg-blue-600">
-                                Add to wishlist
+                            <form class="z-[100]" action="{{ route('wishlist.add', $product) }}" method="POST">
+                                @csrf
+                                <button type="submit"
+                                    class="w-full px-4 py-2 text-base font-bold text-white uppercase bg-blue-400 border border-blue-400 rounded focus:outline-none focus:border-blue-700 hover:bg-blue-600">
+                                    Add to wishlist
+                                </button>
+                            </form>
+                            @else
+                            <button
+                                class="w-full px-4 py-2 text-base font-bold text-white uppercase bg-red-400 border border-red-400 rounded focus:outline-none focus:border-red-700 hover:bg-red-600">
+                                Sold
                             </button>
-                        </form>
-                        @else
-                        <button
-                        class="w-full px-4 py-2 text-base font-bold text-white uppercase bg-red-400 border border-red-400 rounded focus:outline-none focus:border-red-700 hover:bg-red-600">
-                            Sold
-                        </button>
-                        @endif
+                            @endif
                         </div>
 
                     </div>

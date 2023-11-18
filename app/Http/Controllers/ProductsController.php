@@ -68,6 +68,15 @@ class ProductsController extends Controller
         return redirect(route('admin-products.index'));
     }
 
+    public function indexByCategory($category)
+{
+    $products = Products::where('category', $category)->get();
+    // dd($products);
+
+    return view('seller.category.products-category', compact('products'));
+}
+
+
     /**
      * Display the specified resource.
      */
