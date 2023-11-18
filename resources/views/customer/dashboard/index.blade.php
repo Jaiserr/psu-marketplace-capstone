@@ -121,11 +121,16 @@
                             </button>
                         </form>
 
+                        <a href="{{ route('product.details', $product->id) }}"
+                            class="transform active:scale-[.98] mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-[#DE3151] py-3 px-8 text-base font-medium text-white hover:bg-[#d22544] focus:outline-none focus:ring-2 focus:ring-[#DE3151] focus:ring-offset-2">
+                            More Details
+                        </a>
+
                         {{-- <a href="{{ route('messages.create', $product) }}"
                             class="transform active:scale-[.98] mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-[#DE3151] py-3 px-8 text-base font-medium text-white hover:bg-[#d22544] focus:outline-none focus:ring-2 focus:ring-[#DE3151] focus:ring-offset-2">
                             Message
-                        </a>
-                        --}}
+                        </a> --}}
+
                         @else
                         <button
                             class="transform active:scale-[.98] mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-[#DE3151] py-3 px-8 text-base font-medium text-white hover:bg-[#d22544] focus:outline-none focus:ring-2 focus:ring-[#DE3151] focus:ring-offset-2">

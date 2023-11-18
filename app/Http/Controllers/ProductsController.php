@@ -77,6 +77,15 @@ class ProductsController extends Controller
             "product" => $admin_product
         ]);
     }
+    /**
+     * Display the specified resource.
+     */
+    public function productDetails($id)
+    {
+        $product = Products::findOrFail($id);
+
+        return view('customer.products.products-details', compact('product'));
+    }
 
     /**
      * Show the form for editing the specified resource.
