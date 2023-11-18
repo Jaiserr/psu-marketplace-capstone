@@ -54,7 +54,7 @@
         <main class="pt-24">
             <!-- Hero section -->
             <div class="relative">
-                <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
+                <div class="absolute inset-x-0 bottom-0 h-1/2"></div>
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
                         <div class="absolute inset-0">
@@ -62,7 +62,7 @@
                                 src="https://the-post-assets.sgp1.digitaloceanspaces.com/2022/06/CAMPUS-2-JUNE-24.png"
                                 alt="pangasinan state university">
                             <div
-                                class="absolute inset-0 bg-gradient-to-r from-purple-800 to-indigo-700 mix-blend-multiply">
+                                class="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 mix-blend-multiply">
                             </div>
                         </div>
                         <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     {{-- --}}
-                    <section class="flex items-center mt-10">
+                    {{-- <section class="flex items-center mt-10">
                         <div class="p-4 mx-auto ">
                             <div class="grid grid-cols-1 gap-4 lg:gap-4 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
                                 @foreach ($products as $product)
@@ -123,7 +123,7 @@
                                 <!-- Repeat similar structure for other product cards -->
                             </div>
                         </div>
-                    </section>
+                    </section> --}}
 
                 </div>
             </div>
