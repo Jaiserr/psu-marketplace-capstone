@@ -97,6 +97,11 @@
                                                     class=" border-pink-500 py-4 text-gray-900" aria-current="page">
                                                     Reviews
                                                 </a>
+                                                <a href="#" @click="activeTab = 'tab3'"
+                                                    :class="{ 'border-b-2 border-blue-500': activeTab === 'tab3' }"
+                                                    class=" border-pink-500 py-4 text-gray-900" aria-current="page">
+                                                    Products
+                                                </a>
                                             </nav>
                                         </div>
                                     </div>
@@ -108,6 +113,7 @@
 
                                     @include('seller.profile.seller-information')
                                     @include('seller.profile.review')
+                                    @include('seller.profile.seller-products')
 
                                 </div>
 

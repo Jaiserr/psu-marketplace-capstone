@@ -11,7 +11,7 @@ class SellerProfileController extends Controller
 {
     public function show($id)
     {
-        $seller = User::whereHasRole('seller')->findorFail($id);
+        $seller = User::with('products')->whereHasRole('seller')->findorFail($id);
         $reviews = Reviews::with('user')->where('profile_id', $seller->id)->get();
         return view('seller.profile.index', compact('seller', 'reviews'));
     }
