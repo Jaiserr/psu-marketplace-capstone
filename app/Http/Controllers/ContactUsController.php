@@ -42,7 +42,7 @@ class ContactUsController extends Controller
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'subject' => $data['subject'],
-                'message' => $data['message'],                
+                'comment' => $data['message'],                
             ];
 
             Mail::send('emails.contact',$messageData,function($message)use($email) {
@@ -51,6 +51,6 @@ class ContactUsController extends Controller
 
             $message = "Thank for your query. We will get back to you soon.";
             return redirect()->back()->with('success_message',$message);
-        }   
+        }
     }
 }

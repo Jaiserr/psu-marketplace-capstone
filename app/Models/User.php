@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -12,12 +12,12 @@ use Laratrust\Contracts\LaratrustUser;
 use Laratrust\Traits\HasRolesAndPermissions;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements LaratrustUser
+class User extends Authenticatable implements LaratrustUser, MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, HasRolesAndPermissions;
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes that are mass assignable. 
      *
      * @var array<int, string>
      */

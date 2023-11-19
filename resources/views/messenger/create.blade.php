@@ -33,7 +33,7 @@
                             <!-- Message Form Input -->
                             <div class="mt-4">
                                 <x-input-label for="message" :value="__('Message')" />
-                                <textarea name="message" rows="10"
+                                <textarea name="message" rows="1"
                                     class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('message') }}</textarea>
                             </div>
 

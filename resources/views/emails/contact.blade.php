@@ -19,7 +19,7 @@
     <p><br></p>
     <p>Subject: {{ $subject }}</p>
     <p><br></p>
-    <p>Message: {{ $message['message'] }}</p>
+    <p>Message: {{ $comment }}</p>
     <p><br></p>
     <p>Thank & Regards</p>
     <p><br></p>

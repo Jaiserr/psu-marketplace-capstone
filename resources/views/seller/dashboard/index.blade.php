@@ -22,18 +22,18 @@
                       <div class="flex items-center space-x-6 lg:space-x-8">
                         <div class="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                           <div class="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
-                            <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" alt="" class="w-full h-full object-center object-cover">
+                            <img src="{{ asset('hero/1.jpg')}}" alt="" class="w-full h-full object-center object-cover">
                           </div>
                           <div class="w-44 h-64 rounded-lg overflow-hidden">
-                            <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg" alt="" class="w-full h-full object-center object-cover">
+                            <img src="{{ asset('hero/2.jpg')}}" alt="" class="w-full h-full object-center object-cover">
                           </div>
                         </div>
                         <div class="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                           <div class="w-44 h-64 rounded-lg overflow-hidden">
-                            <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg" alt="" class="w-full h-full object-center object-cover">
+                            <img src="{{ asset('hero/3.jpg')}}" alt="" class="w-full h-full object-center object-cover">
                           </div>
                           <div class="w-44 h-64 rounded-lg overflow-hidden">
-                            <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg" alt="" class="w-full h-full object-center object-cover">
+                            <img src="{{ asset('hero/4.jpg')}}" alt="" class="w-full h-full object-center object-cover">
                           </div>
                           <div class="w-44 h-64 rounded-lg overflow-hidden">
                             <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg" alt="" class="w-full h-full object-center object-cover">
@@ -143,7 +143,7 @@
           
           <div class="bg-white">
             <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-              <h2 class="text-xl font-bold text-gray-900">Customers also bought</h2>
+              <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Newly Added Products</h2>
           
               <div class="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
                 @foreach ($products as $product)
@@ -152,11 +152,13 @@
                     @endphp
                 <div>
                   <div class="relative">
+                    <a href="{{ route('product.details', $product->id) }}">
                     <div class="relative w-full h-72 rounded-lg overflow-hidden">
-                      <a href="{{ route('product.details', $product->id) }}">
+                      
                         <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls." class="w-full h-full object-center object-cover">
-                      </a>
+                      
                     </div>
+                  </a>
                     <div class="relative mt-4">
                       <a href="{{ route('product.details', $product->id) }}">
                       <h3 class="text-sm font-medium text-gray-900">{{ $product->product_name }}</h3>
@@ -249,122 +251,7 @@
           </section>
         </main>
       
-        <footer aria-labelledby="footer-heading" class="bg-white">
-          <h2 id="footer-heading" class="sr-only">Footer</h2>
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="py-20 xl:grid xl:grid-cols-3 xl:gap-8">
-              <div class="grid grid-cols-2 gap-8 xl:col-span-2">
-                <div class="space-y-16 md:space-y-0 md:grid md:grid-cols-2 md:gap-8">
-                  <div>
-                    <h3 class="text-sm font-medium text-gray-900">Shop</h3>
-                    <ul role="list" class="mt-6 space-y-6">
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Bags </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Tees </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Objects </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Home Goods </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Accessories </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 class="text-sm font-medium text-gray-900">Company</h3>
-                    <ul role="list" class="mt-6 space-y-6">
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Who we are </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Sustainability </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Press </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Careers </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Terms &amp; Conditions </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Privacy </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="space-y-16 md:space-y-0 md:grid md:grid-cols-2 md:gap-8">
-                  <div>
-                    <h3 class="text-sm font-medium text-gray-900">Account</h3>
-                    <ul role="list" class="mt-6 space-y-6">
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Manage Account </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Returns &amp; Exchanges </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Redeem a Gift Card </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 class="text-sm font-medium text-gray-900">Connect</h3>
-                    <ul role="list" class="mt-6 space-y-6">
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Contact Us </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Twitter </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Instagram </a>
-                      </li>
-      
-                      <li class="text-sm">
-                        <a href="#" class="text-gray-500 hover:text-gray-600"> Pinterest </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-16 md:mt-16 xl:mt-0">
-                <h3 class="text-sm font-medium text-gray-900">Sign up for our newsletter</h3>
-                <p class="mt-6 text-sm text-gray-500">The latest deals and savings, sent to your inbox weekly.</p>
-                <form class="mt-2 flex sm:max-w-md">
-                  <label for="email-address" class="sr-only">Email address</label>
-                  <input id="email-address" type="text" autocomplete="email" required class="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-base text-indigo-500 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500">
-                  <div class="ml-4 flex-shrink-0">
-                    <button type="submit" class="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign up</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-      
-            <div class="border-t border-gray-200 py-10">
-              <p class="text-sm text-gray-500">Copyright &copy; 2021 Clothing Company Inc.</p>
-            </div>
-          </div>
-        </footer>
+        
       </div>    
 
     {{-- <div class="py-12">

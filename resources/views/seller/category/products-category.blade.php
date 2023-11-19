@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="bg-white">
-        <div class="max-w-2xl mx-auto px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h2 class="text-xl font-bold text-gray-900">Customers also bought</h2>
+        <div class="max-w-2xl py-16 mx-auto px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+          <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Products</h2>
       
           <div class="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
             @forelse ($products as $product)
@@ -48,7 +48,9 @@
           @endif                  </div>
             </div>
             @empty
-                no products listed
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+              <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">No Added Products</h2>
+            </div>
                 @endforelse
           </div>
         </div>

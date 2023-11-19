@@ -59,7 +59,7 @@
                     <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
                         <div class="absolute inset-0">
                             <img class="h-full w-full object-cover"
-                                src="https://the-post-assets.sgp1.digitaloceanspaces.com/2022/06/CAMPUS-2-JUNE-24.png"
+                                src="{{ asset('psumarketplacebanner.png') }}"
                                 alt="pangasinan state university">
                             <div
                                 class="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 mix-blend-multiply">
