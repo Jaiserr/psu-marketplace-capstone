@@ -8,7 +8,9 @@
   
           <ul role="list" class="border-t border-b border-gray-200 divide-y divide-gray-200">
             @if($wishlistItems->isEmpty())
-            <p>Your wishlist is empty.</p>
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+              <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">No Wishlist Items</h2>
+            </div>
             @else
             @foreach($wishlistItems as $wishlistItem)
             @php

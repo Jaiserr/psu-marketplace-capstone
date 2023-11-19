@@ -29,7 +29,7 @@
         <div>
             <x-input-label for="id_number" :value="__('Id Number')" />
             <x-text-input id="id_number" name="id_number" type="text" class="mt-1 block w-full"
-                :value="old('id_number', $user->id_number)" required autofocus autocomplete="id_number" />
+                :value="old('id_number', $user->id_number)" required autofocus autocomplete="id_number" readonly/>
             <x-input-error class="mt-2" :messages="$errors->get('id_number')" />
 
             <div class="mt-4">
@@ -56,7 +56,7 @@
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full"
-                :value="old('email', $user->email)" required autocomplete="username" />
+                :value="old('email', $user->email)" required autocomplete="username" readonly/>
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())

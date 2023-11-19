@@ -15,9 +15,28 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @role('seller')
                     <x-nav-link :href="route('category-products')" :active="request()->routeIs('category-products')">
                         {{ __('Products') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('contact-us')" :active="request()->routeIs('contact-us')">
+                        {{ __('Contact Us') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')">
+                        {{ __('About Us') }}
+                    </x-nav-link>
+                    @endrole
+                    @role('customer')
+                    <x-nav-link :href="route('category-products')" :active="request()->routeIs('category-products')">
+                        {{ __('Products') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('contact-us')" :active="request()->routeIs('contact-us')">
+                        {{ __('Contact Us') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')">
+                        {{ __('About Us') }}
+                    </x-nav-link>
+                    @endrole
                     @role('seller')
                     @auth
                     @if (auth()->user()->approved !== null && auth()->user()->approved !== "")
@@ -27,12 +46,6 @@
                     @endif
                     @endauth
                     @endrole
-                    <x-nav-link :href="route('contact-us')" :active="request()->routeIs('contact-us')">
-                        {{ __('Contact Us') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')">
-                        {{ __('About Us') }}
-                    </x-nav-link>
                     @role('superadministrator')
                     <x-nav-link :href="route('student-list')" :active="request()->routeIs('student-list')">
                         {{ __('Student List') }}

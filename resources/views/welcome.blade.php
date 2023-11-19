@@ -24,7 +24,7 @@
                     class=" flex justify-between items-center max-w-7xl mx-auto px-4  sm:px-6 md:justify-start md:space-x-10 lg:px-8">
                     <div class="flex justify-start items-center gap-2 lg:w-0 lg:flex-1">
                         <img src="{{ asset('logo.png') }}" alt="Logo" class="h-10" />
-                        <spa class="sm:text-2xl">PSU Marketplace</span>
+                        <span class="sm:hidden sm:text-2xl">PSU Marketplace</span>
                     </div>
                     <div class="flex items-center justify-end md:flex-1 lg:w-0">
                         @if (Route::has('login'))
@@ -134,7 +134,7 @@
 
         <footer class="bg-white">
             <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
-                <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+                {{-- <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
                     <div class="px-5 py-2">
                         <a href="#" class="text-base text-gray-500 hover:text-gray-900"> About </a>
                     </div>
@@ -158,7 +158,7 @@
                     <div class="px-5 py-2">
                         <a href="#" class="text-base text-gray-500 hover:text-gray-900"> Partners </a>
                     </div>
-                </nav>
+                </nav> --}}
                 <div class="mt-8 flex justify-center space-x-6">
                     <a href="#" class="text-gray-400 hover:text-gray-500">
                         <span class="sr-only">Facebook</span>

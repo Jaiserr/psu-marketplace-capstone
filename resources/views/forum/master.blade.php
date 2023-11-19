@@ -60,7 +60,7 @@
                             {{ trans('forum::threads.recent') }}
                         </x-nav-link>
                         {{-- @can ('moveCategories')  --}}
-                        @role('seller')
+                        @role('superadministrator')
                         <x-nav-link :href="route('forum.category.manage')" :active="request()->routeIs('forum.category.manage')">
                             {{ trans('forum::general.manage') }}
                         </x-nav-link>
