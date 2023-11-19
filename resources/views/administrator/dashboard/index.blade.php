@@ -80,7 +80,7 @@
                     </div>
                 </dl>
             </div>
-            <div class="flex items-center justify-between">
+            <div class="flex mt-10 items-center justify-between">
                 <div class="min-w-0 flex-1">
                     <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
                         Registered Sellers
@@ -149,6 +149,9 @@
                     </table>
                 </div>
             </div>
+
+            @include('administrator.dashboard.customer-table')
+            @include('administrator.dashboard.products-table')
         </div>
     </div>
 </x-app-layout>
