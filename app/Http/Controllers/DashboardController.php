@@ -12,7 +12,10 @@ class DashboardController extends Controller
     public function index() {
         if (Auth::user()->hasRole("superadministrator")) {
             $sellers = User::whereHasRole('seller')->get();
-            return view('administrator.dashboard.index', compact('sellers'));
+            $sellersCount = User::whereHasRole('seller')->count();
+            $customersCount = User::whereHasRole('customer')->count();
+            $productsCount = Products::count();
+            return view('administrator.dashboard.index', compact('sellers', 'sellersCount', 'productsCount', 'customersCount'));
         } elseif (Auth::user()->hasRole('seller')) {
             $products = Products::all();
             return view('seller.dashboard.index', compact('products'));
