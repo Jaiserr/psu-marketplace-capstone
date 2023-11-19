@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\CategoryProductsController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessagesController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\SellerProfileController;
+use App\Http\Controllers\StudentListController;
 use App\Http\Controllers\WishlistController;
 use App\Models\Products;
 use Illuminate\Support\Facades\Route;
@@ -31,9 +33,11 @@ Route::get('/', function () {
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
 Route::post('/contact-us', [ContactUsController::class, 'submitForm']);
+Route::get('/category-products', [CategoryProductsController::class, 'index'])->name('category-products');
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/student-list', [StudentListController::class, 'index'])->name('student-list');
     Route::resource('/seller-profile', SellerProfileController::class);
     Route::resource('/reviews', ReviewsController::class);
 

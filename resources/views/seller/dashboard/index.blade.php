@@ -51,7 +51,7 @@
                     </div>
                   </div>
       
-                  <a href="#" class="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">Shop Categories</a>
+                  <a href="{{ url('category-products') }}" class="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">Shop Categories</a>
                 </div>
               </div>
             </div>
@@ -59,67 +59,104 @@
         </header>
         
         <main>
-            <div class="bg-white">
-                <div class="py-16 sm:py-24 xl:max-w-7xl xl:mx-auto xl:px-8">
-                  <div class="px-4 sm:px-6 sm:flex sm:items-center sm:justify-between lg:px-8 xl:px-0">
-                    <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Our Categories</h2>
-                    <a href="#" class="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">Browse all categories<span aria-hidden="true"> &rarr;</span></a>
-                  </div>
-              
-                  <div class="mt-4 flow-root">
-                    <div class="-my-2">
-                      <div class="box-content py-2 relative h-80 overflow-x-auto xl:overflow-visible">
-                        <div class="absolute min-w-screen-xl px-4 flex space-x-8 sm:px-6 lg:px-8 xl:relative xl:px-0 xl:space-x-0 xl:grid xl:grid-cols-5 xl:gap-x-8">
-                          <a href="{{ route('products.by.category', 'School Uniforms and Supplies') }}" class="relative w-56 h-80 rounded-lg p-6 flex flex-col overflow-hidden hover:opacity-75 xl:w-auto">
-                            <span aria-hidden="true" class="absolute inset-0">
-                              <img src="{{ asset('category/school.png')}}" alt="" class="w-full h-full object-center object-cover">
-                            </span>
-                            <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
-                            <span class="relative mt-auto text-center text-xl font-bold text-white">School Uniforms and Supplies</span>
-                          </a>
-              
-                          <a href="{{ route('products.by.category', 'Computer & Techs') }}" class="relative w-56 h-80 rounded-lg p-6 flex flex-col overflow-hidden hover:opacity-75 xl:w-auto">
-                            <span aria-hidden="true" class="absolute inset-0">
-                              <img src="{{ asset('category/computer.jpg') }}" alt="" class="w-full h-full object-center object-cover">
-                            </span>
-                            <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
-                            <span class="relative mt-auto text-center text-xl font-bold text-white">Computer and Technologies</span>
-                          </a>
-              
-                          <a href="{{ route('products.by.category', 'Food and Drinks') }}" class="relative w-56 h-80 rounded-lg p-6 flex flex-col overflow-hidden hover:opacity-75 xl:w-auto">
-                            <span aria-hidden="true" class="absolute inset-0">
-                              <img src="{{ asset('category/food.jpg') }}" alt="" class="w-full h-full object-center object-cover">
-                            </span>
-                            <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
-                            <span class="relative mt-auto text-center text-xl font-bold text-white">Food and Drinks</span>
-                          </a>
-              
-                          <a href="{{ route('products.by.category', 'Mobile Phones & Gadgets') }}" class="relative w-56 h-80 rounded-lg p-6 flex flex-col overflow-hidden hover:opacity-75 xl:w-auto">
-                            <span aria-hidden="true" class="absolute inset-0">
-                              <img src="{{ asset('category/mobile.jpg') }}" alt="" class="w-full h-full object-center object-cover">
-                            </span>
-                            <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
-                            <span class="relative mt-auto text-center text-xl font-bold text-white">Mobile Phones & Gadgets</span>
-                          </a>
-              
-                          <a href="#" class="relative w-56 h-80 rounded-lg p-6 flex flex-col overflow-hidden hover:opacity-75 xl:w-auto">
-                            <span aria-hidden="true" class="absolute inset-0">
-                              <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-category-03.jpg" alt="" class="w-full h-full object-center object-cover">
-                            </span>
-                            <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
-                            <span class="relative mt-auto text-center text-xl font-bold text-white">Sale</span>
-                          </a>
-                          
+          <div class="bg-white">
+            <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+              <div class="mb-4 sm:flex sm:items-center sm:justify-between lg:px-8 xl:px-0">
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Our Categories</h2>
+                <a href="{{ url('category-products') }}" class="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">Browse all categories and products<span aria-hidden="true"> &rarr;</span></a>
+              </div>
+                <ul role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+                    <a href="{{ route('products.by.category', 'School Uniforms and Supplies') }}">
+                      <li class="relative">
+                        <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                          <img src="{{ asset('category/school.png')}}" alt="" class="w-full h-full object-center object-cover">
+                          <button type="button" class="absolute inset-0 focus:outline-none">
+                            <span class="sr-only">View details for IMG_4985.HEIC</span>
+                          </button>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-              
-                  <div class="mt-6 px-4 sm:hidden">
-                    <a href="#" class="block text-sm font-semibold text-indigo-600 hover:text-indigo-500">Browse all categories<span aria-hidden="true"> &rarr;</span></a>
-                  </div>
-                </div>
+                        <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">School Uniforms and Supplies</p>
+                      </li>
+                    </a>
+                    <a href="{{ route('products.by.category', 'Computer & Techs') }}">
+                      <li class="relative">
+                        <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                          <img src="{{ asset('category/computer.jpg') }}" alt="" class="w-full h-full object-center object-cover">
+                          <button type="button" class="absolute inset-0 focus:outline-none">
+                            <span class="sr-only">View details for IMG_4985.HEIC</span>
+                          </button>
+                        </div>
+                        <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">Computer & Techs</p>
+                      </li>
+                    </a>
+                    <a href="{{ route('products.by.category', 'Food and Drinks') }}">
+                      <li class="relative">
+                        <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                          <img src="{{ asset('category/food.jpg') }}" alt="" class="w-full h-full object-center object-cover">
+                          <button type="button" class="absolute inset-0 focus:outline-none">
+                            <span class="sr-only">View details for IMG_4985.HEIC</span>
+                          </button>
+                        </div>
+                        <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">Food and Drinks</p>
+                      </li>
+                    </a>
+                    <a href="{{ route('products.by.category', 'Mobile Phones & Gadgets') }}">
+                      <li class="relative">
+                        <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                          <img src="{{ asset('category/mobile.jpg') }}" alt="" class="w-full h-full object-center object-cover">
+                          <button type="button" class="absolute inset-0 focus:outline-none">
+                            <span class="sr-only">View details for IMG_4985.HEIC</span>
+                          </button>
+                        </div>
+                        <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">Mobile Phones & Gadgets</p>
+                      </li>
+                    </a>
+                    <a href="{{ route('products.by.category', 'Women\'s Fashion') }}">
+                      <li class="relative">
+                        <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                          <img src="{{ asset('category/womens.jpg')}}" alt="" class="w-full h-full object-center object-cover">
+                          <button type="button" class="absolute inset-0 focus:outline-none">
+                            <span class="sr-only">View details for IMG_4985.HEIC</span>
+                          </button>
+                        </div>
+                        <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">Women's Fashion</p>
+                      </li>
+                    </a>
+                    <a href="{{ route('products.by.category', 'Men\'s Fashion') }}">
+                      <li class="relative">
+                        <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                          <img src="{{ asset('category/mens.jpg')}}" alt="" class="w-full h-full object-center object-cover">
+                          <button type="button" class="absolute inset-0 focus:outline-none">
+                            <span class="sr-only">View details for IMG_4985.HEIC</span>
+                          </button>
+                        </div>
+                        <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">Men's Fashion</p>
+                      </li>
+                    </a>
+                    <a href="{{ route('products.by.category', 'Musical Instruments') }}">
+                      <li class="relative">
+                        <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                          <img src="{{ asset('category/instruments.jpg')}}" alt="" class="w-full h-full object-center object-cover">
+                          <button type="button" class="absolute inset-0 focus:outline-none">
+                            <span class="sr-only">View details for IMG_4985.HEIC</span>
+                          </button>
+                        </div>
+                        <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">Musical Instruments</p>
+                      </li>
+                    </a>
+                    <a href="">
+                      <li class="relative">
+                        <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                          <img src="{{ asset('category/school.png')}}" alt="" class="w-full h-full object-center object-cover">
+                          <button type="button" class="absolute inset-0 focus:outline-none">
+                            <span class="sr-only">View details for IMG_4985.HEIC</span>
+                          </button>
+                        </div>
+                        <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">IMG_4985.HEIC</p>
+                      </li>
+                    </a>
+                </ul>
             </div>
+        </div>
 
       
           <!-- Featured section -->
@@ -253,51 +290,4 @@
       
         
       </div>    
-
-    {{-- <div class="py-12">
-        <div class="relative mb-12 px-4">
-            <div class="absolute inset-x-0 bottom-0"></div>
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
-                    <div class="absolute inset-0">
-                        <img class="h-full w-full object-cover" src="{{ asset('psumarketplacebanner.png') }}"
-                            alt="pangasinan state university">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600  mix-blend-multiply">
-                        </div>
-                    </div>
-                    <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-                        <h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                            <span class="block text-white">Explore, connect, and shop seamlessly in our vibrant digital
-                                community</span>
-                        </h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-
-
-
-
-        <div>
-            <!-- Add this code to your view file -->
-            <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
-                href="{{ route('products.by.category', 'Men\'s Fashion') }}">Men's Fashion</a>
-            <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
-                href="{{ route('products.by.category', 'Women\'s Fashion') }}">Women's Fashion</a>
-            <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
-                href="{{ route('products.by.category', 'Mobile Phones & Gadgets') }}">Mobile Phones &
-                Gadgets</a>
-            <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
-                href="{{ route('products.by.category', 'Computer & Techs') }}">Computer & Techs</a>
-            <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
-                href="{{ route('products.by.category', 'School Uniforms and Supplies') }}">School Uniforms
-                and Supplies</a>
-            <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
-                href="{{ route('products.by.category', 'Food and Drinks') }}">Food and Drinks</a>
-            <a class="px-4 py-2 bg-indigo-700 rounded mx-4 mt-4 inline-block text-white"
-                href="{{ route('products.by.category', 'Musical Instruments') }}">Musical Instruments</a>
-
-    </div> --}}
 </x-app-layout>
