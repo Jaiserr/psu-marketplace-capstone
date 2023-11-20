@@ -35,12 +35,12 @@
                                 Dashboard </a>
                             @else
                             <a href="{{ route('login') }}"
-                                class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+                                class=" whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-yellow-600 to-yellow-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-yellow-700 hover:to-yellow-700">
                                 Sign in </a>
 
                             @if (Route::has('register'))
                             <a href="{{ route('register') }}"
-                                class="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700">
+                                class="ml-4 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700">
                                 Sign up </a>
                             @endif
                             @endauth
@@ -58,8 +58,7 @@
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
                         <div class="absolute inset-0">
-                            <img class="h-full w-full object-cover"
-                                src="{{ asset('psumarketplacebanner.png') }}"
+                            <img class="h-full w-full object-cover" src="{{ asset('psumarketplacebanner.png') }}"
                                 alt="pangasinan state university">
                             <div
                                 class="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 mix-blend-multiply">
@@ -69,16 +68,22 @@
                             <h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                                 <span class="block text-white">Pangasinan State University Marketplace</span>
                             </h1>
-                            <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">"Elevate your university experience with our specialized marketplace platform. From textbooks to tech essentials, find everything you need for success in one convenient place. Simplify campus life and shop smart at our PSU Marketplace.".</p>
+                            <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">"Elevate
+                                your university experience with our specialized marketplace platform. From textbooks to
+                                tech essentials, find everything you need for success in one convenient place. Simplify
+                                campus life and shop smart at our PSU Marketplace.".</p>
                             <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-                                {{-- <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5"> --}}
+                                {{-- <div
+                                    class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
+                                    --}}
                                     <a href="{{route('login')}}"
                                         class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8">
                                         Get Started</a>
                                     {{-- <a href="{{ route('contact-us') }}"
                                         class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 bg-opacity-60 hover:bg-opacity-70 sm:px-8">
                                         Contact Us </a> --}}
-                                {{-- </div> --}}
+                                    {{--
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -202,7 +207,8 @@
                         </svg>
                     </a>
                 </div>
-                <p class="mt-8 text-center text-base text-gray-400">&copy; 2023 Pangasinan State University Marketplace, All rights reserved.</p>
+                <p class="mt-8 text-center text-base text-gray-400">&copy; 2023 Pangasinan State University Marketplace,
+                    All rights reserved.</p>
             </div>
         </footer>
 
