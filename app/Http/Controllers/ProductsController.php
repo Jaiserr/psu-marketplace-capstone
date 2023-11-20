@@ -65,7 +65,7 @@ class ProductsController extends Controller
             'images' => implode('|', $_multiple_images_),
         ]);
 
-        return redirect(route('admin-products.index'));
+        return redirect(route('admin-products.index'))->with('success-message', 'Product added successfully!');
     }
 
     public function indexByCategory($category)
@@ -143,7 +143,7 @@ class ProductsController extends Controller
             'images' => implode('|', $_multiple_images_),
         ]);
 
-        return redirect(route('admin-products.index'));
+        return redirect(route('admin-products.index'))->with('success-message', 'Product updated successfuly!');
     }
 
     /**

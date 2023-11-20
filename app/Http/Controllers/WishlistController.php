@@ -16,7 +16,7 @@ class WishlistController extends Controller
         public function addToWishlist(Products $product)
     {
         auth()->user()->wishlists()->create(['product_id' => $product->id]);
-        return redirect(route('wishlist.index'));
+        return redirect(route('wishlist.index'))->with('success-message', 'Added to wishlist!');
     }
 
 
