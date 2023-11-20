@@ -1,13 +1,43 @@
 <x-app-layout>
-
+  
   <div class="bg-white">
+    <div class="max-w-2xl pt-10 mx-auto px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      {{-- <form action="{{ route('product.search') }}" method="GET">
+        @csrf 
+        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+        <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+            </div>
+            <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-gray-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Items..." required>
+            <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+        </div>
+      </form>  --}}
       
-    
+      <form action="{{ route('product.search') }}" method="GET">
+        @csrf  
+      <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+      <div class="relative">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+              </svg>
+          </div>
+          <input id="search"
+          name="query" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Items..." required>
+          <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+      </div>
+    </form>
+
+    </div>
       <header class="relative overflow-hidden">
-        
+      
     
         <!-- Hero section -->
         <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+          
           <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
             <div class="sm:max-w-lg">
               <h1 class="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-6xl">PSU Marketplace</h1>
@@ -143,17 +173,6 @@
                       <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">Musical Instruments</p>
                     </li>
                   </a>
-                  <a href="">
-                    <li class="relative">
-                      <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-                        <img src="{{ asset('category/school.png')}}" alt="" class="w-full h-full object-center object-cover">
-                        <button type="button" class="absolute inset-0 focus:outline-none">
-                          <span class="sr-only">View details for IMG_4985.HEIC</span>
-                        </button>
-                      </div>
-                      <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">IMG_4985.HEIC</p>
-                    </li>
-                  </a>
               </ul>
           </div>
       </div>
@@ -241,12 +260,10 @@
                 <div class="relative pt-48 pb-16 sm:pb-24">
                   <div>
                     <h2 id="sale-heading" class="text-4xl font-extrabold tracking-tight text-white md:text-5xl">
-                      Final Stock.
-                      <br>
-                      Up to 50% off.
+                      "Explore, shop, elevate.
                     </h2>
                     <div class="mt-6 text-base">
-                      <a href="#" class="font-semibold text-white">Shop the sale<span aria-hidden="true"> &rarr;</span></a>
+                      <a href="{{ url('category-products') }}" class="font-semibold text-white">Shop now<span aria-hidden="true"> &rarr;</span></a>
                     </div>
                   </div>
     

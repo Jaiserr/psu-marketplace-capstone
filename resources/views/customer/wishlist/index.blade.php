@@ -37,7 +37,7 @@
                     <p class="mt-1 text-sm font-medium text-gray-900">₱{{ $wishlistItem->product->price }}</p>
                   </div>
   
-                  <div class="mt-4 sm:mt-0 sm:pr-9">
+                  {{-- <div class="mt-4 sm:mt-0 sm:pr-9">
                     <div class="absolute top-0 right-0">
                       <button type="button" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
                         <span class="sr-only">Remove</span>
@@ -47,7 +47,7 @@
                         </svg>
                       </button>
                     </div>
-                  </div>
+                  </div> --}}
                 </div>
   
                 <p class="mt-4 flex text-sm text-gray-700 space-x-2">

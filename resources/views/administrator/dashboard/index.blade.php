@@ -21,12 +21,6 @@
                         </dt>
                         <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
                             <p class="text-2xl font-semibold text-gray-900">{{ $sellersCount }}</p>
-                            <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
-                                <div class="text-sm">
-                                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span
-                                            class="sr-only"> Total Subscribers stats</span></a>
-                                </div>
-                            </div>
                         </dd>
                     </div>
 
@@ -46,12 +40,7 @@
                         </dt>
                         <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
                             <p class="text-2xl font-semibold text-gray-900">{{ $productsCount }}</p>
-                            <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
-                                <div class="text-sm">
-                                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span
-                                            class="sr-only"> Avg. Open Rate stats</span></a>
-                                </div>
-                            </div>
+                           
                         </dd>
                     </div>
 
@@ -70,12 +59,7 @@
                         </dt>
                         <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
                             <p class="text-2xl font-semibold text-gray-900">{{ $customersCount }}</p>
-                            <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
-                                <div class="text-sm">
-                                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span
-                                            class="sr-only"> Avg. Click Rate stats</span></a>
-                                </div>
-                            </div>
+                            
                         </dd>
                     </div>
                 </dl>
@@ -136,10 +120,10 @@
                                     @else
                                     Already approved
                                     @endif
-                                    <a href=""
+                                    {{-- <a href=""
                                         class="ml-4 font-medium text-indigo-600 dark:text-indigo-500 hover:underline">
                                         More
-                                    </a>
+                                    </a> --}}
 
                                 </td>
                             </tr>

@@ -149,10 +149,15 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Products $admin_product)
-    {
-        $admin_product->delete();
+    public function search(Request $request)
+{
+    $query = $request->input('query');
 
-        return redirect(route('admin-products.index'));
-    }
+    $results = Products::where(function ($queryBuilder) use ($query) {
+        $queryBuilder->where('product_name', 'like', '%' . $query . '%')
+                     ->orWhere('details', 'like', '%' . $query . '%');
+    })
+    ->get();
+    return view('search-result', compact('results', 'query'));
+}
 }
