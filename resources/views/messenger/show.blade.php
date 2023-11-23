@@ -4,11 +4,9 @@
             {{ $thread->subject }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Message</h2>
-
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="col-md-6">
@@ -24,24 +22,20 @@
                             </div>
                             @endforeach
                         </div>
-
                         <form action="{{ route('messages.update', $thread) }}" method="post">
                             @csrf
                             @method('PUT')
-
                             <!-- Message Form Input -->
                             <div class="mt-4">
                                 <x-input-label for="message" :value="__('Reply message')" />
                                 <textarea name="message" rows="1"
                                     class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('message') }}</textarea>
                             </div>
-
                             <!-- Submit Form Input -->
                             <div class="mt-4">
                                 <x-primary-button>Submit</x-primary-button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
