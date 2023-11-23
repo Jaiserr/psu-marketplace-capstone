@@ -97,9 +97,11 @@
                                     <form action="{{ route('approve-seller') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $seller->id }}">
+                                        <input type="text" name="name" value="{{ $seller->name }}">
+                                        <input type="text" name="email" value="{{ $seller->email }}">
                                         <button
                                             class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
-                                        Approve
+                                            Approve
                                         </button>
                                     </form>
                                     @else
@@ -107,7 +109,7 @@
                                     @endif
                                     <a href=""
                                         class="ml-4 font-medium text-indigo-600 dark:text-indigo-500 hover:underline">
-                                    More
+                                        More
                                     </a>
                                 </td>
                             </tr>

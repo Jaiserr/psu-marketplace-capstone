@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ApprovedSeller;
 use App\Models\Products;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class DashboardController extends Controller
 {
@@ -33,6 +35,13 @@ class DashboardController extends Controller
        User::where('id', $request->id)->update([
             'approved' => 1,
         ]);
+
+        $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new ApprovedSeller($data));
 
 
         return redirect()->back();

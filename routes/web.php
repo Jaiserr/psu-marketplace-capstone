@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $products = Products::all();
     return view('welcome', compact('products'));
-});
+})->name('home');
 
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
