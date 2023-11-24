@@ -97,8 +97,8 @@
                                     <form action="{{ route('approve-seller') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $seller->id }}">
-                                        <input type="text" name="name" value="{{ $seller->name }}">
-                                        <input type="text" name="email" value="{{ $seller->email }}">
+                                        <input type="hidden" name="name" value="{{ $seller->name }}">
+                                        <input type="hidden" name="email" value="{{ $seller->email }}">
                                         <button
                                             class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                                             Approve
