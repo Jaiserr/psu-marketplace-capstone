@@ -107,7 +107,7 @@
                                     @else
                                     Already approved
                                     @endif
-                                    <a href=""
+                                    <a href="{{ route('seller-profile.show', $seller) }}"
                                         class="ml-4 font-medium text-indigo-600 dark:text-indigo-500 hover:underline">
                                         More
                                     </a>
