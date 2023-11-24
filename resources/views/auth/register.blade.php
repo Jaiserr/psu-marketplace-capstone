@@ -113,8 +113,7 @@
         <!-- Address -->
         <div>
             <x-input-label class="text-white" for="address" :value="__('Address')" />
-            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address"
-                :value="old('address')" />
+            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" />
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
         </div>
 
@@ -140,6 +139,27 @@
             <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password"
                 name="password_confirmation" required autocomplete="new-password" />
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+
+        <div x-show="role === 'seller'" class="mt-4">
+            <fieldset>
+                <div class="mt-6 space-y-6">
+                    <div class="relative flex gap-x-3">
+                        <div class="flex h-6 items-center">
+                            <input id="comments" name="comments" type="checkbox" x-bind:required="role === 'seller'"
+                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                        </div>
+                        <div class="text-sm leading-6">
+                            <label for="comments" class="font-medium text-white">Terms and Condition</label>
+                            <p class="text-gray-50">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis earum excepturi
+                                delectus maiores sint sunt?
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
         </div>
 
         <div class="flex items-center justify-end mt-4">
