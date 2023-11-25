@@ -4,7 +4,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="h-full flex">
                 <div class="flex flex-col min-w-0 flex-1 overflow-hidden">
-                    
+
 
                     <div class="flex-1 relative z-0 flex overflow-hidden">
                         <main class="flex-1 relative z-0  overflow-y-auto focus:outline-none xl:order-last">
@@ -17,11 +17,36 @@
                                     </div>
                                     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                                         <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
+                                            @if ($seller->id === auth()->user()->id)
+                                            <a href="{{ route('profile.edit') }}" class="relative group">
+                                                <div
+                                                    class="absolute text-white bg-indigo-700 px-4 py-1 top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    Edit
+                                                </div>
+                                                <div class="flex">
+                                                    @if ($seller->image)
+                                                    <img src="{{ asset('storage/' . $seller->image) }}"
+                                                        alt="Profile Image"
+                                                        class="h-24 w-24 bg-slate-950 rounded-full ring-4 ring-white sm:h-32 sm:w-32">
+                                                    @else
+                                                    <img class="h-24 w-24 bg-slate-950 rounded-full ring-4 ring-white sm:h-32 sm:w-32"
+                                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
+                                                        alt="">
+                                                    @endif
+                                                </div>
+                                            </a>
+                                            @else
                                             <div class="flex">
+                                                @if ($seller->image)
+                                                <img src="{{ asset('storage/' . $seller->image) }}" alt="Profile Image"
+                                                    class="h-24 w-24 bg-slate-950 rounded-full ring-4 ring-white sm:h-32 sm:w-32">
+                                                @else
                                                 <img class="h-24 w-24 bg-slate-950 rounded-full ring-4 ring-white sm:h-32 sm:w-32"
                                                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
                                                     alt="">
+                                                @endif
                                             </div>
+                                            @endif
                                             <div
                                                 class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                                                 <div class="sm:hidden 2xl:block mt-6 min-w-0 flex-1">

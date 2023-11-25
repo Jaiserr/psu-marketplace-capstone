@@ -83,9 +83,15 @@
                                 class="bg-blue-100 rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                 <span class="sr-only">Open user menu</span>
+                                @if ( Auth::user()->image)
+                                <img src="{{ asset('storage/' .  Auth::user()->image) }}" alt="Profile Image"
+                                    class="h-8 w-8 rounded-full">
+                                @else
                                 <img class="h-8 w-8 rounded-full"
                                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOcpeNCQ_ugTxUhfbrpc7qXfVMHOcXr-S2aagGtAU&s"
                                     alt="">
+                                @endif
+
                             </button>
                             <button
                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
