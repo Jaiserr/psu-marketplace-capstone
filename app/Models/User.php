@@ -17,7 +17,7 @@ class User extends Authenticatable implements LaratrustUser, MustVerifyEmail
     use HasApiTokens, HasFactory, Notifiable, HasRolesAndPermissions;
 
     /**
-     * The attributes that are mass assignable. 
+     * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
@@ -30,6 +30,7 @@ class User extends Authenticatable implements LaratrustUser, MustVerifyEmail
         'campus_role',
         'id_number',
         'approved',
+        'image',
     ];
 
     /**

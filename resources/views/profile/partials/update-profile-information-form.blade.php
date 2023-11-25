@@ -13,9 +13,21 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
+
+        <div>
+            <x-input-label for="image" :value="__('Profile Image')" />
+            <x-text-input id="image" name="image" type="file" class="mt-1 block w-full"
+                :value="old('image', $user->image)" autofocus autocomplete="image" />
+            <x-input-error class="mt-2" :messages="$errors->get('image')" />
+
+            @if ($user->image)
+            <img src="{{ asset('storage/' . $user->image) }}" alt="Profile Image" class="mt-2"
+                style="max-width: 200px;">
+            @endif
+        </div>
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -29,7 +41,7 @@
         <div>
             <x-input-label for="id_number" :value="__('Id Number')" />
             <x-text-input id="id_number" name="id_number" type="text" class="mt-1 block w-full"
-                :value="old('id_number', $user->id_number)" required autofocus autocomplete="id_number" readonly/>
+                :value="old('id_number', $user->id_number)" required autofocus autocomplete="id_number" />
             <x-input-error class="mt-2" :messages="$errors->get('id_number')" />
 
             <div class="mt-4">
@@ -56,7 +68,7 @@
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full"
-                :value="old('email', $user->email)" required autocomplete="username" readonly/>
+                :value="old('email', $user->email)" required autocomplete="username" readonly />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())

@@ -22,7 +22,7 @@ class ProfileUpdateRequest extends FormRequest
             'phone_number' => ['nullable', 'string', 'max:20'],
             'campus_role' => ['nullable', 'string', 'max:255'],
             'id_number' => ['nullable', 'string', 'max:255'],
-
+            'image' => ['nullable'],
         ];
     }
 }
