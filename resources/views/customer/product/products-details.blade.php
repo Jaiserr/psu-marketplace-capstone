@@ -14,7 +14,7 @@
                             </ol>
                         </nav>
                         <div class="mt-4">
-                            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{ $product->product_name }}</h1>
+                            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"></h1>
                         </div>
                         <section aria-labelledby="information-heading" class="mt-4">
                             <h2 id="information-heading" class="sr-only">Product information</h2>

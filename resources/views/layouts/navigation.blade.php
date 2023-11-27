@@ -53,9 +53,48 @@
                 </div>
             </div>
 
-            <div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
+            @role('customer')
+            <div class="flex-1 flex items-center justify-center my-7 px-2 sm-justify-center">
+                <form action="{{ route('product.search') }}" method="GET">
+                    @csrf
+                    <label for="default-search"
+                        class="mb-2 text-sm font-medium sr-only text-white">Search</label>
+                    <div class="relative">
+                            <button type="submit" class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg class="w-4 h-4 text-white" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                </svg>
+                            </button>
+                        <input id="search" name="query"
+                            class="block w-full text-white p-4 ps-10 text-sm  border border-blue-500 rounded-full bg-blue-300 focus:ring-blue-100 focus:border-blue-500 placeholder-white"
+                            placeholder="Search Items..." required>
+                    </div>
+                </form>
             </div>
-
+            @endrole
+            @role('seller')
+            <div class="flex-1 flex items-center justify-center my-7 px-2 sm-justify-center">
+                <form action="{{ route('product.search') }}" method="GET">
+                    @csrf
+                    <label for="default-search"
+                        class="mb-2 text-sm font-medium sr-only text-white">Search</label>
+                    <div class="relative">
+                            <button type="submit" class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg class="w-4 h-4 text-white" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                </svg>
+                            </button>
+                        <input id="search" name="query"
+                            class="block w-full text-white p-4 ps-10 text-sm  border border-blue-500 rounded-full bg-blue-300 focus:ring-blue-100 focus:border-blue-500 placeholder-white"
+                            placeholder="Search Items..." required>
+                    </div>
+                </form>
+            </div>
+            @endrole
             {{-- --}}
             <div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
                 <a class="mr-4" href="{{ route('wishlist.index') }}">
@@ -84,21 +123,12 @@
                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                 <span class="sr-only">Open user menu</span>
                                 <img class="h-8 w-8 rounded-full"
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOcpeNCQ_ugTxUhfbrpc7qXfVMHOcXr-S2aagGtAU&s"
+                                    src="{{ Auth::user()->image ? asset('storage/' . Auth::user()->image) : asset('profile-empty.png') }}"
                                     alt="">
                             </button>
                             <button
-                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-indigo-50 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ Auth::user()->name }}</div>
-
-                                <div class="ms-1">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
                             </button>
                         </div>
 
