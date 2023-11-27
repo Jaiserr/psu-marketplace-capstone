@@ -139,7 +139,7 @@
             <section aria-labelledby="cause-heading">
                 <div class="relative bg-gray-800 py-32 px-6 sm:py-40 sm:px-12 lg:px-16">
                     <div class="absolute inset-0 overflow-hidden">
-                        <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-feature-section-full-width.jpg"
+                        <img src="{{ asset('forum.png') }}"
                             alt="" class="w-full h-full object-center object-cover">
                     </div>
                     <div aria-hidden="true" class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
@@ -222,7 +222,7 @@
     <!-- CTA section -->
     <section aria-labelledby="sale-heading">
         <div class="pt-32 overflow-hidden sm:pt-14">
-            <div class="bg-indigo-700">
+            <div class="bg-yellow-400">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="relative pt-48 pb-16 sm:pb-24">
                         <div>

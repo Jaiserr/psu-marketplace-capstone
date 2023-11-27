@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
     Route::get('/wishlists', [WishlistController::class, 'index'])->name('wishlist.index');
     Route::post('/wishlist/add/{product}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
+    Route::delete('/wishlist/remove/{product}',[WishlistController::class, 'removeFromWishlist'])->name('wishlist.remove');
     Route::get('product-details/{id}', [ProductsController::class, 'productDetails'])->name('product.details');
     // Route::get('product/category/{id}', [ProductsController::class, 'product-category'])->show('product.category');
     Route::get('/products/{category}', [ProductsController::class, 'indexByCategory'])->name('products.by.category');

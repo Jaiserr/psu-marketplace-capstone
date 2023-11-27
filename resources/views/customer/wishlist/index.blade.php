@@ -29,7 +29,7 @@
             <form class="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
                 <section aria-labelledby="cart-heading" class="lg:col-span-12">
                     <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
-                    <ul role="list" class="border-t border-b border-gray-200 divide-y divide-gray-200">
+                    <ul role="list">
                         @if($wishlistItems->isEmpty())
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                             <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">No Wishlist Items</h2>
@@ -59,13 +59,17 @@
                                     </div>
                                     <div class="mt-4 sm:mt-0 sm:pr-9">
                                         <div class="absolute top-0 right-0">
-                                            <button type="button" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
+                                            <form action="{{ route('wishlist.remove', $wishlistItem->product) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
                                                 <span class="sr-only">Remove</span>
                                                 <!-- Heroicon name: solid/x -->
                                                 <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                                                 </svg>
                                             </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

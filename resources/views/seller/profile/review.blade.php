@@ -1,6 +1,9 @@
-<div x-show="activeTab === 'tab2'" class="py-4">
-    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 class="text-lg font-medium text-gray-900">Recent reviews</h2>
+
+<div x-show="activeTab === 'tab2'" class="bg-white">
+    <div class="py-8 lg:max-w-7xl lg:mx-auto">
+        <div class="px-4 flex items-center justify-between sm:px-6 lg:px-0">
+            <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Recent Reviews</h2>
+        </div>
         @foreach ($reviews as $review)
         <div class="mt-6 pb-10 border-t border-b border-gray-200 divide-y divide-gray-200 space-y-10">
             <div class="pt-10 lg:grid lg:grid-cols-12 lg:gap-x-8">

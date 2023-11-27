@@ -19,5 +19,12 @@ class WishlistController extends Controller
         return redirect(route('wishlist.index'))->with('success-message', 'Added to wishlist!');
     }
 
+        public function removeFromWishlist(Products $product)
+    {
+        // Find and delete the wishlist item for the specified product and current user
+        auth()->user()->wishlists()->where('product_id', $product->id)->delete();
+
+        return redirect(route('wishlist.index'))->with('success-message', 'Removed from wishlist!');
+    }
 
 }

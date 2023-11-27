@@ -48,7 +48,7 @@
     </div>
 </div> --}}
 <div x-show="activeTab === 'tab1'" class="bg-white">
-    <div class="py-16 sm:py-24 lg:max-w-7xl lg:mx-auto">
+    <div class="py-8 lg:max-w-7xl lg:mx-auto">
         <div class="px-4 flex items-center justify-between sm:px-6 lg:px-0">
             <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Seller Listing</h2>
         </div>
