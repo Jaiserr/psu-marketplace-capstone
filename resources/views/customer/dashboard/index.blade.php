@@ -226,11 +226,11 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="relative pt-48 pb-16 sm:pb-24">
                         <div>
-                            <h2 id="sale-heading" class="text-4xl font-extrabold tracking-tight text-white md:text-5xl">
-                                "Explore, shop, elevate.
+                            <h2 id="sale-heading" class="text-3xl font-extrabold tracking-tight text-white md:text-3xl">
+                                "Academic Resource Exchange".
                             </h2>
                             <div class="mt-6 text-base">
-                                <a href="{{ url('category-products') }}" class="font-semibold text-white">Shop now<span
+                                <a href="{{ url('category-products') }}" class="font-semibold text-white">See Products<span
                                         aria-hidden="true"> &rarr;</span></a>
                             </div>
                         </div>
@@ -240,13 +240,13 @@
                                 <div class="flex space-x-6 sm:flex-col sm:space-x-0 sm:space-y-6 lg:space-y-8">
                                     <div class="flex-shrink-0">
                                         <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-01.jpg"
+                                            src="{{ asset('end-section/book2.jpg')}}"
                                             alt="">
                                     </div>
 
                                     <div class="mt-6 flex-shrink-0 sm:mt-0">
                                         <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-02.jpg"
+                                        src="{{ asset('end-section/book4.jpg')}}"
                                             alt="">
                                     </div>
                                 </div>
@@ -254,27 +254,27 @@
                                     class="flex space-x-6 sm:-mt-20 sm:flex-col sm:space-x-0 sm:space-y-6 lg:space-y-8">
                                     <div class="flex-shrink-0">
                                         <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-favorite-01.jpg"
+                                        src="{{ asset('end-section/book3.jpg')}}"
                                             alt="">
                                     </div>
 
                                     <div class="mt-6 flex-shrink-0 sm:mt-0">
                                         <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-favorite-02.jpg"
+                                        src="{{ asset('end-section/book4.jpg')}}"
                                             alt="">
                                     </div>
                                 </div>
                                 <div class="flex space-x-6 sm:flex-col sm:space-x-0 sm:space-y-6 lg:space-y-8">
                                     <div class="flex-shrink-0">
                                         <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-01.jpg"
-                                            alt="">
+                                        src="{{ asset('end-section/book1.jpg')}}"                                            
+                                        alt="">
                                     </div>
 
                                     <div class="mt-6 flex-shrink-0 sm:mt-0">
                                         <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-02.jpg"
-                                            alt="">
+                                        src="{{ asset('end-section/book1.jpg')}}"                                            
+                                        alt="">
                                     </div>
                                 </div>
                             </div>

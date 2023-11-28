@@ -65,4 +65,4 @@
         <p class="text-base text-white xl:text-center">&copy; 2023 Pangasinan State University Marketplace. All rights reserved.</p>
       </div>
     </div>
-  </footer>
+</footer>
