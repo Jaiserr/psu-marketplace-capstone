@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -160,4 +161,10 @@ class ProductsController extends Controller
     ->get();
     return view('search-result', compact('results', 'query'));
 }
+
+    public function destroy(Products $admin_product): RedirectResponse
+    {
+        $admin_product->delete();
+        return redirect(route('admin-products.index'));
+    }
 }
