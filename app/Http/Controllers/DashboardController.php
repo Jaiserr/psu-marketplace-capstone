@@ -46,4 +46,12 @@ class DashboardController extends Controller
 
         return redirect()->back();
     }
+
+    public function privacyPolicy() {
+        return view('privacy-policy');
+    }
+
+    public function termsAndConditions() {
+        return view('terms-and-conditions');
+    }
 }

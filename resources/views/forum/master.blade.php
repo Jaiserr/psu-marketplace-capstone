@@ -35,6 +35,7 @@
     <!-- Pickr (https://github.com/Simonwep/pickr) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Sortable (https://github.com/SortableJS/Sortable) -->
     <script src="//cdn.jsdelivr.net/npm/sortablejs@1.10.1/Sortable.min.js"></script>
@@ -203,11 +204,11 @@
                     <h3 class="text-sm font-semibold text-white tracking-wider uppercase">Legal</h3>
                     <ul role="list" class="mt-4 space-y-4">
                       <li>
-                        <a href="#" class="text-base text-white hover:text-white"> Privacy </a>
+                        <a href="{{ url('privacy-policy')}}" class="text-base text-white hover:text-white"> Privacy Policy</a>
                       </li>
         
                       <li>
-                        <a href="#" class="text-base text-white hover:text-white"> Terms </a>
+                        <a href="{{ url('terms-and-conditions')}}" class="text-base text-white hover:text-white"> Terms and Conditions </a>
                       </li>
                     </ul>
                 </div>

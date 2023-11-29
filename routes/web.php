@@ -32,6 +32,8 @@ Route::get('/', function () {
 
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
+Route::get('/privacy-policy', [DashboardController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('/terms-and-conditions', [DashboardController::class, 'termsAndConditions'])->name('terms-and-conditions');
 Route::post('/contact-us', [ContactUsController::class, 'submitForm']);
 Route::get('/category-products', [CategoryProductsController::class, 'index'])->name('category-products');
 
