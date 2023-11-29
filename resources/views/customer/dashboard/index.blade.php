@@ -26,7 +26,7 @@
                                     class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
                                     --}}
                                     <a href="{{route('category-products')}}"
-                                        class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8">
+                                        class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-700 hover:text-white sm:px-8">
                                         Shop Now</a>
                                     
                             </div>
@@ -150,7 +150,7 @@
                             networking, and updates. Connect with
                             peers and stay informed."</p>
                         <a href="{{ url('forum') }}"
-                            class="mt-8 w-full block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto">Join
+                            class="mt-8 w-full block border border-transparent rounded-md py-3 px-8 text-base font-medium text-indigo-700 bg-white hover:bg-indigo-700 hover:text-whitetext-gray-900 hover:bg-gray-100 sm:w-auto">Join
                             now</a>
                     </div>
                 </div>
@@ -230,7 +230,7 @@
                                 "Academic Resource Exchange".
                             </h2>
                             <div class="mt-6 text-base">
-                                <a href="{{ url('category-products') }}" class="font-semibold text-white">See Products<span
+                                <a href="{{ route('products.by.category', 'School Uniforms and Supplies') }}" class="font-semibold text-white">See Products<span
                                         aria-hidden="true"> &rarr;</span></a>
                             </div>
                         </div>
