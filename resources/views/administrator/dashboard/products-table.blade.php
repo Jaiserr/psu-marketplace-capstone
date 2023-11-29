@@ -22,6 +22,9 @@
                     <th scope="col" class="px-6 py-3">
                         Seller
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +41,21 @@
                     </td>
                     <td class="px-6 py-4 font-semibold text-gray-900 ">
                         {{ $product->user->name }}
+                    </td>
+                    <td class="px-6 py-4 font-semibold text-gray-900 ">
+                        <a href="{{ route('admin-products.edit', $product) }}"
+                            class="font-medium text-indigo-900 dark:text-indigo-900 hover:underline">
+                            Edit
+                        </a>
+                        <form class="inline" method="POST" action="{{ route('admin-products.destroy', $product) }}">
+                            @csrf
+                            @method('delete')
+                            <button class="ml-4 font-medium text-red-600 dark:text-red-500 hover:underline">
+                                Remove
+                            </button>
+                        </form>
+                        <a href="{{ route('admin-products.show', $product) }}"
+                            class="ml-4 font-medium text-blue-600  hover:underline">More</a>
                     </td>
                 </tr>
                 @endforeach

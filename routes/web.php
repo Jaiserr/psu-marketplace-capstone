@@ -58,13 +58,18 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::post('block-seller', [DashboardController::class, 'block'])->name('block-seller');
 });
 
+// ** Route for superadministrator
+Route::group(['middleware' => ['auth', 'role:superadministrator|seller', 'verified']], function() {
+    Route::resource('admin-products', ProductsController::class);
+});
+
 // ** Route for seller
 Route::group(['middleware' => ['auth', 'role:customer', 'verified']], function() {
 
 });
 // ** Route for seller
 Route::group(['middleware' => ['auth', 'role:seller', 'verified']], function() {
-    Route::resource('admin-products', ProductsController::class);
+
 });
 
 Route::middleware('auth')->group(function () {
