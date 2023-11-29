@@ -64,6 +64,9 @@
                     <x-nav-link :href="route('student-list')" :active="request()->routeIs('student-list')">
                         {{ __('Student List') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ url('forum') }}">
+                        {{ __('Forum') }}
+                    </x-nav-link>
                     @endrole
                 </div>
             </div>
@@ -256,6 +259,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('student-list')" :active="request()->routeIs('student-list')">
                 {{ __('Student List') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ url('forum') }}">
+                {{ __('Forum') }}
             </x-responsive-nav-link>
             @endrole
         </div>
