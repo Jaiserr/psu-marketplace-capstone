@@ -14,12 +14,12 @@ class DashboardController extends Controller
 {
     public function index() {
         if (Auth::user()->hasRole("superadministrator")) {
-            $sellers = User::whereHasRole('seller')->get();
-            $customers = User::whereHasRole('customer')->get();
+            $sellers = User::whereHasRole('seller')->orderBy('created_at', 'desc')->take(10)->get();
+            $customers = User::whereHasRole('customer')->orderBy('created_at', 'desc')->take(10)->get();
             $sellersCount = User::whereHasRole('seller')->count();
             $customersCount = User::whereHasRole('customer')->count();
             $productsCount = Products::count();
-            $products = Products::get();
+            $products = Products::orderBy('created_at', 'desc')->take(10)->get();
             return view('administrator.dashboard.index', compact('sellers', 'products', 'customers', 'sellersCount', 'productsCount', 'customersCount'));
         } elseif (Auth::user()->hasRole('seller')) {
             $products = Products::orderBy('created_at', 'desc')->get();
@@ -62,7 +62,7 @@ class DashboardController extends Controller
         Mail::to($data['email'])->send(new BlockedMail($data));
 
 
-        return redirect()->back()->with('success-message', 'Seller Blocked!');
+        return redirect()->back()->with('danger-message', 'Seller Blocked!');
     }
 
     public function privacyPolicy() {

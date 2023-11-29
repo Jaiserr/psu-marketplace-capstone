@@ -1,7 +1,10 @@
+<x-app-layout>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center mt-10 justify-between">
                 <div class="min-w-0 flex-1">
                     <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-                        Newly Registered Customers
+                        Products
                     </h2>
                 </div>
             </div>
@@ -11,19 +14,16 @@
                         <thead class="text-xs text-white uppercase  bg-indigo-700">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
-                                    Name
+                                    Product Name
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Email Address
+                                    Category
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Address
+                                    Price
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Phone Number
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Address
+                                    Seller
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Action
@@ -31,31 +31,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($customers as $customer)
+                            @foreach ($products as $product)
                             <tr class="bg-white border-b  hover:bg-gray-50 ">
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    {{ $customer->name }}
+                                    {{ $product->product_name }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    {{ $customer->email }}
+                                    {{ $product->category }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    {{ $customer->address }}
+                                    {{ $product->price }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    {{ $customer->phone_number }}
+                                    {{ $product->user->name }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    {{ $customer->address }}
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    <form class="inline" method="POST" action="{{ route('delete-seller', $customer) }}">
+                                    <a href="{{ route('admin-products.edit', $product) }}"
+                                        class="font-medium text-indigo-900 dark:text-indigo-900 hover:underline">
+                                        Edit
+                                    </a>
+                                    <form class="inline" method="POST" action="{{ route('admin-products.destroy', $product) }}">
                                         @csrf
                                         @method('delete')
                                         <button class="ml-4 font-medium text-red-600 dark:text-red-500 hover:underline">
-                                            Delete User
+                                            Remove
                                         </button>
                                     </form>
+                                    <a href="{{ route('admin-products.show', $product) }}"
+                                        class="ml-4 font-medium text-blue-600  hover:underline">More</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -63,3 +66,6 @@
                     </table>
                 </div>
             </div>
+        </div>
+    </div>
+</x-app-layout>        

@@ -1,7 +1,10 @@
+<x-app-layout>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center mt-10 justify-between">
                 <div class="min-w-0 flex-1">
                     <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-                        Newly Registered Customers
+                        Registered Customers
                     </h2>
                 </div>
             </div>
@@ -63,3 +66,6 @@
                     </table>
                 </div>
             </div>
+        </div>
+    </div>       
+</x-app-layout>

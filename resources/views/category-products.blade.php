@@ -63,7 +63,7 @@
                                     @csrf
                                     <button type="submit"
                                         class="w-full px-4 py-2 text-xs font-normal text-white bg-blue-400 border border-blue-400 rounded focus:outline-none focus:border-blue-700 hover:bg-blue-600">
-                                        Add to wishlist
+                                        Save product
                                     </button>
                                 </form>
                                 @else

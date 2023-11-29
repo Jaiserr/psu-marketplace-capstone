@@ -40,7 +40,7 @@ class ReviewsController extends Controller
             ->first();
 
         if ($existingReview) {
-            return redirect()->back()->with('success-message', 'You have already submitted a review for this profile.');
+            return redirect()->back()->with('danger-message', 'You have already submitted a review for this profile.');
         }
 
         // Create a new review

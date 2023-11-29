@@ -63,7 +63,7 @@ class RegisteredUserController extends Controller
         $user = User::find($id);
         $user->delete();
         // Check if the user exists
-        return redirect()->back()->with('success-message', 'User Deleted');
+        return redirect()->back()->with('danger-message', 'User Deleted');
     }
 
 }

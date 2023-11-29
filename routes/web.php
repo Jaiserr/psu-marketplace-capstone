@@ -4,11 +4,14 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CategoryProductsController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\SellerController;
 use App\Http\Controllers\SellerProfileController;
 use App\Http\Controllers\StudentListController;
 use App\Http\Controllers\WishlistController;
@@ -40,7 +43,6 @@ Route::get('/category-products', [CategoryProductsController::class, 'index'])->
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/student-list', [StudentListController::class, 'index'])->name('student-list');
     Route::resource('/seller-profile', SellerProfileController::class);
     Route::resource('/reviews', ReviewsController::class);
 
@@ -63,6 +65,10 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
 // ** Route for superadministrator
 Route::group(['middleware' => ['auth', 'role:superadministrator|seller', 'verified']], function() {
     Route::resource('admin-products', ProductsController::class);
+    Route::get('/student-list', [StudentListController::class, 'index'])->name('student-list');
+    Route::get('/sellers', [SellerController::class, 'index'])->name('sellers');
+    Route::get('/customers', [CustomerController::class, 'index'])->name('customers');
+    Route::get('/products', [ProductController::class, 'index'])->name('products');
 });
 
 // ** Route for seller

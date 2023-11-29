@@ -165,6 +165,6 @@ class ProductsController extends Controller
     public function destroy(Products $admin_product): RedirectResponse
     {
         $admin_product->delete();
-        return redirect()->back()->with('success-message', 'Product Deleted');
+        return redirect()->back()->with('danger-message', 'Product Deleted');
     }
 }

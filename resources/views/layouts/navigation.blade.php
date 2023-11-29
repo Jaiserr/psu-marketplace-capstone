@@ -46,6 +46,15 @@
                     @endauth
                     @endrole
                     @role('superadministrator')
+                    <x-nav-link :href="route('sellers')" :active="request()->routeIs('sellers')">
+                        {{ __('Sellers') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('customers')" :active="request()->routeIs('customers')">
+                        {{ __('Customers') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
+                        {{ __('Products') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('student-list')" :active="request()->routeIs('student-list')">
                         {{ __('Student List') }}
                     </x-nav-link>
@@ -199,10 +208,27 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            @role('customer')
             <x-responsive-nav-link :href="route('category-products')" :active="request()->routeIs('category-products')">
                 {{ __('Products') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('contact-us')" :active="request()->routeIs('contact-us')">
+                {{ __('Contact Us') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')">
+                {{ __('About Us') }}
+            </x-responsive-nav-link>
+            @endrole
             @role('seller')
+            <x-responsive-nav-link :href="route('category-products')" :active="request()->routeIs('category-products')">
+                {{ __('Products') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('contact-us')" :active="request()->routeIs('contact-us')">
+                {{ __('Contact Us') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')">
+                {{ __('About Us') }}
+            </x-responsive-nav-link>
             @auth
             @if (auth()->user()->approved !== null && auth()->user()->approved !== "")
             <x-responsive-nav-link :href="route('admin-products.index')"
@@ -212,13 +238,16 @@
             @endif
             @endauth
             @endrole
-            <x-responsive-nav-link :href="route('contact-us')" :active="request()->routeIs('contact-us')">
-                {{ __('Contact Us') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')">
-                {{ __('About Us') }}
-            </x-responsive-nav-link>
             @role('superadministrator')
+            <x-responsive-nav-link :href="route('sellers')" :active="request()->routeIs('sellers')">
+                {{ __('Sellers') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('customers')" :active="request()->routeIs('customers')">
+                {{ __('Customers') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('products')" :active="request()->routeIs('products')">
+                {{ __('Products') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('student-list')" :active="request()->routeIs('student-list')">
                 {{ __('Student List') }}
             </x-responsive-nav-link>

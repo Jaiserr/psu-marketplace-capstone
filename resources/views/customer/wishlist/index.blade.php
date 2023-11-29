@@ -18,21 +18,21 @@
               <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
               </svg>
-              <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Wishlist</a>
+              <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Saved products</a>
             </div>
           </li>
         </ol>
     </nav>
     <div class="bg-white">
         <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Wishlist</h1>
+            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Saved products</h1>
             <form class="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
                 <section aria-labelledby="cart-heading" class="lg:col-span-12">
                     <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
                     <ul role="list">
                         @if($wishlistItems->isEmpty())
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">No Wishlist Items</h2>
+                            <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">No Saved products</h2>
                         </div>
                         @else
                         @foreach($wishlistItems as $wishlistItem)
