@@ -28,20 +28,32 @@ class ReviewsController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate the request data
         $validated = $request->validate([
             'rating' => 'required',
             'review' => 'required',
         ]);
 
+        // Check if the user has already submitted a review for the specified profile
+        $existingReview = Reviews::where('user_id', auth()->user()->id)
+            ->where('profile_id', $request->profile_id)
+            ->first();
 
+        if ($existingReview) {
+            return redirect()->back()->with('success-message', 'You have already submitted a review for this profile.');
+        }
+
+        // Create a new review
         Reviews::create([
             'user_id' => auth()->user()->id,
             'profile_id' => $request->profile_id,
             'rating' => $request->rating,
             'review' => $request->review,
         ]);
+
         return redirect()->back()->with('success-message', 'Reviewed Successfully');
     }
+
 
     /**
      * Display the specified resource.

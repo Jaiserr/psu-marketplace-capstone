@@ -1,5 +1,5 @@
 <!-- Modal -->
-<di class="text-black" x-show="showModal" @click.away="showModal = false"
+<div class="text-black" x-show="showModal" @click.away="showModal = false"
     class="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex items-center justify-center">
     <form action="{{ route('reviews.store') }}" method="POST">
         @csrf
@@ -46,10 +46,6 @@
             </div>
             <!-- Modal Footer -->
             <div class="mt-4 flex gap-2 justify-end">
-                <button type="button" @click="showModal = false"
-                    class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                    Close
-                </button>
                 <button type="submit" class="bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded">
                     Submit
                 </button>
@@ -57,39 +53,39 @@
         </div>
 
     </form>
-    </div>
+</div>
 
 
-    <style>
-        /*set the default color of the stars*/
-        .star-rating {
-            color: #bebebe;
-            font-size: 2em;
-        }
+<style>
+    /*set the default color of the stars*/
+    .star-rating {
+        color: #bebebe;
+        font-size: 2em;
+    }
 
-        /*create the star*/
-        .my-star-rating::before {
-            content: "\002605";
-        }
+    /*create the star*/
+    .my-star-rating::before {
+        content: "\002605";
+    }
 
-        /*remove the default style (italic) of the star*/
-        .my-star-rating {
-            font-style: unset !important;
-        }
+    /*remove the default style (italic) of the star*/
+    .my-star-rating {
+        font-style: unset !important;
+    }
 
-        /*set active star color*/
-        .is-active {
-            color: #fb8900;
-        }
+    /*set active star color*/
+    .is-active {
+        color: #fb8900;
+    }
 
-        /*set color on hover*/
-        .my-star-rating:not(.is-active):hover {
-            color: #fb8900;
-        }
-    </style>
+    /*set color on hover*/
+    .my-star-rating:not(.is-active):hover {
+        color: #fb8900;
+    }
+</style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function(){
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
     (function(){
         let sr = document.querySelectorAll('.my-star-rating');
         let i = 0;
@@ -132,4 +128,4 @@
         }//end of while loop
     })();//end of function
 })
-    </script>
+</script>
