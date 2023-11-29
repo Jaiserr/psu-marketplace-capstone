@@ -21,10 +21,10 @@ class DashboardController extends Controller
             $products = Products::get();
             return view('administrator.dashboard.index', compact('sellers', 'products', 'customers', 'sellersCount', 'productsCount', 'customersCount'));
         } elseif (Auth::user()->hasRole('seller')) {
-            $products = Products::all();
+            $products = Products::orderBy('created_at', 'desc')->get();
             return view('seller.dashboard.index', compact('products'));
         }  elseif (Auth::user()->hasRole('customer')) {
-            $products = Products::all();
+            $products = Products::orderBy('created_at', 'desc')->get();
             $wishlistItemsCount = auth()->user()->wishlists->count();
             return view('customer.dashboard.index', compact('products', 'wishlistItemsCount'));
         };
@@ -45,5 +45,13 @@ class DashboardController extends Controller
 
 
         return redirect()->back();
+    }
+
+    public function privacyPolicy() {
+        return view('privacy-policy');
+    }
+
+    public function termsAndConditions() {
+        return view('terms-and-conditions');
     }
 }

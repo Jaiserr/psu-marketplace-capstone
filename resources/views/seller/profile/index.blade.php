@@ -1,15 +1,14 @@
 <x-app-layout>
-
     <div class="py-4">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-3 lg:px-8">
             <div class="h-full flex">
                 <div class="flex flex-col min-w-0 flex-1 overflow-hidden">
 
 
                     <div class="flex-1 relative z-0 flex overflow-hidden">
-                        <main class="flex-1 relative z-0  overflow-y-auto focus:outline-none xl:order-last">
-                            <article x-data="{ activeTab: 'tab1', showModal: false }">
-                                <div>
+                        <main class="flex-1 relative z-0  overflow-y-auto focus:outline-none xl:order-last rounded">
+                            <article x-data="{ activeTab: 'tab1' }">
+                                {{-- <div>
                                     <div>
                                         <img class="h-32 w-full bg-slate-950 object-cover lg:h-48"
                                             src="https://future.appliedhe.com/upload/photos/2020/11/TPedpP3sNtazJQlPwwpC_11_198fab1333a90b7d7e5ae3bb68a083e1_cover.jpg"
@@ -42,7 +41,7 @@
                                                     class="h-24 w-24 bg-slate-950 rounded-full ring-4 ring-white sm:h-32 sm:w-32">
                                                 @else
                                                 <img class="h-24 w-24 bg-slate-950 rounded-full ring-4 ring-white sm:h-32 sm:w-32"
-                                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
+                                                    src="{{ Auth::user()->image ? asset('storage/' . Auth::user()->image) : asset('profile-empty.png') }}"
                                                     alt="">
                                                 @endif
                                             </div>
@@ -94,48 +93,49 @@
                                             </h1>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <!-- Tabs -->
-                                <div class="mt-6 sm:mt-2 2xl:mt-5">
-                                    <div class="border-b border-gray-200">
+                                <div class="mt-6 mb-3 sm:mt-2 2xl:mt-5 shadow bg-gray-100">
+                                    <div class="border-gray-200">
                                         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                                            <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                                            <nav class="-mb-px flex justify-center space-x-8" aria-label="Tabs">
 
                                                 <a href="#" @click="activeTab = 'tab1'"
                                                     :class="{ 'border-b-2 border-blue-500': activeTab === 'tab1' }"
-                                                    class=" border-pink-500 py-4 text-gray-900" aria-current="page">
-                                                    Profile
+                                                    class=" border-blue-500 py-4 text-gray-900" aria-current="page">
+                                                    Products
                                                 </a>
                                                 <a href="#" @click="activeTab = 'tab2'"
                                                     :class="{ 'border-b-2 border-blue-500': activeTab === 'tab2' }"
-                                                    class=" border-pink-500 py-4 text-gray-900" aria-current="page">
+                                                    class=" border-blue-500 py-4 text-gray-900" aria-current="page">
                                                     Reviews
                                                 </a>
-                                                <a href="#" @click="activeTab = 'tab3'"
+                                                {{-- <a href="#" @click="activeTab = 'tab3'"
                                                     :class="{ 'border-b-2 border-blue-500': activeTab === 'tab3' }"
-                                                    class=" border-pink-500 py-4 text-gray-900" aria-current="page">
+                                                    class=" border-blue-500 py-4 text-gray-900" aria-current="page">
                                                     Products
-                                                </a>
+                                                </a> --}}
                                             </nav>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <div class="px-16">
-                                    @include('seller.profile.review-form')
 
-                                    @include('seller.profile.seller-information')
-                                    @include('seller.profile.review')
-                                    @include('seller.profile.seller-products')
+                                {{-- @include('seller.profile.review-form') --}}
 
-                                </div>
+                                {{-- @include('seller.profile.seller-information') --}}
+                                @include('seller.profile.review')
+                                @include('seller.profile.seller-products')
+
+
 
                             </article>
                         </main>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

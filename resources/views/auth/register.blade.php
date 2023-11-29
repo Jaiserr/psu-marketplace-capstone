@@ -150,11 +150,11 @@
                                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                         </div>
                         <div class="text-sm leading-6">
-                            <label for="comments" class="font-medium text-white">Terms and Condition</label>
-                            <p class="text-gray-50">
+                            <label for="comments" class="font-medium text-white">Read Our <strong class="underline">Terms and Condition</strong></label>
+                            {{-- <p class="text-gray-50">
                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis earum excepturi
                                 delectus maiores sint sunt?
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
 

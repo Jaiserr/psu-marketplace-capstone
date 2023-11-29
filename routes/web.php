@@ -32,6 +32,8 @@ Route::get('/', function () {
 
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
+Route::get('/privacy-policy', [DashboardController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('/terms-and-conditions', [DashboardController::class, 'termsAndConditions'])->name('terms-and-conditions');
 Route::post('/contact-us', [ContactUsController::class, 'submitForm']);
 Route::get('/category-products', [CategoryProductsController::class, 'index'])->name('category-products');
 
@@ -43,6 +45,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
     Route::get('/wishlists', [WishlistController::class, 'index'])->name('wishlist.index');
     Route::post('/wishlist/add/{product}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
+    Route::delete('/wishlist/remove/{product}',[WishlistController::class, 'removeFromWishlist'])->name('wishlist.remove');
     Route::get('product-details/{id}', [ProductsController::class, 'productDetails'])->name('product.details');
     // Route::get('product/category/{id}', [ProductsController::class, 'product-category'])->show('product.category');
     Route::get('/products/{category}', [ProductsController::class, 'indexByCategory'])->name('products.by.category');

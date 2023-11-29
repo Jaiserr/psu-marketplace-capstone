@@ -17,6 +17,9 @@
                         Email Address
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Address
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Phone Number
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -32,6 +35,9 @@
                     </td>
                     <td class="px-6 py-4 font-semibold text-gray-900 ">
                         {{ $customer->email }}
+                    </td>
+                    <td class="px-6 py-4 font-semibold text-gray-900 ">
+                        {{ $customer->address }}
                     </td>
                     <td class="px-6 py-4 font-semibold text-gray-900 ">
                         {{ $customer->phone_number }}

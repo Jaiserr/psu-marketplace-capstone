@@ -69,6 +69,9 @@
                                     Email Address
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    ID Number
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Status
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -84,6 +87,9 @@
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
                                     {{ $seller->email }}
+                                </td>
+                                <td class="px-6 py-4 font-semibold text-gray-900 ">
+                                    {{ $seller->id_number }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
                                     @if ($seller->approved === "1")

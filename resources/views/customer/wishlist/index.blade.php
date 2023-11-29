@@ -1,11 +1,35 @@
 <x-app-layout>
+    <nav class="flex pl-5 pt-5 lg:max-w-7xl lg:mx-auto lg:px-8" aria-label="Breadcrumb">
+        <ol role="list" class="bg-white rounded-md shadow px-6 flex space-x-4">
+          <li class="flex">
+            <div class="flex items-center">
+              <a href="{{ url('/dashboard') }}" class="text-gray-400 hover:text-gray-500">
+                <!-- Heroicon name: solid/home -->
+                <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>
+                <span class="sr-only">Home</span>
+              </a>
+            </div>
+          </li>
+      
+          <li class="flex">
+            <div class="flex items-center">
+              <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
+              </svg>
+              <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Wishlist</a>
+            </div>
+          </li>
+        </ol>
+    </nav>
     <div class="bg-white">
         <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Wishlist</h1>
             <form class="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
                 <section aria-labelledby="cart-heading" class="lg:col-span-12">
                     <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
-                    <ul role="list" class="border-t border-b border-gray-200 divide-y divide-gray-200">
+                    <ul role="list">
                         @if($wishlistItems->isEmpty())
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                             <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">No Wishlist Items</h2>
@@ -35,13 +59,17 @@
                                     </div>
                                     <div class="mt-4 sm:mt-0 sm:pr-9">
                                         <div class="absolute top-0 right-0">
-                                            <button type="button" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
+                                            <form action="{{ route('wishlist.remove', $wishlistItem->product) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
                                                 <span class="sr-only">Remove</span>
                                                 <!-- Heroicon name: solid/x -->
                                                 <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                                                 </svg>
                                             </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
