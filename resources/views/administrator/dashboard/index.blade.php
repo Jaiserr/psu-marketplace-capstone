@@ -111,7 +111,15 @@
                                         </button>
                                     </form>
                                     @else
-                                    Already approved
+                                    <form action="{{ route('block-seller') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $seller->id }}">
+                                        <input type="hidden" name="name" value="{{ $seller->name }}">
+                                        <input type="hidden" name="email" value="{{ $seller->email }}">
+                                        <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
+                                            Block
+                                        </button>
+                                    </form>
                                     @endif
                                     <a href="{{ route('seller-profile.show', $seller) }}"
                                         class="ml-4 font-medium text-indigo-600 dark:text-indigo-500 hover:underline">
