@@ -8,15 +8,15 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="{{ url('favicon.png') }}" rel="icon">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
         <div>
             <header>
-                <div class="top-0 right-0 left-0 z-[50] bg-indigo-700 fixed">
-                    <div
-                        class=" flex justify-between items-center max-w-7xl mx-auto px-4  sm:px-6 md:justify-start md:space-x-10 lg:px-8">
+                <div class="top-0 right-0 left-0 z-[50]">
+                    <div class=" flex justify-between items-center max-w-7xl mx-auto px-4  sm:px-6 md:justify-start md:space-x-10 lg:px-8">
                         <div class="flex justify-start items-center gap-2 lg:w-0 lg:flex-1">
                             <img src="{{ asset('logo.png') }}" alt="Logo" class="h-10" />
                         </div>
@@ -43,9 +43,9 @@
                     </div>
                 </div>
             </header>
-            <main class="pt-24">
+            <main>
                 <!-- Hero section -->
-                <div class="relative py-16">
+                <div class="relative">
                     <div class="absolute inset-x-0 bottom-0 h-1/2"></div>
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
@@ -67,7 +67,7 @@
                                 </p>
                                 <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                                     <a href="{{route('login')}}"
-                                        class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8">
+                                        class="flex items-center justify-center px-4 py-3 border border-transparent font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-700 hover:text-white sm:px-8">
                                     Get Started</a>
                                 </div>
                             </div>
@@ -75,10 +75,10 @@
                     </div>
                 </div>
             </main>
-            <footer class="bg-indigo-700">
-                <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+            <footer>
+                <div class="max-w-7xl mx-auto pb-8 px-4 overflow-hidden sm:px-6 lg:px-8">
                     <div class="mt-8 flex justify-center space-x-6">
-                        <a href="https://www.facebook.com/profile.php?id=61553673545550&mibextid=vk8aRt" class="text-white hover:text-white">
+                        <a href="https://www.facebook.com/profile.php?id=61553673545550&mibextid=vk8aRt" class="text-indigo-700 hover:text-indigo-700">
                             <span class="sr-only">Facebook</span>
                             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd"
@@ -87,7 +87,7 @@
                             </svg>
                         </a>
                     </div>
-                    <p class="mt-8 text-center text-base text-white">&copy; 2023 Pangasinan State University Marketplace,
+                    <p class="mt-8 text-center text-base text-indigo-700">&copy; 2023 Pangasinan State University Marketplace,
                         All rights reserved.
                     </p>
                 </div>

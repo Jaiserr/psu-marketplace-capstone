@@ -11,10 +11,10 @@
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
                     @role('seller')
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Home') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('category-products')" :active="request()->routeIs('category-products')">
                         {{ __('Products') }}
                     </x-nav-link>
@@ -26,6 +26,9 @@
                     </x-nav-link>
                     @endrole
                     @role('customer')
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Home') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('category-products')" :active="request()->routeIs('category-products')">
                         {{ __('Products') }}
                     </x-nav-link>
@@ -46,6 +49,9 @@
                     @endauth
                     @endrole
                     @role('superadministrator')
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('sellers')" :active="request()->routeIs('sellers')">
                         {{ __('Sellers') }}
                     </x-nav-link>

@@ -230,7 +230,7 @@
                                 "Academic Resource Exchange".
                             </h2>
                             <div class="mt-6 text-base">
-                                <a href="{{ url('category-products') }}" class="font-semibold text-white">See Products<span
+                                <a href="{{ route('products.by.category', 'School Uniforms and Supplies') }}" class="font-semibold text-white">See Products<span
                                         aria-hidden="true"> &rarr;</span></a>
                             </div>
                         </div>

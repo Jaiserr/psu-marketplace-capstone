@@ -13,7 +13,7 @@
 </div>
 @endif --}}
 @if (session('success-message'))
-    <div x-data="{open: true}" x-show="open" x-init="setTimeout(() => open = false, 3000)" aria-live="assertive" class="fixed z-[500] right-4 inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start">
+    <div x-data="{open: true}" x-show="open" x-init="setTimeout(() => open = false, 3000)" aria-live="assertive" class="fixed z-[500] right-4 inset-0 flex items-start px-4 py-6 pointer-events-none sm:p-6 sm:items-start">
         <div class="w-full flex flex-col items-center space-y-4 sm:items-end">
         <div class="max-w-sm w-full bg-green-100 shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div class="p-4">
@@ -34,7 +34,7 @@
     </div>
 @endif
 @if (session('danger-message'))
-    <div x-data="{open: true}" x-show="open" x-init="setTimeout(() => open = false, 3000)" aria-live="assertive" class="fixed z-[500] right-4 inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start">
+    <div x-data="{open: true}" x-show="open" x-init="setTimeout(() => open = false, 3000)" aria-live="assertive" class="fixed z-[500] right-4 inset-0 flex items-start px-4 py-6 pointer-events-none sm:p-6 sm:items-start">
         <div class="w-full flex flex-col items-center space-y-4 sm:items-end">
         <div class="max-w-sm w-full bg-red-100 shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div class="p-4">

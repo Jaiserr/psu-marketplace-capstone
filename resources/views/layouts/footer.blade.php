@@ -36,9 +36,14 @@
               <h3 class="text-sm font-semibold text-white tracking-wider uppercase">Marketplace</h3>
               <ul role="list" class="mt-4 space-y-4">
                 <li>
+                  <a href="{{ url('dashboard') }}" class="text-base text-white hover:text-white"> Home </a>
+                </li>
+                <li>
+                  <a href="{{ url('category-products') }}" class="text-base text-white hover:text-white"> Products </a>
+                </li>
+                <li>
                   <a href="{{ url('contact-us') }}" class="text-base text-white hover:text-white"> Contacts </a>
                 </li>
-  
                 <li>
                   <a href="{{ url('about-us') }}" class="text-base text-white hover:text-white"> About </a>
                 </li>
