@@ -57,4 +57,13 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+    public function destroy($id): RedirectResponse
+    {
+        // Find the user by ID
+        $user = User::find($id);
+        $user->delete();
+        // Check if the user exists
+        return redirect()->back()->with('success-message', 'User Deleted');
+    }
+
 }

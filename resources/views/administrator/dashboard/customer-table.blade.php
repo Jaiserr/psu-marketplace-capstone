@@ -25,6 +25,9 @@
                     <th scope="col" class="px-6 py-3">
                         Address
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -44,6 +47,15 @@
                     </td>
                     <td class="px-6 py-4 font-semibold text-gray-900 ">
                         {{ $customer->address }}
+                    </td>
+                    <td class="px-6 py-4 font-semibold text-gray-900 ">
+                        <form class="inline" method="POST" action="{{ route('delete-seller', $customer) }}">
+                            @csrf
+                            @method('delete')
+                            <button class="ml-4 font-medium text-red-600 dark:text-red-500 hover:underline">
+                                Delete User
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

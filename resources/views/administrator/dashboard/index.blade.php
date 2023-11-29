@@ -125,6 +125,13 @@
                                         class="ml-4 font-medium text-indigo-600 dark:text-indigo-500 hover:underline">
                                         More
                                     </a>
+                                    <form class="inline" method="POST" action="{{ route('delete-seller', $seller) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="ml-4 font-medium text-red-600 dark:text-red-500 hover:underline">
+                                            Delete User
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

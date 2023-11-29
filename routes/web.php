@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CategoryProductsController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardController;
@@ -56,6 +57,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], function() {
     Route::post('approve-seller', [DashboardController::class, 'approve'])->name('approve-seller');
     Route::post('block-seller', [DashboardController::class, 'block'])->name('block-seller');
+    Route::delete('user-delete/{customer}', [RegisteredUserController::class, 'destroy'])->name('delete-seller');
 });
 
 // ** Route for superadministrator
