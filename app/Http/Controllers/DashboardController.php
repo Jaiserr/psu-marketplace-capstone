@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ApprovedSeller;
+use App\Mail\BlockedMail;
 use App\Models\Products;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -45,6 +46,23 @@ class DashboardController extends Controller
 
 
         return redirect()->back();
+    }
+
+    public function block(Request $request)
+    {
+       User::where('id', $request->id)->update([
+            'approved' => null,
+        ]);
+
+        $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new BlockedMail($data));
+
+
+        return redirect()->back()->with('success-message', 'Seller Blocked!');
     }
 
     public function privacyPolicy() {
