@@ -111,7 +111,7 @@
         </div>
 
         <!-- Address -->
-        <div>
+        <div class="mt-4">
             <x-input-label class="text-white" for="address" :value="__('Address')" />
             <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" />
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
@@ -141,7 +141,7 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div x-show="role === 'seller'" class="mt-4">
+        <div class="mt-4">
             <fieldset>
                 <div class="mt-6 space-y-6">
                     <div class="relative flex gap-x-3">
@@ -150,13 +150,16 @@
                                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                         </div>
                         <div class="text-sm leading-6">
-                            <label for="comments" class="font-medium text-white">Read Our <strong class="underline">Terms and Condition</strong></label>
+                            <label for="comments" class="font-medium "> <span class="text-white">Read Our</span>
+                                @include("auth.terms-and-service")
+                            </label>
                             {{-- <p class="text-gray-50">
                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis earum excepturi
                                 delectus maiores sint sunt?
                             </p> --}}
                         </div>
                     </div>
+
 
                 </div>
             </fieldset>

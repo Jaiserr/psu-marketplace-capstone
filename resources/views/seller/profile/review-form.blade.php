@@ -1,9 +1,9 @@
 <!-- Modal -->
-<div x-show="showModal" @click.away="showModal = false"
+<di class="text-black" x-show="showModal" @click.away="showModal = false"
     class="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex items-center justify-center">
     <form action="{{ route('reviews.store') }}" method="POST">
         @csrf
-        <div class="bg-white p-8 max-w-6xl  mx-4 sm:mx-auto rounded shadow-lg">
+        <div class="bg-white text-black p-8 max-w-6xl  mx-4 sm:mx-auto rounded shadow-lg">
             <!-- Modal Content -->
             <div>
                 <h1 class="text-2xl font-bold mb-4">Review {{ $seller->name }}</h1>
@@ -57,39 +57,39 @@
         </div>
 
     </form>
-</div>
+    </div>
 
 
-<style>
-    /*set the default color of the stars*/
-    .star-rating {
-        color: #bebebe;
-        font-size: 2em;
-    }
+    <style>
+        /*set the default color of the stars*/
+        .star-rating {
+            color: #bebebe;
+            font-size: 2em;
+        }
 
-    /*create the star*/
-    .my-star-rating::before {
-        content: "\002605";
-    }
+        /*create the star*/
+        .my-star-rating::before {
+            content: "\002605";
+        }
 
-    /*remove the default style (italic) of the star*/
-    .my-star-rating {
-        font-style: unset !important;
-    }
+        /*remove the default style (italic) of the star*/
+        .my-star-rating {
+            font-style: unset !important;
+        }
 
-    /*set active star color*/
-    .is-active {
-        color: #fb8900;
-    }
+        /*set active star color*/
+        .is-active {
+            color: #fb8900;
+        }
 
-    /*set color on hover*/
-    .my-star-rating:not(.is-active):hover {
-        color: #fb8900;
-    }
-</style>
+        /*set color on hover*/
+        .my-star-rating:not(.is-active):hover {
+            color: #fb8900;
+        }
+    </style>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function(){
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
     (function(){
         let sr = document.querySelectorAll('.my-star-rating');
         let i = 0;
@@ -132,4 +132,4 @@
         }//end of while loop
     })();//end of function
 })
-</script>
+    </script>

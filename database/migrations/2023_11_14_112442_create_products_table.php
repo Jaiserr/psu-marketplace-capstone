@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('condition');
             $table->string('price');
             $table->string('availability');
-            $table->string('images');
+            $table->longText('images');
             $table->longText('details')->nullable();
             $table->timestamps();
         });
