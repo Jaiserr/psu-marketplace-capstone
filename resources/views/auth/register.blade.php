@@ -27,7 +27,7 @@
             </select>
         </div>
         <div x-show="role === 'customer'" class="mt-4">
-            <x-input-label class="text-white" for="customer_address" :value="__('Address (Customer)')" />
+            <x-input-label class="text-white" for="customer_address" :value="__('Address (Barangay)')" />
             {{-- <x-text-input id="customer_address" class="block mt-1 w-full" type="text" name="customer_address" :value="old('address')" /> --}}
             <select name="customer_address" id="customer_address"
                 class="border-gray-300 mt-1 focus:border-indigo-500 w-full focus:ring-indigo-500 rounded-md shadow-sm">
@@ -94,19 +94,12 @@
             </div>
 
             <div class="mt-4">
-                <x-input-label class="text-white" for="address" :value="__('Address (Seller)')" />
+                <x-input-label class="text-white" for="address" :value="__('Address')" />
                 <x-text-input id="address" class="block mt-1 w-full" type="text" name="address"
                     :value="old('address')" />
                 <x-input-error :messages="$errors->get('address')" class="mt-2" />
             </div>
         </div>
-
-        <!-- Address -->
-        {{-- <div class="mt-4">
-            <x-input-label class="text-white" for="address" :value="__('Address')" />
-            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" />
-            <x-input-error :messages="$errors->get('address')" class="mt-2" />
-        </div> --}}
 
         <!-- Phone Number -->
         <div class="mt-4">
