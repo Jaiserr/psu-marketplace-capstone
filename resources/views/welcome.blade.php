@@ -87,8 +87,7 @@
                             </svg>
                         </a>
                     </div>
-                    <p class="mt-8 text-center text-base text-indigo-700">&copy; 2023 Pangasinan State University Marketplace,
-                        All rights reserved.
+                    <p class="mt-8 text-center text-base text-indigo-700">&copy; 2023 Pangasinan State University Marketplace.
                     </p>
                 </div>
             </footer>
