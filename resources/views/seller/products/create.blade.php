@@ -34,6 +34,11 @@
                                                     Supplies</option>
                                                 <option value="Food and Drinks">Food and Drinks</option>
                                                 <option value="Musical Instruments">Musical Instruments</option>
+                                                <option value="Home Appliances">Home Appliances</option>
+                                                <option value="Sports Equipment">Sports Equipment</option>
+                                                <option value="Toys and Games">Toys and Games</option>
+                                                <option value="Furniture & Home Living">Furniture & Home Living</option>
+                                                <option value="Vehicles & Components">Vehicles & Components</option>
                                             </select>
                                             <div
                                                 class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 pointer-events-none">

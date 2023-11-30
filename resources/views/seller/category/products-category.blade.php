@@ -67,6 +67,11 @@
         <div class="mt-8 relative">
             <div class="relative w-full pb-6 -mb-6 overflow-x-auto">
                 <ul role="list" class="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0 lg:space-x-0 lg:grid lg:grid-cols-4 lg:gap-x-8">
+                    @if($products->isEmpty())
+                        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                            <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">No added products</h2>
+                        </div>
+                    @else
                     @foreach ($products as $product)
                     @php
                     $imagePathsArray = explode('|', $product->images);
@@ -110,6 +115,7 @@
                         </div>
                     </li>
                     @endforeach
+                    @endif
                 </ul>
             </div>
         </div>

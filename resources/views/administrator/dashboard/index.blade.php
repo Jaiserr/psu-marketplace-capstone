@@ -63,6 +63,9 @@
                         <thead class="text-xs text-white uppercase  bg-indigo-700">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
+                                    
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Name
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -70,6 +73,9 @@
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     ID Number
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Address
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Status
@@ -83,6 +89,14 @@
                             @foreach ($sellers as $seller)
                             <tr class="bg-white border-b  hover:bg-gray-50 ">
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
+                                    <a href="{{ $seller->image ? asset('storage/' . $seller->image) : asset('profile-empty.png') }}"
+                                        target="_blank" rel="noopener noreferrer">
+                                         <img class="h-12 w-12 rounded-full"
+                                              src="{{ $seller->image ? asset('storage/' . $seller->image) : asset('profile-empty.png') }}"
+                                        alt="">
+                                    </a>
+                                </td>
+                                <td class="px-6 py-4 font-semibold text-gray-900 ">
                                     {{ $seller->name }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
@@ -90,6 +104,9 @@
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
                                     {{ $seller->id_number }}
+                                </td>
+                                <td class="px-6 py-4 font-semibold text-gray-900 ">
+                                    {{ $seller->address }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
                                     @if ($seller->approved === "1")

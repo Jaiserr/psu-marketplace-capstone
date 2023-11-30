@@ -26,6 +26,52 @@
                 <option value="customer">Customer</option>
             </select>
         </div>
+        <div x-show="role === 'customer'" class="mt-4">
+            <x-input-label class="text-white" for="customer_address" :value="__('Address (Customer)')" />
+            {{-- <x-text-input id="customer_address" class="block mt-1 w-full" type="text" name="customer_address" :value="old('address')" /> --}}
+            <select name="customer_address" id="customer_address"
+                class="border-gray-300 mt-1 focus:border-indigo-500 w-full focus:ring-indigo-500 rounded-md shadow-sm">
+                <option value="Alos">Alos</option>
+                <option value="Amandiego">Amandiego</option>
+                <option value="Amangbangan">Amangbangan</option>
+                <option value="Balangobong">Balangobong</option>
+                <option value="Balayang">Balayang</option>
+                <option value="Baleyadaan">Baleyadaan</option>
+                <option value="Bisocol">Bisocol</option>
+                <option value="Bolaney">Bolaney</option>
+                <option value="Bued">Bued</option>
+                <option value="Cabatuan">Cabatuan</option>
+                <option value="Cayucay">Cayucay</option>
+                <option value="Dulacac">Dulacac</option>
+                <option value="Inerangan">Inerangan</option>
+                <option value="Landoc">Landoc</option>
+                <option value="Linmansangan">Linmansangan</option>
+                <option value="Lucap">Lucap</option>
+                <option value="Maawi">Maawi</option>
+                <option value="Macatiw">Macatiw</option>
+                <option value="Magsaysay">Magsaysay</option>
+                <option value="Mona">Mona</option>
+                <option value="Palamis">Palamis</option>
+                <option value="Pandan">Pandan</option>
+                <option value="Pangapisan">Pangapisan</option>
+                <option value="Poblacion">Poblacion</option>
+                <option value="Pocal-pocal">Pocal-pocal</option>
+                <option value="Pogo">Pogo</option>
+                <option value="Polo">Polo</option>
+                <option value="Quibuar">Quibuar</option>
+                <option value="Sabangan">Sabangan</option>
+                <option value="San Antonio">San Antonio</option>
+                <option value="San Jose">San Jose</option>
+                <option value="San Roque">San Roque</option>
+                <option value="San Vicente">San Vicente</option>
+                <option value="Sta Maria">Sta Maria</option>
+                <option value="Tanaytay">Tanaytay</option>
+                <option value="Tangcarang">Tangcarang</option>
+                <option value="Tawin-tawin">Tawin-tawin</option>
+                <option value="Telbang">Telbang</option>
+                <option value="Victoria">Victoria</option>
+            </select>
+        </div>
 
         <!-- Additional Inputs for Seller -->
         <div x-show="role === 'seller'" class="mt-4">
@@ -46,14 +92,21 @@
                     <option value="student">Student</option>
                 </select>
             </div>
+
+            <div class="mt-4">
+                <x-input-label class="text-white" for="address" :value="__('Address (Seller)')" />
+                <x-text-input id="address" class="block mt-1 w-full" type="text" name="address"
+                    :value="old('address')" />
+                <x-input-error :messages="$errors->get('address')" class="mt-2" />
+            </div>
         </div>
 
         <!-- Address -->
-        <div class="mt-4">
+        {{-- <div class="mt-4">
             <x-input-label class="text-white" for="address" :value="__('Address')" />
             <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" />
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
-        </div>
+        </div> --}}
 
         <!-- Phone Number -->
         <div class="mt-4">

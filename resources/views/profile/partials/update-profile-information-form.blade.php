@@ -50,8 +50,14 @@
                     class="border-gray-300 mt-1 focus:border-indigo-500 w-full focus:ring-indigo-500 rounded-md shadow-sm">
                     <option value="faculty" {{ old('campus_role')==='faculty' ? 'selected' : '' }}>Faculty</option>
                     <option value="student" {{ old('campus_role')==='student' ? 'selected' : '' }}>Student</option>
+
                 </select>
             </div>
+
+            <x-input-label class="mt-4" for="address" :value="__('Address')" />
+            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full"
+                :value="old('address', $user->address)" required autofocus autocomplete="address" />
+            <x-input-error class="mt-2" :messages="$errors->get('address')" />    
         </div>
         @endrole
 
@@ -59,11 +65,54 @@
         <x-text-input id="phone_number" name="phone_number" type="text" class="mt-1 block w-full"
             :value="old('id_number', $user->phone_number)" required autofocus autocomplete="phone_number" />
         <x-input-error class="mt-2" :messages="$errors->get('phone_number')" />
-
-        <x-input-label class="mt-4" for="address" :value="__('Address')" />
-        <x-text-input id="address" name="address" type="text" class="mt-1 block w-full"
-            :value="old('address', $user->address)" required autofocus autocomplete="address" />
-        <x-input-error class="mt-2" :messages="$errors->get('address')" />
+        
+        @role('customer')
+            <div class="mt-4">
+                <x-input-label for="customer_address" :value="__('Address')" />
+                <select name="customer_address" id="customer_address"
+                    class="border-gray-300 mt-1 focus:border-indigo-500 w-full focus:ring-indigo-500 rounded-md shadow-sm">
+                    <option value="Alos" {{ old('customer_address')==='Alos' ? 'selected' : '' }}>Alos</option>
+                    <option value="Amandiego" {{ old('customer_address')==='Amandiego' ? 'selected' : '' }}>Amandiego</option>
+                    <option value="Amangbangan" {{ old('customer_address')==='Amangbangan' ? 'selected' : '' }}>Amangbangan</option>
+                    <option value="Balangobong" {{ old('customer_address')==='Balangobong' ? 'selected' : '' }}>Balangobong</option>
+                    <option value="Balayang" {{ old('customer_address')==='Balayang' ? 'selected' : '' }}>Balayang</option>
+                    <option value="Baleyadaan" {{ old('customer_address')==='Baleyadaan' ? 'selected' : '' }}>Baleyadaan</option>
+                    <option value="Bisocol" {{ old('customer_address')==='Bisocol' ? 'selected' : '' }}>Bisocol</option>
+                    <option value="Bolaney" {{ old('customer_address')==='Bolaney' ? 'selected' : '' }}>Bolaney</option>
+                    <option value="Bued" {{ old('customer_address')==='Bued' ? 'selected' : '' }}>Bued</option>
+                    <option value="Cabatuan" {{ old('customer_address')==='Cabatuan' ? 'selected' : '' }}>Cabatuan</option>
+                    <option value="Cayucay" {{ old('customer_address')==='Cayucay' ? 'selected' : '' }}>Cayucay</option>
+                    <option value="Dulacac" {{ old('customer_address')==='Dulacac' ? 'selected' : '' }}>Dulacac</option>
+                    <option value="Inerangan" {{ old('customer_address')==='Inerangan' ? 'selected' : '' }}>Inerangan</option>
+                    <option value="Landoc" {{ old('customer_address')==='Landoc' ? 'selected' : '' }}>Landoc</option>
+                    <option value="Linmansangan" {{ old('customer_address')==='Linmansangan' ? 'selected' : '' }}>Linmansangan</option>
+                    <option value="Lucap" {{ old('customer_address')==='Lucap' ? 'selected' : '' }}>Lucap</option>
+                    <option value="Maawi" {{ old('customer_address')==='Maawi' ? 'selected' : '' }}>Maawi</option>
+                    <option value="Macatiw" {{ old('customer_address')==='Macatiw' ? 'selected' : '' }}>Macatiw</option>
+                    <option value="Magsaysay" {{ old('customer_address')==='Magsaysay' ? 'selected' : '' }}>Magsaysay</option>
+                    <option value="Mona" {{ old('customer_address')==='Mona' ? 'selected' : '' }}>Mona</option>
+                    <option value="Palamis" {{ old('customer_address')==='Palamis' ? 'selected' : '' }}>Palamis</option>
+                    <option value="Pandan" {{ old('customer_address')==='Pandan' ? 'selected' : '' }}>Pandan</option>
+                    <option value="Pangapisan" {{ old('customer_address')==='Pangapisan' ? 'selected' : '' }}>Pangapisan</option>
+                    <option value="Poblacion" {{ old('customer_address')==='Poblacion' ? 'selected' : '' }}>Poblacion</option>
+                    <option value="Pocal-pocal" {{ old('customer_address')==='Pocal-pocal' ? 'selected' : '' }}>Pocal-pocal</option>
+                    <option value="Pogo" {{ old('customer_address')==='Pogo' ? 'selected' : '' }}>Pogo</option>
+                    <option value="Polo" {{ old('customer_address')==='Polo' ? 'selected' : '' }}>Polo</option>
+                    <option value="Quibuar" {{ old('customer_address')==='Quibuar' ? 'selected' : '' }}>Quibuar</option>
+                    <option value="Sabangan" {{ old('customer_address')==='Sabangan' ? 'selected' : '' }}>Sabangan</option>
+                    <option value="San Antonio" {{ old('customer_address')==='San Antonio' ? 'selected' : '' }}>San Antonio</option>
+                    <option value="San Jose" {{ old('customer_address')==='San Jose' ? 'selected' : '' }}>San Jose</option>
+                    <option value="San Roque" {{ old('customer_address')==='San Roque' ? 'selected' : '' }}>San Roque</option>
+                    <option value="San Vicente" {{ old('customer_address')==='San Vicente' ? 'selected' : '' }}>San Vicente</option>
+                    <option value="Sta Maria" {{ old('customer_address')==='Sta Maria' ? 'selected' : '' }}>Sta Maria</option>
+                    <option value="Tanaytay" {{ old('customer_address')==='Tanaytay' ? 'selected' : '' }}>Tanaytay</option>
+                    <option value="Tangcarang" {{ old('customer_address')==='Tangcarang' ? 'selected' : '' }}>Tangcarang</option>
+                    <option value="Tawin-tawin" {{ old('customer_address')==='Tawin-tawin' ? 'selected' : '' }}>Tawin-tawin</option>
+                    <option value="Telbang" {{ old('customer_address')==='Telbang' ? 'selected' : '' }}>Telbang</option>
+                    <option value="Victoria" {{ old('customer_address')==='Victoria' ? 'selected' : '' }}>Victoria</option>
+                </select>
+            </div>        
+        @endrole
 
         <div>
             <x-input-label for="email" :value="__('Email')" />

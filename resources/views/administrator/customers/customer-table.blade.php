@@ -14,6 +14,9 @@
                         <thead class="text-xs text-white uppercase  bg-indigo-700">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
+                                    
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Name
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -26,9 +29,6 @@
                                     Phone Number
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Address
-                                </th>
-                                <th scope="col" class="px-6 py-3">
                                     Action
                                 </th>
                             </tr>
@@ -37,19 +37,24 @@
                             @foreach ($customers as $customer)
                             <tr class="bg-white border-b  hover:bg-gray-50 ">
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
+                                    <a href="{{ $customer->image ? asset('storage/' . $customer->image) : asset('profile-empty.png') }}"
+                                        target="_blank" rel="noopener noreferrer">
+                                         <img class="h-12 w-12 rounded-full"
+                                              src="{{ $customer->image ? asset('storage/' . $customer->image) : asset('profile-empty.png') }}"
+                                        alt="">
+                                    </a>
+                                </td>
+                                <td class="px-6 py-4 font-semibold text-gray-900 ">
                                     {{ $customer->name }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
                                     {{ $customer->email }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    {{ $customer->address }}
+                                    {{ $customer->customer_address }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
                                     {{ $customer->phone_number }}
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    {{ $customer->address }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
                                     <form class="inline" method="POST" action="{{ route('delete-seller', $customer) }}">

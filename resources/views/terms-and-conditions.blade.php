@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="bg-white">
-    <div class="max-w-2xl mx-auto px-4 sm:py-16 sm:px-6 lg:max-w-7xl">
+    <div class="max-w-2xl mx-auto px-4 py-16 sm:px-6 lg:max-w-7xl">
         <div class="relative bg-white overflow-hidden">
             <div class="relative">
             <div class="text-lg max-w-prose mx-auto">
@@ -53,4 +53,4 @@
         </div>
     </div>
     </div>
-    </x-app-layout>
+</x-app-layout>

@@ -51,6 +51,16 @@
                                                     ?
                                                     'selected' : '' }}
                                                     value="Musical Instruments">Musical Instruments</option>
+                                                <option {{ old('category', $product->category) === "Home Appliances" ?
+                                                    'selected' : '' }} value="Home Appliances">Home Appliances</option>
+                                                <option {{ old('category', $product->category) === "Sports Equipment" ?
+                                                    'selected' : '' }} value="Sports Equipment">Sports Equipment</option>
+                                                <option {{ old('category', $product->category) === "Toys and Games" ?
+                                                    'selected' : '' }} value="Toys and Games">Toys and Games</option>
+                                                <option {{ old('category', $product->category) === "Furniture & Home Living" ?
+                                                    'selected' : '' }} value="Furniture & Home Living">Furniture & Home Living</option>
+                                                <option {{ old('category', $product->category) === "Vehicles & Components" ?
+                                                    'selected' : '' }} value="Vehicles & Components">Vehicles & Components</option>
                                             </select>
                                             <div
                                                 class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 pointer-events-none">
