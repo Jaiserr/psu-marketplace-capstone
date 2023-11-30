@@ -116,14 +116,6 @@
                                         class="font-medium text-indigo-900 dark:text-indigo-900 hover:underline">
                                         Edit
                                     </a>
-                                    {{-- <form class="inline" method="POST"
-                                        action="{{ route('admin-products.destroy', $product) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="ml-4 font-medium text-red-600 dark:text-red-500 hover:underline">
-                                            Remove
-                                        </button>
-                                    </form> --}}
                                     <a href="{{ route('admin-products.show', $product) }}"
                                         class="ml-4 font-medium text-blue-600  hover:underline">More</a>
                                 </td>

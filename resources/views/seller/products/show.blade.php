@@ -61,7 +61,7 @@
                 <div class="mt-6">        
                     <div class="text-base text-gray-700 space-y-2">
                         <h3 class="text-sm text-gray-600">Description</h3>
-                        <p>{{ $product->description }}</p>
+                        <p>{{ $product->details }}</p>
                     </div>
                 </div>
 
