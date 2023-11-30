@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="bg-white">
 
-        <header class="relative overflow-hidden mt-5">
+        <header class="relative overflow-hidden mt-10">
             <div class="relative">
                 <div class="absolute inset-x-0 bottom-0 h-1/2"></div>
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
