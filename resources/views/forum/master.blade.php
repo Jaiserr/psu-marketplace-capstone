@@ -11,7 +11,7 @@
         @if (isset($category))
             {{ $category->title }} —
         @endif
-        {{ trans('forum::general.home_title') }}
+        {{ trans('PSU Marketplace Forum::general.home_title') }}
     </title>
 
     <!-- Tailwind CSS (https://tailwindcss.com/docs/installation/play-cdn) -->
