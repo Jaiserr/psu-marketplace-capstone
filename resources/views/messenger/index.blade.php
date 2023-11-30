@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="py-12">
-    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Messages</h1>
         <div class="overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">

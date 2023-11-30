@@ -136,6 +136,7 @@
                         <div class="text-sm leading-6">
                             <label for="comments" class="font-medium "> <span class="text-white">Read Our</span>
                                 @include("auth.terms-and-service")
+                                @include("auth.privacy-policy")
                             </label>
                         </div>
                     </div>

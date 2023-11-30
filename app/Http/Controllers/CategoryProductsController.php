@@ -15,9 +15,7 @@ class CategoryProductsController extends Controller
         // Fetch products for each category
         $productsByCategory = [];
         foreach ($categories as $category) {
-            $productsByCategory[$category] = Products::where('category', $category)
-                                                   ->take(5)
-                                                   ->get();
+            $productsByCategory[$category] = Products::where('category', $category)->take(5)->get();
         }
 
         return view('category-products', ['productsByCategory' => $productsByCategory]);

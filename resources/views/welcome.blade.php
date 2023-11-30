@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'PSU Marketplace') }}</title>
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -22,7 +22,7 @@
                         </div>
                         <div class="flex items-center justify-end md:flex-1 lg:w-0">
                             @if (Route::has('login'))
-                            <div class=" p-6 text-right z-10">
+                            <div class=" py-6 text-right z-10">
                                 @auth
                                 <a href="{{ url('/dashboard') }}"
                                     class="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700">
@@ -47,7 +47,7 @@
                 <!-- Hero section -->
                 <div class="relative">
                     <div class="absolute inset-x-0 bottom-0 h-1/2"></div>
-                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
                         <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
                             <div class="absolute inset-0">
                                 <img class="h-full w-full object-cover" src="{{ asset('psumarketplacebanner.png') }}"

@@ -1,130 +1,72 @@
 <x-app-layout>
     <div class="bg-white">
         <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div class="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
-            <!-- Image gallery -->
-            <div class="flex flex-col-reverse">
-            <!-- Image selector -->
-                @php
-                $imagePathsArray = explode('|', $product->images);
-                @endphp
-            
-                <div class="carousel-container">
-                    <div class="carousel-wrapper">
-                        @foreach ($imagePathsArray as $image)
-                            <div class="carousel-slide">
-                                <img src="{{ asset('storage/' . $image) }}" alt="Angled front view with bag zipped and handles upright." class="rounded-lg object-cover w-full h-[35rem]">
-                            </div>
-                        @endforeach
+            <div class="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
+                <div class="flex flex-col-reverse">
+                    @php
+                    $imagePathsArray = explode('|', $product->images);
+                    @endphp
+                
+                    <div class="carousel-container">
+                        <div class="carousel-wrapper">
+                            @foreach ($imagePathsArray as $image)
+                                <div class="carousel-slide">
+                                    <img src="{{ asset('storage/' . $image) }}" alt="Angled front view with bag zipped and handles upright." class="rounded-lg object-cover w-full h-[35rem]">
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="flex justify-between mt-5">
+                            <button onclick="changeSlide(-1)" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-16 rounded-lg">
+                            Prev
+                            </button>
+                            <button onclick="changeSlide(1)" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-16 rounded-lg">
+                            Next
+                            </button>
+                        </div>              
                     </div>
-                    <div class="flex justify-between mt-5">
-                        <button onclick="changeSlide(-1)" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-16 rounded-lg">
-                        Prev
-                        </button>
-                        <button onclick="changeSlide(1)" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-16 rounded-lg">
-                        Next
-                        </button>
-                    </div>              
                 </div>
-            </div>
-    
-            <!-- Product info -->
-            
-            <div class="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-                <h3 class="text-sm text-gray-600">{{ $product->category }}</h3>
-            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">{{ $product->product_name }}</h1>
-    
-            <div class="mt-3">
-                <h2 class="sr-only">Product information</h2>
-                <p class="text-3xl text-gray-900">₱{{ $product->price }}</p>
-            </div>
 
-            <div class="mt-3">
-                <!-- Heroicon name: solid/check -->
-                <p class="flex text-sm text-gray-700 space-x-2">
-                    @if($product->availability == 'Available')
-                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>{{ $product->availability }}</span>
-                    @elseif($product->availability == 'Sold')
-                    <svg class="flex-shrink-0 h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>{{ $product->availability }}</span>
-                    @endif                         
-                </p>
-            </div>
-    
-            <div class="mt-6">        
-                <div class="text-base text-gray-700 space-y-2">
-                <h3 class="text-sm text-gray-600">Condition</h3>
-                <p>{{ $product->condition }}</p>
+                <div class="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
+                    <h3 class="text-sm text-gray-600">{{ $product->category }}</h3>
+                <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">{{ $product->product_name }}</h1>
+        
+                <div class="mt-3">
+                    <h2 class="sr-only">Product information</h2>
+                    <p class="text-3xl text-gray-900">₱{{ $product->price }}</p>
                 </div>
-            </div>
 
-            <div class="mt-6">        
-                <div class="text-base text-gray-700 space-y-2">
-                <h3 class="text-sm text-gray-600">Description</h3>
-                <p>{{ $product->description }}</p>
+                <div class="mt-3">
+                    <p class="flex text-sm text-gray-700 space-x-2">
+                        @if($product->availability == 'Available')
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>{{ $product->availability }}</span>
+                        @elseif($product->availability == 'Sold')
+                        <svg class="flex-shrink-0 h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>{{ $product->availability }}</span>
+                        @endif                         
+                    </p>
                 </div>
-            </div>
-    
-            {{-- <form class="mt-6">
-                <!-- Colors -->
-                <div>
-                <h3 class="text-sm text-gray-600">Color</h3>
-    
-                <fieldset class="mt-2">
-                    <legend class="sr-only">Choose a color</legend>
-                    <div class="flex items-center space-x-3">
-                    <!--
-                        Active and Checked: "ring ring-offset-1"
-                        Not Active and Checked: "ring-2"
-                    -->
-                    <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-700">
-                        <input type="radio" name="color-choice" value="Washed Black" class="sr-only" aria-labelledby="color-choice-0-label">
-                        <p id="color-choice-0-label" class="sr-only">Washed Black</p>
-                        <span aria-hidden="true" class="h-8 w-8 bg-gray-700 border border-black border-opacity-10 rounded-full"></span>
-                    </label>
-    
-                    <!--
-                        Active and Checked: "ring ring-offset-1"
-                        Not Active and Checked: "ring-2"
-                    -->
-                    <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-400">
-                        <input type="radio" name="color-choice" value="White" class="sr-only" aria-labelledby="color-choice-1-label">
-                        <p id="color-choice-1-label" class="sr-only">White</p>
-                        <span aria-hidden="true" class="h-8 w-8 bg-white border border-black border-opacity-10 rounded-full"></span>
-                    </label>
-    
-                    <!--
-                        Active and Checked: "ring ring-offset-1"
-                        Not Active and Checked: "ring-2"
-                    -->
-                    <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-500">
-                        <input type="radio" name="color-choice" value="Washed Gray" class="sr-only" aria-labelledby="color-choice-2-label">
-                        <p id="color-choice-2-label" class="sr-only">Washed Gray</p>
-                        <span aria-hidden="true" class="h-8 w-8 bg-gray-500 border border-black border-opacity-10 rounded-full"></span>
-                    </label>
+        
+                <div class="mt-6">        
+                    <div class="text-base text-gray-700 space-y-2">
+                        <h3 class="text-sm text-gray-600">Condition</h3>
+                        <p>{{ $product->condition }}</p>
                     </div>
-                </fieldset>
                 </div>
-    
-                <div class="mt-10 flex sm:flex-col1">
-                <button type="submit" class="max-w-xs flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full">Add to bag</button>
-    
-                <button type="button" class="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500">
-                    <!-- Heroicon name: outline/heart -->
-                    <svg class="h-6 w-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                    <span class="sr-only">Add to favorites</span>
-                </button>
+
+                <div class="mt-6">        
+                    <div class="text-base text-gray-700 space-y-2">
+                        <h3 class="text-sm text-gray-600">Description</h3>
+                        <p>{{ $product->description }}</p>
+                    </div>
                 </div>
-            </form> --}}
+
+                </div>
             </div>
-        </div>
         </div>
     </div>
     

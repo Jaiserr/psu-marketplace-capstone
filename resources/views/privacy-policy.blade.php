@@ -17,7 +17,6 @@
             <h1 class="mt-4"><strong class="text-bold">1.1 Personal Information:</strong> When you register on PSU Marketplace, we may collect personal information, including but not limited to your name, email address, contact details, and payment information.</h1>
             <h1 class="mt-4"><strong class="text-bold">1.2 Transaction Information:</strong> We collect information related to your transactions on PSU Marketplace, including the items you buy or sell, payment details, and other transaction-related information.</h1>
             <h1 class="mt-4"><strong class="text-bold">1.3 User Content:</strong> Any content you post on PSU Marketplace, including reviews, comments, and other user-generated content, may be collected and stored.</h1>
-            <h1 class="mt-4"><strong class="text-bold">1.4 Device Information:</strong> We may collect information about the device you use to access PSU Marketplace, including device type, operating system, and browser information.</h1>
 
             <span class="mt-4 block text-xl text-start leading-8 font-extrabold tracking-tight text-gray-900">2. How We Use Your Information</span>
             <h1 class="mt-4"><strong class="text-bold">2.1 Providing Services:</strong> We use the collected information to provide and improve our services, facilitate transactions, and enhance the user experience on PSU Marketplace.</h1>
@@ -42,7 +41,7 @@
             <span class="mt-4 block text-xl text-start leading-8 font-extrabold tracking-tight text-gray-900">7. Contact Information</span>
             <h1 class="mt-4"><strong class="text-bold">7.1 Questions::</strong> If you have any questions or concerns about our Privacy Policy, please contact us at contact@psumarketplace.com.</h1>
 
-            <span class="mt-4 block text-xl text-start leading-8 font-extrabold tracking-tight text-gray-900">Last updated: November 29,2002</span>
+            <span class="mt-4 block text-xl text-start leading-8 font-extrabold tracking-tight text-gray-900">Last updated: November 29,2023</span>
 
             </h1>
         </div>
