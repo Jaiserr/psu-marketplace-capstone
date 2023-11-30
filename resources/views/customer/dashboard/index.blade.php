@@ -150,7 +150,7 @@
                             networking, and updates. Connect with
                             peers and stay informed."</p>
                         <a href="{{ url('forum') }}"
-                            class="mt-8 w-full block border border-transparent rounded-md py-3 px-8 text-base font-medium text-indigo-700 bg-white hover:bg-indigo-700 hover:text-whitetext-gray-900 hover:bg-gray-100 sm:w-auto">Join
+                            class="mt-8 w-full block border border-transparent rounded-md py-3 px-8 text-base font-medium text-indigo-700 bg-white hover:bg-indigo-700 hover:text-white sm:w-auto">Join
                             now</a>
                     </div>
                 </div>
