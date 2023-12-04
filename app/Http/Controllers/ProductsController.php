@@ -70,12 +70,12 @@ class ProductsController extends Controller
     }
 
     public function indexByCategory($category)
-{
-    $products = Products::where('category', $category)->get();
-    // dd($products);
+    {
+        $products = Products::where('category', $category)->where('availability', 'Available')->where('approved', 1)->get();
+        // dd($products);
 
-    return view('seller.category.products-category', compact('products'));
-}
+        return view('seller.category.products-category', compact('products'));
+    }
 
 
     /**

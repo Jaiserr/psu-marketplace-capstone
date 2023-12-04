@@ -22,10 +22,10 @@ class DashboardController extends Controller
             $products = Products::orderBy('created_at', 'desc')->take(10)->get();
             return view('administrator.dashboard.index', compact('sellers', 'products', 'customers', 'sellersCount', 'productsCount', 'customersCount'));
         } elseif (Auth::user()->hasRole('seller')) {
-            $products = Products::orderBy('created_at', 'desc')->get();
+            $products = Products::where('availability', 'Available')->where('approved', 1)->orderBy('created_at', 'desc')->get();
             return view('seller.dashboard.index', compact('products'));
         }  elseif (Auth::user()->hasRole('customer')) {
-            $products = Products::orderBy('created_at', 'desc')->get();
+            $products = Products::where('availability', 'Available')->where('approved', 1)->orderBy('created_at', 'desc')->get();
             $wishlistItemsCount = auth()->user()->wishlists->count();
             return view('customer.dashboard.index', compact('products', 'wishlistItemsCount'));
         };
@@ -63,6 +63,23 @@ class DashboardController extends Controller
 
 
         return redirect()->back()->with('danger-message', 'Seller Blocked!');
+    }
+
+    public function approveProduct(Request $request)
+    {
+       Products::where('id', $request->id)->update([
+            'approved' => 1,
+        ]);
+        return redirect()->back()->with('success-message', 'Product Approved!');
+    }
+
+    public function blockProduct(Request $request)
+    {
+       Products::where('id', $request->id)->update([
+            'approved' => null,
+        ]);
+
+        return redirect()->back()->with('danger-message', 'Product Blocked!');
     }
 
     public function privacyPolicy() {

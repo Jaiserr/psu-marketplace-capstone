@@ -20,7 +20,13 @@
                         Price
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Availabilty
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Seller
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Status
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Action
@@ -40,7 +46,32 @@
                         {{ $product->price }}
                     </td>
                     <td class="px-6 py-4 font-semibold text-gray-900 ">
+                        {{ $product->availability }}
+                    </td>
+                    <td class="px-6 py-4 font-semibold text-gray-900 ">
                         {{ $product->user->name }}
+                    </td>
+                    <td class="px-6 py-4 font-semibold text-gray-900 ">
+                        @if ($product->approved !== "1")
+                        <form action="{{ route('approve-product') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $product->id }}">
+                            <input type="hidden" name="name" value="{{ $product->name }}">
+                            <button
+                                class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                                Approve
+                            </button>
+                        </form>
+                        @else
+                        <form action="{{ route('block-product') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $product->id }}">
+                            <input type="hidden" name="name" value="{{ $product->name }}">
+                            <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
+                                Block
+                            </button>
+                        </form>
+                        @endif  
                     </td>
                     <td class="px-6 py-4 font-semibold text-gray-900 ">
                         <a href="{{ route('admin-products.edit', $product) }}"

@@ -13,6 +13,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\SellerProfileController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentListController;
 use App\Http\Controllers\WishlistController;
 use App\Models\Products;
@@ -60,12 +61,14 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::post('approve-seller', [DashboardController::class, 'approve'])->name('approve-seller');
     Route::post('block-seller', [DashboardController::class, 'block'])->name('block-seller');
     Route::delete('user-delete/{customer}', [RegisteredUserController::class, 'destroy'])->name('delete-seller');
+    Route::resource('students', StudentController::class);
+    Route::post('approve-product', [DashboardController::class, 'approveProduct'])->name('approve-product');
+    Route::post('block-product', [DashboardController::class, 'blockProduct'])->name('block-product');
 });
 
 // ** Route for superadministrator
 Route::group(['middleware' => ['auth', 'role:superadministrator|seller', 'verified']], function() {
     Route::resource('admin-products', ProductsController::class);
-    Route::get('/student-list', [StudentListController::class, 'index'])->name('student-list');
     Route::get('/sellers', [SellerController::class, 'index'])->name('sellers');
     Route::get('/customers', [CustomerController::class, 'index'])->name('customers');
     Route::get('/products', [ProductController::class, 'index'])->name('products');
