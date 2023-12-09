@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ApprovedSeller;
 use App\Mail\BlockedMail;
+use App\Models\ApprovalNotification;
 use App\Models\Products;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -23,7 +24,9 @@ class DashboardController extends Controller
             return view('administrator.dashboard.index', compact('sellers', 'products', 'customers', 'sellersCount', 'productsCount', 'customersCount'));
         } elseif (Auth::user()->hasRole('seller')) {
             $products = Products::where('availability', 'Available')->where('approved', 1)->orderBy('created_at', 'desc')->get();
-            return view('seller.dashboard.index', compact('products'));
+            $notification = ApprovalNotification::where('user_id', Auth::user()->id)->first();
+
+            return view('seller.dashboard.index', compact('products', 'notification'));
         }  elseif (Auth::user()->hasRole('customer')) {
             $products = Products::where('availability', 'Available')->where('approved', 1)->orderBy('created_at', 'desc')->get();
             $wishlistItemsCount = auth()->user()->wishlists->count();
@@ -35,6 +38,11 @@ class DashboardController extends Controller
     {
        User::where('id', $request->id)->update([
             'approved' => 1,
+        ]);
+
+        $user = User::findOrFail($request->id);
+        $user->approvalNotifications()->create([
+            'message' => 'Your account has been approved.',
         ]);
 
         $data = [
@@ -53,6 +61,9 @@ class DashboardController extends Controller
        User::where('id', $request->id)->update([
             'approved' => null,
         ]);
+
+        $user = User::findOrFail($request->id);
+        $user->approvalNotifications()->where('user_id', $request->id)->delete();
 
         $data = [
             'email' => $request->email,

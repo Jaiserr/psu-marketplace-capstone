@@ -69,4 +69,9 @@ class User extends Authenticatable implements LaratrustUser, MustVerifyEmail
         return $this->hasMany(Reviews::class, 'review_id');
 
     }
+
+    public function approvalNotifications()
+    {
+        return $this->hasMany(ApprovalNotification::class);
+    }
 }

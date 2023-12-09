@@ -1,6 +1,32 @@
 <x-app-layout>
     <div class="bg-white">
 
+        @if ($notification)
+        <div x-data="{ open: localStorage.getItem('alertClosed') !== 'true' }" x-show="open" x-cloak id="alert-1"
+            class="flex items-center p-4 mt-4 mr-4 ml-4 text-white rounded-lg bg-indigo-600" role="alert">
+            <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                viewBox="0 0 20 20">
+                <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <span class="sr-only">Info</span>
+            <div class="ms-3 text-sm font-medium">
+                {{ $notification->message ?? null }}
+
+            </div>
+            <button @click="closeAlert"
+                class="ms-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex items-center justify-center h-8 w-8"
+                aria-label="Close">
+                <span class="sr-only">Close</span>
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+            </button>
+        </div>
+        @endif
+
         <header class="relative overflow-hidden mt-10">
             <div class="relative">
                 <div class="absolute inset-x-0 bottom-0 h-1/2"></div>
@@ -23,7 +49,9 @@
                                 campus life and shop smart at our PSU Marketplace.".
                             </p>
                             <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-                                <a href="{{route('category-products')}}" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-700 hover:text-white sm:px-8">Shop Now</a>                          
+                                <a href="{{route('category-products')}}"
+                                    class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-700 hover:text-white sm:px-8">Shop
+                                    Now</a>
                             </div>
                         </div>
                     </div>
@@ -133,8 +161,7 @@
             <section aria-labelledby="cause-heading">
                 <div class="relative bg-gray-800 py-32 px-6 sm:py-40 sm:px-12 lg:px-16">
                     <div class="absolute inset-0 overflow-hidden">
-                        <img src="{{ asset('forum.png') }}"
-                            alt="" class="w-full h-full object-center object-cover">
+                        <img src="{{ asset('forum.png') }}" alt="" class="w-full h-full object-center object-cover">
                     </div>
                     <div aria-hidden="true" class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
                     <div class="relative max-w-3xl mx-auto flex flex-col items-center text-center">
@@ -157,7 +184,8 @@
                     </div>
                     <div class="mt-8 relative">
                         <div class="relative w-full pb-6 -mb-6 overflow-x-auto">
-                            <ul role="list" class="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0 lg:space-x-0 lg:grid lg:grid-cols-4 lg:gap-x-8">
+                            <ul role="list"
+                                class="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0 lg:space-x-0 lg:grid lg:grid-cols-4 lg:gap-x-8">
                                 @foreach ($products as $product)
                                 @php
                                 $imagePathsArray = explode('|', $product->images);
@@ -166,17 +194,20 @@
                                     <a href="{{ route('product.details', $product->id) }}">
                                         <div class="group relative">
                                             <div class="relative w-full h-72 rounded-lg overflow-hidden">
-                                                <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" class="w-full h-full object-center object-cover group-hover:opacity-75">
+                                                <img src="{{ asset('storage/' . $imagePathsArray[0]) }}"
+                                                    class="w-full h-full object-center object-cover group-hover:opacity-75">
                                             </div>
                                             <div class="absolute m-2 top-0 right-0 bg-white p-2 rounded">
-                                                <span class="text-xs font-bold {{ $product->availability === 'Available' ? 'text-green-500' : 'text-red-500' }}">{{$product->availability }}</span>
+                                                <span
+                                                    class="text-xs font-bold {{ $product->availability === 'Available' ? 'text-green-500' : 'text-red-500' }}">{{$product->availability
+                                                    }}</span>
                                             </div>
                                             <div class="mt-6">
                                                 <p class="text-xs text-gray-500">{{$product->category }}</p>
                                                 <h3 class="mt-1 font-semibold text-gray-900">
                                                     <a href="{{ route('product.details', $product->id) }}">
-                                                    <span class="absolute inset-0"></span>
-                                                    {{ $product->product_name }}
+                                                        <span class="absolute inset-0"></span>
+                                                        {{ $product->product_name }}
                                                     </a>
                                                 </h3>
                                                 <p class="mt-1 text-gray-900">₱{{ $product->price }}</p>
@@ -185,7 +216,8 @@
                                     </a>
                                     <div class="mt-6">
                                         @if ($product->availability === "Available")
-                                        <form class="z-[100]" action="{{ route('wishlist.add', $product) }}" method="POST">
+                                        <form class="z-[100]" action="{{ route('wishlist.add', $product) }}"
+                                            method="POST">
                                             @csrf
                                             <button type="submit"
                                                 class="w-full px-4 py-2 text-xs font-normal text-white bg-blue-400 border border-blue-400 rounded focus:outline-none focus:border-blue-700 hover:bg-blue-600">
@@ -207,19 +239,21 @@
                 </div>
             </div>
         </main>
-        
+
         <section aria-labelledby="sale-heading">
             <div class="pt-32 overflow-hidden sm:pt-14">
                 <div class="bg-yellow-400">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="relative pt-48 pb-16 sm:pb-24">
                             <div>
-                                <h2 id="sale-heading" class="text-3xl font-extrabold tracking-tight text-white md:text-3xl">
+                                <h2 id="sale-heading"
+                                    class="text-3xl font-extrabold tracking-tight text-white md:text-3xl">
                                     "Academic Resource Exchange".
                                 </h2>
                                 <div class="mt-6 text-base">
-                                    <a href="{{ route('products.by.category', 'School Uniforms and Supplies') }}" class="font-semibold text-white">See Products<span
-                                            aria-hidden="true"> &rarr;</span></a>
+                                    <a href="{{ route('products.by.category', 'School Uniforms and Supplies') }}"
+                                        class="font-semibold text-white">See Products<span aria-hidden="true">
+                                            &rarr;</span></a>
                                 </div>
                             </div>
 
@@ -228,41 +262,35 @@
                                     <div class="flex space-x-6 sm:flex-col sm:space-x-0 sm:space-y-6 lg:space-y-8">
                                         <div class="flex-shrink-0">
                                             <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                                src="{{ asset('end-section/book2.jpg')}}"
-                                                alt="">
+                                                src="{{ asset('end-section/book2.jpg')}}" alt="">
                                         </div>
 
                                         <div class="mt-6 flex-shrink-0 sm:mt-0">
                                             <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                            src="{{ asset('end-section/book4.jpg')}}"
-                                                alt="">
+                                                src="{{ asset('end-section/book4.jpg')}}" alt="">
                                         </div>
                                     </div>
                                     <div
                                         class="flex space-x-6 sm:-mt-20 sm:flex-col sm:space-x-0 sm:space-y-6 lg:space-y-8">
                                         <div class="flex-shrink-0">
                                             <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                            src="{{ asset('end-section/book3.jpg')}}"
-                                                alt="">
+                                                src="{{ asset('end-section/book3.jpg')}}" alt="">
                                         </div>
 
                                         <div class="mt-6 flex-shrink-0 sm:mt-0">
                                             <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                            src="{{ asset('end-section/book4.jpg')}}"
-                                                alt="">
+                                                src="{{ asset('end-section/book4.jpg')}}" alt="">
                                         </div>
                                     </div>
                                     <div class="flex space-x-6 sm:flex-col sm:space-x-0 sm:space-y-6 lg:space-y-8">
                                         <div class="flex-shrink-0">
                                             <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                            src="{{ asset('end-section/book1.jpg')}}"                                            
-                                            alt="">
+                                                src="{{ asset('end-section/book1.jpg')}}" alt="">
                                         </div>
 
                                         <div class="mt-6 flex-shrink-0 sm:mt-0">
                                             <img class="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                                            src="{{ asset('end-section/book1.jpg')}}"                                            
-                                            alt="">
+                                                src="{{ asset('end-section/book1.jpg')}}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -275,3 +303,10 @@
 
     </div>
 </x-app-layout>
+
+<script>
+    function closeAlert() {
+        localStorage.setItem('alertClosed', 'true');
+        document.getElementById('alert-1').style.display = 'none';
+    }
+</script>

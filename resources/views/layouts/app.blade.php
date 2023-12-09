@@ -11,6 +11,12 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link href="{{ url('favicon.png') }}" rel="icon">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="font-sans antialiased">
@@ -26,4 +32,5 @@
 </body>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </html>
