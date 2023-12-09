@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\NewSellerNotification;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -52,6 +54,13 @@ class RegisteredUserController extends Controller
             'campus_role' => $request->campus_role,
         ]);
         $user->addRole($request->role_id);
+
+
+        if ($request->role_id === "seller") {
+            // If the registered user has the role of a seller, notify the admin
+            $admin = User::where('id', 2)->get();
+            Notification::send($admin, new NewSellerNotification($user));
+        }
 
         event(new Registered($user));
 

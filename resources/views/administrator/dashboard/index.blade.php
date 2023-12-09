@@ -63,7 +63,7 @@
                         <thead class="text-xs text-white uppercase  bg-indigo-700">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
-                                    
+
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Name
@@ -91,9 +91,9 @@
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
                                     <a href="{{ $seller->image ? asset('storage/' . $seller->image) : asset('profile-empty.png') }}"
                                         target="_blank" rel="noopener noreferrer">
-                                         <img class="h-12 w-12 rounded-full"
-                                              src="{{ $seller->image ? asset('storage/' . $seller->image) : asset('profile-empty.png') }}"
-                                        alt="">
+                                        <img class="h-12 w-12 rounded-full"
+                                            src="{{ $seller->image ? asset('storage/' . $seller->image) : asset('profile-empty.png') }}"
+                                            alt="">
                                     </a>
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 ">
