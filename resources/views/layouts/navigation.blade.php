@@ -147,7 +147,39 @@
                             d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                     </svg>
                 </a>
+                <div class="flex items-center ml-4">
+                    <x-dropdown align="right" width="80">
+                        <x-slot name="trigger">
+                            <div class="flex items-center gap-1">
+                                <button type="button"
+                                    class="bg-indigo-700 rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" class="stroke-white w-8 h-8">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                        </x-slot>
+
+                        <x-slot name="content">
+                            @if ($notifications)
+                            @foreach($notifications as $notification_approval)
+                            <div class="alert alert-info px-4 py-2">
+                                <span class="text-sm text-black">
+                                    {{ $notification_approval->message ?? null }}
+                                </span>
+                            </div>
+                            @endforeach
+                            @endif
+
+                        </x-slot>
+                    </x-dropdown>
+                </div>
             </div>
+
             @endrole
             @role('superadministrator')
             <div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
@@ -178,11 +210,11 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-
             @endrole
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <div class="flex items-center gap-1">

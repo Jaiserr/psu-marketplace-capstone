@@ -24,9 +24,7 @@ class DashboardController extends Controller
             return view('administrator.dashboard.index', compact('sellers', 'products', 'customers', 'sellersCount', 'productsCount', 'customersCount'));
         } elseif (Auth::user()->hasRole('seller')) {
             $products = Products::where('availability', 'Available')->where('approved', 1)->orderBy('created_at', 'desc')->get();
-            $notification = ApprovalNotification::where('user_id', Auth::user()->id)->first();
-
-            return view('seller.dashboard.index', compact('products', 'notification'));
+            return view('seller.dashboard.index', compact('products'));
         }  elseif (Auth::user()->hasRole('customer')) {
             $products = Products::where('availability', 'Available')->where('approved', 1)->orderBy('created_at', 'desc')->get();
             $wishlistItemsCount = auth()->user()->wishlists->count();
