@@ -79,6 +79,13 @@ class DashboardController extends Controller
        Products::where('id', $request->id)->update([
             'approved' => 1,
         ]);
+
+        $user_id = Products::where('id', $request->id)->value('user_id');
+        $user = User::findOrFail($user_id);
+        $user->approvalNotifications()->create([
+            'message' => 'Your product has been approved.',
+        ]);
+
         return redirect()->back()->with('success-message', 'Product Approved!');
     }
 
@@ -87,6 +94,11 @@ class DashboardController extends Controller
        Products::where('id', $request->id)->update([
             'approved' => null,
         ]);
+
+
+        $user_id = Products::where('id', $request->id)->value('user_id');
+        $user = User::findOrFail($user_id);
+        $user->approvalNotifications()->where('user_id', $user_id)->delete();
 
         return redirect()->back()->with('danger-message', 'Product Blocked!');
     }
