@@ -142,6 +142,10 @@
                                         class="ml-4 font-medium text-indigo-600 dark:text-indigo-500 hover:underline">
                                         More
                                     </a>
+                                    <a href="{{ route('sales.show', $seller->id) }}"
+                                        class="ml-4 font-medium text-indigo-600 dark:text-indigo-500 hover:underline">
+                                        View Sales
+                                    </a>
                                     <form class="inline" method="POST" action="{{ route('delete-seller', $seller) }}">
                                         @csrf
                                         @method('delete')

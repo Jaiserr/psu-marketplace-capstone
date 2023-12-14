@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\SellerProfileController;
 use App\Http\Controllers\StudentController;
@@ -64,6 +65,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::resource('students', StudentController::class);
     Route::post('approve-product', [DashboardController::class, 'approveProduct'])->name('approve-product');
     Route::post('block-product', [DashboardController::class, 'blockProduct'])->name('block-product');
+    Route::get('sales/{id}', [SalesController::class, 'show'])->name("sales.show");
 });
 
 // ** Route for superadministrator
