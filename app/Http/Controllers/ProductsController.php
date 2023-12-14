@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductCreationNotification;
 use App\Models\Products;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,6 +66,12 @@ class ProductsController extends Controller
             'availability' => $request->availability,
             'details' => $request->details,
             'images' => implode('|', $_multiple_images_),
+        ]);
+
+        ProductCreationNotification::create([
+            'user_id' => 2,
+            'message' => 'created new product.',
+            'seller_name' => Auth::user()->name,
         ]);
 
         return redirect(route('admin-products.index'))->with('success-message', 'Product added successfully!');

@@ -207,6 +207,19 @@
                                 }}</span>
                         </div>
                         @endforeach
+
+
+
+                        @if ($newProductNotifications)
+                        @foreach ($newProductNotifications as $newProductNotification)
+
+                        <div class="alert alert-info px-4 py-2">
+                            <span class="text-sm">
+                                {{ $newProductNotification->seller_name }} {{ $newProductNotification->message }}
+                            </span>
+                        </div>
+                        @endforeach
+                        @endif
                     </x-slot>
                 </x-dropdown>
             </div>
