@@ -1,6 +1,4 @@
 <x-app-layout>
-    <div class="py-4">
-        <div class="max-w-7xl mx-auto px-3 lg:px-8">
             <div class="h-full flex">
                 <div class="flex flex-col min-w-0 flex-1 overflow-hidden">
                     <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2">
@@ -106,7 +104,7 @@
                         <main class="flex-1 relative z-0  overflow-y-auto focus:outline-none xl:order-last rounded">
                             <article x-data="{ activeTab: 'tab1' }">
                                 <!-- Tabs -->
-                                <div class="mt-6 mb-3 sm:mt-2 2xl:mt-5 shadow bg-indigo-700 rounded-lg  ">
+                                <div class="mt-6 mb-8 sm:mt-2 2xl:mt-5 shadow bg-gray-800 rounded-lg  ">
                                     <div class="border-gray-200">
                                         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                                             <nav class="-mb-px flex justify-center space-x-8" aria-label="Tabs">
@@ -114,7 +112,7 @@
                                                 <a href="#" @click="activeTab = 'tab1'"
                                                     :class="{ 'border-b-2 border-white': activeTab === 'tab1' }"
                                                     class=" border-white py-4 text-white" aria-current="page">
-                                                    Products
+                                                    Items
                                                 </a>
                                                 <a href="#" @click="activeTab = 'tab2'"
                                                     :class="{ 'border-b-2 border-white': activeTab === 'tab2' }"
@@ -202,9 +200,6 @@
                 </div>
 
             </div>
-        </div>
-    </div>
-
 </x-app-layout>
 
 

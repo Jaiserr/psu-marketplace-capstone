@@ -1,80 +1,13 @@
 <x-app-layout>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center mt-10 justify-between">
-                <div class="min-w-0 flex-1">
-                    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-                        Registered Customers
-                    </h2>
-                </div>
-            </div>
-            <div class="mt-4">
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-white uppercase  bg-indigo-700">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Name
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Email Address
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Address
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Phone Number
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Action
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($customers as $customer)
-                            <tr class="bg-white border-b  hover:bg-gray-50 ">
-                                <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    <a href="{{ $customer->image ? asset('storage/' . $customer->image) : asset('profile-empty.png') }}"
-                                        target="_blank" rel="noopener noreferrer">
-                                         <img class="h-12 w-12 rounded-full"
-                                              src="{{ $customer->image ? asset('storage/' . $customer->image) : asset('profile-empty.png') }}"
-                                        alt="">
-                                    </a>
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    {{ $customer->name }}
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    {{ $customer->email }}
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    {{ $customer->customer_address }}
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    {{ $customer->phone_number }}
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 ">
-                                    <form class="inline" method="POST" action="{{ route('delete-seller', $customer) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="ml-4 font-medium text-red-600 dark:text-red-500 hover:underline">
-                                            Delete User
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <div class="flex items-center justify-between mb-4">
+        <div class="min-w-0 flex-1">
+            <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+                Registered Customers
+            </h2>
         </div>
     </div>
-    <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-        <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+    <div class="bg-white dark:bg-gray-800 relative shadow-lg rounded-lg overflow-hidden">
+        {{-- <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
             <div class="w-full md:w-1/2">
                 <form class="flex items-center">
                     <label for="simple-search" class="sr-only">Search</label>
@@ -148,49 +81,48 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="overflow-x-auto">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <thead class="text-xs text-white uppercase bg-gray-400 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-4 py-3">Product name</th>
-                        <th scope="col" class="px-4 py-3">Category</th>
-                        <th scope="col" class="px-4 py-3">Brand</th>
-                        <th scope="col" class="px-4 py-3">Description</th>
-                        <th scope="col" class="px-4 py-3">Price</th>
-                        <th scope="col" class="px-4 py-3">
-                            <span class="sr-only">Actions</span>
+                        <th scope="col" class="px-4 py-3"></th>
+                        <th scope="col" class="px-4 py-3">Name</th>
+                        <th scope="col" class="px-4 py-3">Email</th>
+                        <th scope="col" class="px-4 py-3">Address</th>
+                        <th scope="col" class="px-4 py-3">Phone Number</th>
+                        <th scope="col" class="px-4 py-3">Actions</span>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($customers as $customer)
                     <tr class="border-b dark:border-gray-700">
-                        <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Apple iMac 27&#34;</th>
-                        <td class="px-4 py-3">PC</td>
-                        <td class="px-4 py-3">Apple</td>
-                        <td class="px-4 py-3">300</td>
-                        <td class="px-4 py-3">$2999</td>
-                        <td class="px-4 py-3 flex items-center justify-end">
-                            <button id="apple-imac-27-dropdown-button" data-dropdown-toggle="apple-imac-27-dropdown" class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" type="button">
-                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                </svg>
-                            </button>
-                            <div id="apple-imac-27-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="apple-imac-27-dropdown-button">
-                                    <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                                    </li>
-                                </ul>
-                                <div class="py-1">
-                                    <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-                                </div>
-                            </div>
+                        <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <a href="{{ $customer->image ? asset('storage/' . $customer->image) : asset('profile-empty.png') }}"
+                                target="_blank" rel="noopener noreferrer">
+                                 <img class="h-12 w-12 rounded-full"
+                                      src="{{ $customer->image ? asset('storage/' . $customer->image) : asset('profile-empty.png') }}"
+                                alt="">
+                            </a>
+                        </th>
+                        <td class="px-4 py-3">{{ $customer->name }}</td>
+                        <td class="px-4 py-3">{{ $customer->email }}</td>
+                        <td class="px-4 py-3">{{ $customer->customer_address }}</td>
+                        <td class="px-4 py-3">{{ $customer->phone_number }}</td>
+                        <td class="px-4 py-3 flex items-end">
+                            <form class="inline" method="POST" action="{{ route('delete-seller', $customer) }}">
+                                @csrf
+                                @method('delete')
+                                <button class="inline-flex items-center px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded-lg text-white">
+                                    <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z"/>
+                                    </svg>
+                                </button>
+                            </form>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

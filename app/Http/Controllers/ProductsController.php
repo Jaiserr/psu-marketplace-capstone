@@ -84,7 +84,7 @@ class ProductsController extends Controller
         $products = Products::where('category', $category)->where('availability', 'Available')->where('approved', 1)->get();
         // dd($products);
 
-        return view('seller.category.products-category', compact('products'));
+        return view('seller.category.products-category', compact('products','category'));
     }
 
 
@@ -103,8 +103,9 @@ class ProductsController extends Controller
     public function productDetails($id)
     {
         $product = Products::findOrFail($id);
+        $similarProducts = Products::where('category', $product->category)->where('id', '!=', $product->id)->where('approved', 1)->limit(6)->get();
 
-        return view('customer.products.products-details', compact('product'));
+        return view('customer.products.products-details', compact('product','similarProducts'));
     }
 
     /**

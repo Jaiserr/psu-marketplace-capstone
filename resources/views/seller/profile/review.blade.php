@@ -1,6 +1,5 @@
 
 <div x-show="activeTab === 'tab2'" class="bg-white">
-    <div class="py-8 lg:max-w-7xl lg:mx-auto">
         <div class="px-4 flex items-center justify-between sm:px-6 lg:px-0">
             <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Recent Reviews</h2>
         </div>
@@ -44,5 +43,4 @@
             <!-- More reviews... -->
         </div>
         @endforeach
-    </div>
 </div>

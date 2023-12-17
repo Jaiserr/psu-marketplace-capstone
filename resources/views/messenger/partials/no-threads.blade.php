@@ -1,1 +1,1 @@
-<span class="block w-full p-2 mb-4 text-blue-800 bg-blue-300">You have no messages.</span>
+<span class="block w-full rounded p-2 mb-4 text-white bg-blue-700">You have no messages.</span>

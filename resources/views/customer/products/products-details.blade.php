@@ -1,139 +1,157 @@
 <x-app-layout>
-    <div class="bg-white">
-        <nav class="flex pl-5 pt-5 lg:max-w-7xl lg:mx-auto lg:px-8" aria-label="Breadcrumb">
-            <ol role="list" class="bg-white rounded-md shadow px-6 flex space-x-4">
-                <li class="flex">
-                    <div class="flex items-center">
-                        <a href="{{ url('/dashboard') }}" class="text-gray-400 hover:text-gray-500">
-                            <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                            </svg>
-                            <span class="sr-only">Home</span>
-                        </a>
-                    </div>
-                </li>
-          
-                <li class="flex">
-                    <div class="flex items-center">
-                        <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
-                        </svg>
-                        <a href="{{ route('category-products') }}" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Categories</a>
-                    </div>
-                </li>
-                <li class="flex">
-                    <div class="flex items-center">
-                    <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
-                    </svg>
-                    <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Product</a>
-                    </div>
-                </li>
-            </ol>
-        </nav>
-        <div class="max-w-2xl mx-auto py-8 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="bg-white mb-8 border-b border-gray-200">
+        <div class="max-w-2xl mx-auto lg:max-w-7xl">
             <div class="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
-                <div class="flex flex-col-reverse">
+                <div class="flex flex-col-reverse relative mb-4">
                     @php
                     $imagePathsArray = explode('|', $product->images);
                     @endphp
                 
-                    <div class="carousel-container">
+                    <div class="carousel-container relative">
                         <div class="carousel-wrapper">
                             @foreach ($imagePathsArray as $image)
-                                <div class="carousel-slide">
+                                <div class="carousel-slide relative">
                                     <img src="{{ asset('storage/' . $image) }}" alt="Angled front view with bag zipped and handles upright." class="rounded-lg object-cover w-full h-[35rem]">
                                 </div>
                             @endforeach
                         </div>
-                        <div class="flex justify-between mt-5">
-                            <button onclick="changeSlide(-1)" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-16 rounded-lg">
-                            Prev
+                        <div class="absolute top-1/2 left-5 transform -translate-y-1/2">
+                            <button onclick="changeSlide(-1)">
+                                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 10 16">
+                                    <path d="M8.766.566A2 2 0 0 0 6.586 1L1 6.586a2 2 0 0 0 0 2.828L6.586 15A2 2 0 0 0 10 13.586V2.414A2 2 0 0 0 8.766.566Z"/>
+                                </svg>
                             </button>
-                            <button onclick="changeSlide(1)" class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-16 rounded-lg">
-                            Next
+                        </div>
+                        <div class="absolute top-1/2 right-5 transform -translate-y-1/2">
+                            <button onclick="changeSlide(1)">
+                                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 10 16">
+                                    <path d="M3.414 1A2 2 0 0 0 0 2.414v11.172A2 2 0 0 0 3.414 15L9 9.414a2 2 0 0 0 0-2.828L3.414 1Z"/>
+                                </svg>
                             </button>
-                        </div>              
+                        </div>
                     </div>
                 </div>
-                <div class="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-                    <h3 class="text-sm text-gray-600">{{ $product->category }}</h3>
-                <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">{{ $product->product_name }}</h1>       
-                <div class="mt-3">
-                    <h2 class="sr-only">Product information</h2>
-                    <p class="text-3xl text-gray-900">₱{{ $product->price }}</p>
-                </div>
-                <div class="mt-3">
-                    <p class="flex text-sm text-gray-700 space-x-2">
-                        @if($product->availability == 'Available')
-                            <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span>{{ $product->availability }}</span>
-                        @elseif($product->availability == 'Sold')
-                            <svg class="flex-shrink-0 h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span>{{ $product->availability }}</span>
-                        @endif                         
-                    </p>
-                </div>      
-                <div class="mt-6">        
-                    <div class="text-base text-gray-700 space-y-2">
-                        <h3 class="text-sm text-gray-600">Condition</h3>
-                        <p>{{ $product->condition }}</p>
+                <div class="bg-gray-800 rounded-lg px-4 py-6 sm:mt-16 lg:mt-0">
+                    <div class="flex justify-between">
+                       <h1 class="text-3xl font-extrabold tracking-tight text-white">{{ $product->product_name }}</h1>
+                        <form action="{{ route('wishlist.add', $product) }}"
+                        method="POST">
+                        @csrf
+                        <button type="submit">
+                        <svg class="w-10 h-10 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
+                            <path d="M13 20a1 1 0 0 1-.64-.231L7 15.3l-5.36 4.469A1 1 0 0 1 0 19V2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1Z"/>
+                        </svg>
+                        </button>
+                        </form> 
                     </div>
-                </div>
-                <div class="mt-6">        
-                    <div class="text-base text-gray-700 space-y-2">
-                        <h3 class="text-sm text-gray-600">Description</h3>
-                        <p>{{ $product->details }}</p>
+                    
+                        <h3 class="text-sm text-white">{{ $product->category }}</h3>    
+                    <div class="mt-3">
+                        <h2 class="sr-only">Product information</h2>
+                        <p class="text-3xl text-white">₱{{ $product->price }}</p>
                     </div>
-                </div>       
-                <section aria-labelledby="details-heading" class="mt-12">
-                    <h2 id="details-heading" class="sr-only">Additional details</h2>        
-                    <div class="divide-y divide-gray-200">
-                        <div>                        
-                            <h3 class="mb-3">
-                                <span class="text-gray-900 text-sm font-medium"> Meet the seller </span>
-                                <span class="ml-6 flex items-center"></span>
-                            </h3>
-                            <div class="pb-6 prose prose-sm" id="disclosure-1">
-                                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                                    <div class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                    <div class="flex-shrink-0">
-                                        <img class="h-10 w-10 rounded-full" src="{{ $product->user->image ? asset('storage/' . $product->user->image) : asset('profile-empty.png') }}" alt="">
-                                    </div>
-                                    <div class="flex-1 min-w-0">
-                                        <a href="{{ route('seller-profile.show',$product->user->id ) }}" class="focus:outline-none">
-                                        <span class="absolute inset-0" aria-hidden="true"></span>
-                                        <p class="text-sm font-medium text-gray-900">{{ $product->user->name }}</p>
-                                        <p class="text-sm text-gray-500 truncate">{{ $product->user->email }}</p>
-                                        </a>
-                                    </div>
-                                    </div>
-                                    <div class="relative rounded-lg border border-gray-300 bg-blue-400 px-6 py-5 shadow-sm mx-auto flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                    <div class="mt-3">
+                        <p class="flex text-sm text-white space-x-2">
+                            @if($product->availability == 'Available')
+                                <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>{{ $product->availability }}</span>
+                            @elseif($product->availability == 'Sold')
+                                <svg class="flex-shrink-0 h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>{{ $product->availability }}</span>
+                            @endif                         
+                        </p>
+                    </div>      
+                    <div class="mt-6">        
+                        <div class="text-base text-white space-y-2">
+                            <h3 class="text-sm text-white">Condition</h3>
+                            <p>{{ $product->condition }}</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">        
+                        <div class="text-base text-white space-y-2">
+                            <h3 class="text-sm text-white">Description</h3>
+                            <p>{{ $product->details }}</p>
+                        </div>
+                    </div>       
+                    <section aria-labelledby="details-heading" class="mt-12">
+                        <h2 id="details-heading" class="sr-only">Additional details</h2>        
+                        <div class="divide-y divide-gray-200">
+                            <div>                        
+                                <h3 class="mb-3">
+                                    <span class="text-white text-sm font-medium"> Meet the seller </span>
+                                    <span class="ml-6 flex items-center"></span>
+                                </h3>
+                                <div class="pb-6 prose prose-sm" id="disclosure-1">
+                                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                        <div class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                         <div class="flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white">
-                                                <path fill-rule="evenodd" d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z" clip-rule="evenodd" />
-                                            </svg>  
+                                            <img class="h-10 w-10 rounded-full" src="{{ $product->user->image ? asset('storage/' . $product->user->image) : asset('profile-empty.png') }}" alt="">
                                         </div>
                                         <div class="flex-1 min-w-0">
-                                        <a href="{{ route('messages.create', $product) }}" class="focus:outline-none">
+                                            <a href="{{ route('seller-profile.show',$product->user->id ) }}" class="focus:outline-none">
                                             <span class="absolute inset-0" aria-hidden="true"></span>
-                                            <p class="text-sm font-medium text-white">Make an offer</p>
-                                        </a>
+                                            <p class="text-sm font-medium text-gray-900">{{ $product->user->name }}</p>
+                                            <p class="text-sm text-gray-500 truncate">{{ $product->user->email }}</p>
+                                            </a>
+                                        </div>
+                                        </div>
+                                        <div>
+                                            <a href="{{ route('messages.create', $product) }}" class="focus:outline-none">
+                                                <svg class="w-16 h-16 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M20 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2v4a1 1 0 0 0 1.707.707L12.414 16H20a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM7.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/>
+                                                  </svg> 
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
                 </div>
             </div>
         </div>
-    </div>            
+    </div>
+    <div class="bg-white">
+        <div class="overflow-hidden mb-8 border-b border-gray-200">
+            <div class="px-2 flex justify-between">
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Simmilar Items</h2>
+            </div>
+          <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
+            @foreach ($similarProducts as $product)
+            @php
+            $imagePathsArray = explode('|', $product->images);
+            @endphp
+            <div class="group relative p-2">
+                
+              <div class="relative w-full h-72 rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
+                <a href="{{ route('product.details', $product->id) }}">
+                    <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="TODO" class="w-full h-full object-center object-cover">
+                </a>
+                </div>
+                <div class="pt-5 text-start">
+                    <h3 class="text-sm font-medium text-gray-900">
+                        <a href="{{ route('product.details', $product->id) }}">
+                            <span aria-hidden="true" class="absolute inset-0"></span>
+                                {{ $product->product_name }}
+                        </a>
+                    </h3>
+                    <div class="flex flex-col items-start">
+                        <p class="text-sm text-gray-500">{{ $product->category }}</p>
+                    </div>
+                    <div class="flex flex-col items-start">
+                        <p class="text-sm text-gray-500">{{ $product->condition }}</p>
+                    </div>
+                    <p class="text-base font-medium text-gray-900">₱{{ $product->price }}</p>
+                </div>
+            </div>
+            @endforeach
+          </div>
+        </div>
+    </div>         
 </x-app-layout>
 
 <script>
