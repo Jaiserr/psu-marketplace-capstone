@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryProductsController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductsController;
@@ -42,6 +43,7 @@ Route::get('/privacy-policy', [DashboardController::class, 'privacyPolicy'])->na
 Route::get('/terms-and-conditions', [DashboardController::class, 'termsAndConditions'])->name('terms-and-conditions');
 Route::post('/contact-us', [ContactUsController::class, 'submitForm']);
 Route::get('/category-products', [CategoryProductsController::class, 'index'])->name('category-products');
+Route::get('/academic-resource-exchange-products', [ExchangeController::class, 'index'])->name('exchange');
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

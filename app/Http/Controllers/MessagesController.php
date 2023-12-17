@@ -30,6 +30,8 @@ class MessagesController extends Controller
                 return $value->messages_count == 1 && $value->creator() == Auth::user();
             });
 
+            // $totalMessageCount = Message::forUser(Auth::id())->count();
+
         return view('messenger.index', compact('threads'));
     }
 

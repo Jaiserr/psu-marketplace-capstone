@@ -10,7 +10,8 @@ class WishlistController extends Controller
 
     public function index() {
         $wishlistItems = auth()->user()->wishlists;
-        return view('customer.wishlist.index', compact('wishlistItems'));
+        $wishlistCount = auth()->user()->wishlists->count();
+        return view('customer.wishlist.index', compact('wishlistItems', 'wishlistCount'));
     }
 
         public function addToWishlist(Products $product)

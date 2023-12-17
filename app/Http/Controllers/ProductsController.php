@@ -46,6 +46,7 @@ class ProductsController extends Controller
             'availability' => 'required',
             'images' => ['required'],
             'details' => 'nullable',
+            'exchange' => 'required',
         ]);
 
 
@@ -66,6 +67,7 @@ class ProductsController extends Controller
             'availability' => $request->availability,
             'details' => $request->details,
             'images' => implode('|', $_multiple_images_),
+            'exchange' => $request->exchange,
         ]);
 
         ProductCreationNotification::create([
@@ -129,6 +131,7 @@ class ProductsController extends Controller
             'availability' => 'required',
             'images' => ['nullable'],
             'details' => ['nullable'],
+            'exchange' => 'required',
         ]);
 
         if($request->hasfile('images')){
@@ -150,6 +153,7 @@ class ProductsController extends Controller
             'availability' => $request->availability,
             'details' => $request->details,
             'images' => implode('|', $_multiple_images_),
+            'exchange' => $request->exchange,
         ]);
 
         return redirect(route('admin-products.index'))->with('success-message', 'Product updated successfuly!');

@@ -19,6 +19,7 @@ class Products extends Model
         'availability',
         'images',
         'details',
+        'exchange',
     ];
 
     public function user() {

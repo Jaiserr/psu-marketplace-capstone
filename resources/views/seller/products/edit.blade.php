@@ -39,8 +39,8 @@
                                                 <option {{ old('category', $product->category) === "Computer & Techs" ?
                                                     'selected' : '' }}
                                                     value="Computer & Techs">Computer & Techs</option>
-                                                <option value="School Uniforms and Supplies" {{ old('category',
-                                                    $product->category) === "School Uniforms and Supplies" ?
+                                                <option value="School Uniforms & Supplies" {{ old('category',
+                                                    $product->category) === "School Uniforms & Supplies" ?
                                                     'selected' : '' }}
                                                     >School Uniforms and
                                                     Supplies</option>
@@ -55,7 +55,7 @@
                                                     'selected' : '' }} value="Home Appliances">Home Appliances</option>
                                                 <option {{ old('category', $product->category) === "Sports Equipment" ?
                                                     'selected' : '' }} value="Sports Equipment">Sports Equipment</option>
-                                                <option {{ old('category', $product->category) === "Toys and Games" ?
+                                                <option {{ old('category', $product->category) === "Toys & Games" ?
                                                     'selected' : '' }} value="Toys and Games">Toys and Games</option>
                                                 <option {{ old('category', $product->category) === "Furniture & Home Living" ?
                                                     'selected' : '' }} value="Furniture & Home Living">Furniture & Home Living</option>
@@ -112,8 +112,75 @@
                                             <x-input-error :messages="$errors->get('condition')" class="mt-2" />
                                         </div>
                                     </div>
+                                    <div class="w-full px-4 mb-6 lg:w-2/4">
+                                        <label for="condition" class="block mb-2 text-sm font-medium text-white">
+                                            Condition
+                                        </label>
+                                        <div class="relative">
+                                            <select id="condition"
+                                                class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded appearance-none"
+                                                name="condition">
+                                                <option value="" disabled selected>Select</option>
+                                                <option {{ old('condition', $product->condition) === "New"
+                                                    ?
+                                                    'selected' : '' }}
+                                                    value="New">New</option>
+                                                <option {{ old('condition', $product->condition) === "Used (Like new)"
+                                                    ?
+                                                    'selected' : '' }}
+                                                    value="Used (Like new)">Used (Like new)</option>
+                                                <option {{ old('condition', $product->condition) === "Used (Good)"
+                                                    ?
+                                                    'selected' : '' }}
+                                                    value="Used (Good)">Used (Good)</option>
+                                                <option {{ old('condition', $product->condition) === "Used (Fair)"
+                                                    ?
+                                                    'selected' : '' }}
+                                                    value="Used (Fair)">Used (Fair)</option>
+                                            </select>
+                                            <div
+                                                class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 pointer-events-none">
+                                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                            <x-input-error :messages="$errors->get('condition')" class="mt-2" />
+                                        </div>
+                                    </div>
+                                    <div class="w-full px-4 mb-6 lg:w-2/4">
+                                        <label for="exchange" class="block mb-2 text-sm font-medium text-white">
+                                            List as Academic Resource Exchange
+                                        </label>
+                                        <div class="relative">
+                                            <select id="exchange"
+                                                class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded appearance-none"
+                                                name="exchange">
+                                                <option value="" disabled selected>Select</option>
+                                                <option {{ old('exchange', $product->exchange) === "Yes"
+                                                    ?
+                                                    'selected' : '' }}
+                                                    value="Yes">Yes</option>
+                                                <option {{ old('exchange', $product->exchange) === "No"
+                                                    ?
+                                                    'selected' : '' }}
+                                                    value="No">No</option>
+                                            </select>
+                                            <div
+                                                class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 pointer-events-none">
+                                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                            <x-input-error :messages="$errors->get('condition')" class="mt-2" />
+                                        </div>
+                                    </div>
                                 </div>
-
                                 <div class="flex flex-wrap items-center">
                                     <div class="w-full px-4 mb-6 lg:w-2/4">
                                         <label for="price" class="block mb-2 text-sm font-medium text-white"> Product

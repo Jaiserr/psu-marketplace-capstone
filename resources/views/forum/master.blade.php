@@ -43,30 +43,30 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.23.2/vuedraggable.umd.min.js"></script>
 </head>
 <body class="bg-gray-100">
-    <nav x-data="{ open: false }" class="bg-indigo-700 border-b border-gray-100">
-        <!-- Primary Navigation Menu -->
+    {{-- <nav x-data="{ open: false }" class="bg-indigo-700 border-b border-gray-100">
+        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex">
-                    <!-- Logo -->
+                    
                     <div class="shrink-0 flex items-center">
                         <a href="{{ url(config('forum.web.router.prefix')) }}">
                             <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                         </a>
                     </div>
     
-                    <!-- Navigation Links -->
+                  
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('forum.recent')" :active="request()->routeIs('forum.recent')">
                             {{ trans('forum::threads.recent') }}
                         </x-nav-link>
-                        {{-- @can ('moveCategories')  --}}
+                        
                         @role('superadministrator')
                         <x-nav-link :href="route('forum.category.manage')" :active="request()->routeIs('forum.category.manage')">
                             {{ trans('forum::general.manage') }}
                         </x-nav-link>
                         @endrole
-                        {{-- @endcan --}}
+                       
                     </div>
                 </div>
                 <div class="flex items-center justify-end md:flex-1 lg:w-0">
@@ -119,34 +119,11 @@
                 </x-responsive-nav-link>
                 @endcan
             </div>
-    
-            <!-- Responsive Settings Options -->
-            {{-- <div class="pt-4 pb-1 border-t border-gray-200">
-                <div class="px-4">
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                </div>
-    
-                <div class="mt-3 space-y-1">
-                    <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
-                    </x-responsive-nav-link>
-    
-                    <!-- Authentication -->
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-    
-                        <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
-                                            this.closest('form').submit();">
-                            {{ __('Log Out') }}
-                        </x-responsive-nav-link>
-                    </form>
-                </div>
-            </div> --}}
         </div>
-    </nav>
-
-    <div id="main" class="container mx-auto p-4">
+    </nav> --}}
+    @include('layouts.navbar')
+    @include('layouts.sidebar')
+    <div class="p-4 md:ml-64 h-auto pt-20">
         {{-- @include('forum.partials.breadcrumbs') --}}
         @include('forum.partials.alerts')
 

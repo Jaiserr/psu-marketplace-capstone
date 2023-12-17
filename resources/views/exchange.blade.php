@@ -2,10 +2,10 @@
     <div class="bg-white">
         <div class="overflow-hidden mb-4 border-b border-gray-200">
             <div class="pl-2">
-                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Search Results for "<strong class="text-blue-500">{{ $query }}</strong>"</h2>
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Academic Resource Exchange Items</h2>
             </div>      
             <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
-                @foreach ($results as $product)
+                @foreach ($productsExchange as $product)
                 @php
                 $imagePathsArray = explode('|', $product->images);
                 @endphp

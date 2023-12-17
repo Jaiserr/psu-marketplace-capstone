@@ -1,7 +1,402 @@
 <x-app-layout>
     <div class="bg-white">
+        <div class="overflow-hidden mb-8 border-b border-gray-200">
+            <div class="px-2 flex justify-between">
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Newly Added Items</h2>
+            </div>
+          <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
+            @foreach ($products as $product)
+            @php
+            $imagePathsArray = explode('|', $product->images);
+            @endphp
+            <div class="group relative p-2">
+                
+              <div class="relative w-full h-72 rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
+                <a href="{{ route('product.details', $product->id) }}">
+                <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="TODO" class="w-full h-full object-center object-cover">
+                </a>
+              </div>
+              <div class="pt-5 text-start">
+                <div class="flex justify-between">
+                <h3 class="text-sm font-medium text-gray-900">
+                  <a href="{{ route('product.details', $product->id) }}">
+                    <span aria-hidden="true" class="absolute inset-0"></span>
+                    {{ $product->product_name }}
+                  </a>
+                </h3>
+                <form action="{{ route('wishlist.add', $product) }}"
+                method="POST">
+                @csrf
+                <button type="submit">
+                <svg class="w-6 h-6 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
+                    <path d="M13 20a1 1 0 0 1-.64-.231L7 15.3l-5.36 4.469A1 1 0 0 1 0 19V2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1Z"/>
+                </svg>
+                </button>
+                </form>
+                </div>
+                <div class="flex flex-col items-start">
+                    <p class="text-sm text-gray-500">{{ $product->category }}</p>
+                </div>
+                <div class="flex flex-col items-start">
+                  <p class="text-sm text-gray-500">{{ $product->condition }}</p>
+                </div>
+                <p class="text-base font-medium text-gray-900">₱{{ $product->price }}</p>
+              </div>
+            </div>
+            @endforeach
+          </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="overflow-hidden mb-8 border-b border-gray-200">
+            <div class="px-2 flex justify-between">     
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Academic Resource Exchange Items</h2>
+                <a href="{{ url('academic-resource-exchange-products')}}"><h2 class="text-md underline font-medium tracking-tight text-gray-900">See All</h2></a>
+            </div>     
+            <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
+                @foreach ($productsExchange as $product)
+                @php
+                $imagePathsArray = explode('|', $product->images);
+                @endphp
+                <div class="group relative p-2">
+                    
+                  <div class="relative w-full h-72 rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
+                    <a href="{{ route('product.details', $product->id) }}">
+                    <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="TODO" class="w-full h-full object-center object-cover">
+                    </a>
+                  </div>
+                  <div class="pt-5 text-start">
+                    <div class="flex justify-between">
+                    <h3 class="text-sm font-medium text-gray-900">
+                      <a href="{{ route('product.details', $product->id) }}">
+                        <span aria-hidden="true" class="absolute inset-0"></span>
+                        {{ $product->product_name }}
+                      </a>
+                    </h3>
+                    <form action="{{ route('wishlist.add', $product) }}"
+                    method="POST">
+                    @csrf
+                    <button type="submit">
+                    <svg class="w-6 h-6 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
+                        <path d="M13 20a1 1 0 0 1-.64-.231L7 15.3l-5.36 4.469A1 1 0 0 1 0 19V2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1Z"/>
+                    </svg>
+                    </button>
+                    </form>
+                    </div>
+                    
+                    <div class="flex flex-col items-start">
+                      <p class="text-sm text-gray-500">{{ $product->condition }}</p>
+                    </div>
+                    <p class="text-base font-medium text-gray-900">₱{{ $product->price }}</p>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="overflow-hidden mb-8 border-b border-gray-200">
+            <div class="px-2 flex justify-between">     
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">School Uniforms & Supplies</h2>
+                <a href="{{ route('products.by.category', 'School Uniforms & Supplies') }}"><h2 class="text-md underline font-medium tracking-tight text-gray-900">See All</h2></a>
+            </div>     
+            <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
+                @foreach ($productsSchool as $product)
+                @php
+                $imagePathsArray = explode('|', $product->images);
+                @endphp
+                <div class="group relative p-2">
+                    
+                  <div class="relative w-full h-72 rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
+                    <a href="{{ route('product.details', $product->id) }}">
+                    <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="TODO" class="w-full h-full object-center object-cover">
+                    </a>
+                  </div>
+                  <div class="pt-5 text-start">
+                    <div class="flex justify-between">
+                    <h3 class="text-sm font-medium text-gray-900">
+                      <a href="{{ route('product.details', $product->id) }}">
+                        <span aria-hidden="true" class="absolute inset-0"></span>
+                        {{ $product->product_name }}
+                      </a>
+                    </h3>
+                    <form action="{{ route('wishlist.add', $product) }}"
+                    method="POST">
+                    @csrf
+                    <button type="submit">
+                    <svg class="w-6 h-6 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
+                        <path d="M13 20a1 1 0 0 1-.64-.231L7 15.3l-5.36 4.469A1 1 0 0 1 0 19V2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1Z"/>
+                    </svg>
+                    </button>
+                    </form>
+                    </div>
+                    
+                    <div class="flex flex-col items-start">
+                      <p class="text-sm text-gray-500">{{ $product->condition }}</p>
+                    </div>
+                    <p class="text-base font-medium text-gray-900">₱{{ $product->price }}</p>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="overflow-hidden mb-8 border-b border-gray-200">
+            <div class="px-2 flex justify-between">     
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Mobile Phones & Gadgets</h2>
+                <a href="{{ route('products.by.category', 'Mobile Phones & Gadgets') }}"><h2 class="text-md underline font-medium tracking-tight text-gray-900">See All</h2></a>
+            </div>     
+            <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
+                @foreach ($productsMobile as $product)
+                @php
+                $imagePathsArray = explode('|', $product->images);
+                @endphp
+                <div class="group relative p-2">
+                    
+                  <div class="relative w-full h-72 rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
+                    <a href="{{ route('product.details', $product->id) }}">
+                    <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="TODO" class="w-full h-full object-center object-cover">
+                    </a>
+                  </div>
+                  <div class="pt-5 text-start">
+                    <div class="flex justify-between">
+                    <h3 class="text-sm font-medium text-gray-900">
+                      <a href="{{ route('product.details', $product->id) }}">
+                        <span aria-hidden="true" class="absolute inset-0"></span>
+                        {{ $product->product_name }}
+                      </a>
+                    </h3>
+                    <form action="{{ route('wishlist.add', $product) }}"
+                    method="POST">
+                    @csrf
+                    <button type="submit">
+                    <svg class="w-6 h-6 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
+                        <path d="M13 20a1 1 0 0 1-.64-.231L7 15.3l-5.36 4.469A1 1 0 0 1 0 19V2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1Z"/>
+                    </svg>
+                    </button>
+                    </form>
+                    </div>
+                    
+                    <div class="flex flex-col items-start">
+                      <p class="text-sm text-gray-500">{{ $product->condition }}</p>
+                    </div>
+                    <p class="text-base font-medium text-gray-900">₱{{ $product->price }}</p>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="overflow-hidden mb-8 border-b border-gray-200">
+            <div class="px-2 flex justify-between">     
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Men's Fashion</h2>
+                <a href="{{ route('products.by.category', 'Men Fashion') }}"><h2 class="text-md underline font-medium tracking-tight text-gray-900">See All</h2></a>
+            </div>     
+            <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
+                @foreach ($productsMen as $product)
+                @php
+                $imagePathsArray = explode('|', $product->images);
+                @endphp
+                <div class="group relative p-2">
+                    
+                  <div class="relative w-full h-72 rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
+                    <a href="{{ route('product.details', $product->id) }}">
+                    <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="TODO" class="w-full h-full object-center object-cover">
+                    </a>
+                  </div>
+                  <div class="pt-5 text-start">
+                    <div class="flex justify-between">
+                    <h3 class="text-sm font-medium text-gray-900">
+                      <a href="{{ route('product.details', $product->id) }}">
+                        <span aria-hidden="true" class="absolute inset-0"></span>
+                        {{ $product->product_name }}
+                      </a>
+                    </h3>
+                    <form action="{{ route('wishlist.add', $product) }}"
+                    method="POST">
+                    @csrf
+                    <button type="submit">
+                    <svg class="w-6 h-6 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
+                        <path d="M13 20a1 1 0 0 1-.64-.231L7 15.3l-5.36 4.469A1 1 0 0 1 0 19V2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1Z"/>
+                    </svg>
+                    </button>
+                    </form>
+                    </div>
+                    
+                    <div class="flex flex-col items-start">
+                      <p class="text-sm text-gray-500">{{ $product->condition }}</p>
+                    </div>
+                    <p class="text-base font-medium text-gray-900">₱{{ $product->price }}</p>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="overflow-hidden mb-8 border-b border-gray-200">
+            <div class="px-2 flex justify-between">     
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Women's Fashion</h2>
+                <a href="{{ route('products.by.category', 'Women Fashion') }}"><h2 class="text-md underline font-medium tracking-tight text-gray-900">See All</h2></a>
+            </div>     
+            <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
+                @foreach ($productsWomen as $product)
+                @php
+                $imagePathsArray = explode('|', $product->images);
+                @endphp
+                <div class="group relative p-2">
+                    
+                  <div class="relative w-full h-72 rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
+                    <a href="{{ route('product.details', $product->id) }}">
+                    <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="TODO" class="w-full h-full object-center object-cover">
+                    </a>
+                  </div>
+                  <div class="pt-5 text-start">
+                    <div class="flex justify-between">
+                    <h3 class="text-sm font-medium text-gray-900">
+                      <a href="{{ route('product.details', $product->id) }}">
+                        <span aria-hidden="true" class="absolute inset-0"></span>
+                        {{ $product->product_name }}
+                      </a>
+                    </h3>
+                    <form action="{{ route('wishlist.add', $product) }}"
+                    method="POST">
+                    @csrf
+                    <button type="submit">
+                    <svg class="w-6 h-6 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
+                        <path d="M13 20a1 1 0 0 1-.64-.231L7 15.3l-5.36 4.469A1 1 0 0 1 0 19V2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1Z"/>
+                    </svg>
+                    </button>
+                    </form>
+                    </div>
+                    
+                    <div class="flex flex-col items-start">
+                      <p class="text-sm text-gray-500">{{ $product->condition }}</p>
+                    </div>
+                    <p class="text-base font-medium text-gray-900">₱{{ $product->price }}</p>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="overflow-hidden mb-8 border-b border-gray-200">
+            <div class="px-2 flex justify-between">     
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Computer & Techs</h2>
+                <a href="{{ route('products.by.category', 'Computer & Techs') }}"><h2 class="text-md underline font-medium tracking-tight text-gray-900">See All</h2></a>
+            </div>     
+            <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
+                @foreach ($productsComputer as $product)
+                @php
+                $imagePathsArray = explode('|', $product->images);
+                @endphp
+                <div class="group relative p-2">
+                    
+                  <div class="relative w-full h-72 rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
+                    <a href="{{ route('product.details', $product->id) }}">
+                    <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="TODO" class="w-full h-full object-center object-cover">
+                    </a>
+                  </div>
+                  <div class="pt-5 text-start">
+                    <div class="flex justify-between">
+                    <h3 class="text-sm font-medium text-gray-900">
+                      <a href="{{ route('product.details', $product->id) }}">
+                        <span aria-hidden="true" class="absolute inset-0"></span>
+                        {{ $product->product_name }}
+                      </a>
+                    </h3>
+                    <form action="{{ route('wishlist.add', $product) }}"
+                    method="POST">
+                    @csrf
+                    <button type="submit">
+                    <svg class="w-6 h-6 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
+                        <path d="M13 20a1 1 0 0 1-.64-.231L7 15.3l-5.36 4.469A1 1 0 0 1 0 19V2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1Z"/>
+                    </svg>
+                    </button>
+                    </form>
+                    </div>
+                    
+                    <div class="flex flex-col items-start">
+                      <p class="text-sm text-gray-500">{{ $product->condition }}</p>
+                    </div>
+                    <p class="text-base font-medium text-gray-900">₱{{ $product->price }}</p>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="overflow-hidden mb-8 border-b border-gray-200">
+            <div class="px-2 flex justify-between">     
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Foods & Drinks</h2>
+                <a href="{{ route('products.by.category', 'Foods & Drinkss') }}"><h2 class="text-md underline font-medium tracking-tight text-gray-900">See All</h2></a>
+            </div>     
+            <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
+                @foreach ($productsFood as $product)
+                @php
+                $imagePathsArray = explode('|', $product->images);
+                @endphp
+                <div class="group relative p-2">
+                    
+                  <div class="relative w-full h-72 rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
+                    <a href="{{ route('product.details', $product->id) }}">
+                    <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="TODO" class="w-full h-full object-center object-cover">
+                    </a>
+                  </div>
+                  <div class="pt-5 text-start">
+                    <div class="flex justify-between">
+                    <h3 class="text-sm font-medium text-gray-900">
+                      <a href="{{ route('product.details', $product->id) }}">
+                        <span aria-hidden="true" class="absolute inset-0"></span>
+                        {{ $product->product_name }}
+                      </a>
+                    </h3>
+                    <form action="{{ route('wishlist.add', $product) }}"
+                    method="POST">
+                    @csrf
+                    <button type="submit">
+                    <svg class="w-6 h-6 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
+                        <path d="M13 20a1 1 0 0 1-.64-.231L7 15.3l-5.36 4.469A1 1 0 0 1 0 19V2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1Z"/>
+                    </svg>
+                    </button>
+                    </form>
+                    </div>
+                    
+                    <div class="flex flex-col items-start">
+                      <p class="text-sm text-gray-500">{{ $product->condition }}</p>
+                    </div>
+                    <p class="text-base font-medium text-gray-900">₱{{ $product->price }}</p>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+        </div>
+    </div>
+    {{-- <div class="bg-white">
 
-
+        <section>
+            <div class="relative bg-gray-800 py-32 px-6 sm:py-40 sm:px-12 lg:px-8">
+                <div class="absolute inset-0 overflow-hidden">
+                    <img src="{{ asset('psumarketplacebanner.png') }}"
+                        alt="" class="w-full object-center object-cover">
+                </div>
+                <div aria-hidden="true" class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
+                <div class="relative max-w-3xl mx-auto flex flex-col items-center text-center">
+                    <h2 id="cause-heading" class="text-4xl font-extrabold tracking-tight text-white sm:text-4xl">Pangasinan State University Marketplace</h2>
+                    <p class="mt-3 text-xl text-white">"Elevate
+                        your university experience with our specialized marketplace platform. From textbooks to
+                        tech essentials, find everything you need for success in one convenient place. Simplify
+                        campus life and shop smart at our PSU Marketplace.".</p>
+                    <a href="{{ url('forum') }}"
+                        class="mt-8 w-full block border border-transparent rounded-md py-3 px-8 text-base font-medium text-indigo-700 bg-white hover:bg-indigo-700 hover:text-white sm:w-auto">Shop
+                        now</a>
+                </div>
+            </div>
+        </section>
 
         <header class="relative overflow-hidden mt-10">
             <div class="relative">
@@ -46,7 +441,7 @@
                     </div>
                     <ul role="list"
                         class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-                        <a href="{{ route('products.by.category', 'School Uniforms and Supplies') }}">
+                        <a href="{{ route('products.by.category', 'School Uniforms & Supplies') }}">
                             <li class="relative">
                                 <div
                                     class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
@@ -277,5 +672,5 @@
             </div>
         </section>
 
-    </div>
+    </div> --}}
 </x-app-layout>

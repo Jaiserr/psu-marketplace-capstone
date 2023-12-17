@@ -26,17 +26,17 @@
                                                 class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded appearance-none"
                                                 name="category" id="category">
                                                 <option value="" disabled selected>Select</option>
-                                                <option value="Men's Fashion">Men's Fashion</option>
-                                                <option value="Women's Fashion">Women's Fashion</option>
+                                                <option value="Men Fashion">Men's Fashion</option>
+                                                <option value="Women Fashion">Women's Fashion</option>
                                                 <option value="Mobile Phones & Gadgets">Mobile Phones & Gadgets</option>
                                                 <option value="Computer & Techs">Computer & Techs</option>
-                                                <option value="School Uniforms and Supplies">School Uniforms and
+                                                <option value="School Uniforms & Supplies">School Uniforms and
                                                     Supplies</option>
-                                                <option value="Food and Drinks">Food and Drinks</option>
+                                                <option value="Food & Drinks">Food and Drinks</option>
                                                 <option value="Musical Instruments">Musical Instruments</option>
                                                 <option value="Home Appliances">Home Appliances</option>
                                                 <option value="Sports Equipment">Sports Equipment</option>
-                                                <option value="Toys and Games">Toys and Games</option>
+                                                <option value="Toys & Games">Toys and Games</option>
                                                 <option value="Furniture & Home Living">Furniture & Home Living</option>
                                                 <option value="Vehicles & Components">Vehicles & Components</option>
                                             </select>
@@ -76,6 +76,30 @@
                                                 </svg>
                                             </div>
                                             <x-input-error :messages="$errors->get('condition')" class="mt-2" />
+                                        </div>
+                                    </div>
+                                    <div class="w-full px-4 mb-6 lg:w-2/4">
+                                        <label for="exchange" class="block mb-2 text-sm font-medium text-white">
+                                            List as Academic Resource Exchange
+                                        </label>
+                                        <div class="relative">
+                                            <select id="exchange"
+                                                class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded appearance-none"
+                                                name="exchange">
+                                                <option value="" disabled selected>Select</option>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                            <div
+                                                class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 pointer-events-none">
+                                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                            <x-input-error :messages="$errors->get('exchange')" class="mt-2" />
                                         </div>
                                     </div>
                                 </div>
