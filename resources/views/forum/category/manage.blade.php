@@ -1,8 +1,6 @@
 @extends ('forum.master', ['category' => null, 'thread' => null, 'breadcrumbs_append' => [trans('forum::general.manage')]])
 
 @section ('content')
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-5">
                 <div class="min-w-0 flex-1">
                     <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
@@ -32,8 +30,7 @@
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
+
     <script type="text/x-template" id="draggable-category-list-template">
         <draggable tag="ul" class="list-group" :list="categories" group="categories" :invertSwap="true" :emptyInsertThreshold="14">
             <li class="bg-white px-3 py-2 rounded-sm border" v-for="category in categories" :data-id="category.id" :key="category.id">

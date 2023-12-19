@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="bg-white">
-        <div class="min-h-screen py-2 rounded-lg shadow-lg">
+        <div class="min-h-screen px-2 py-2 rounded-lg shadow-lg">
             <div class="relative overflow-hidden">
                 <div class="relative">
                     <div class="text-lg max-w-prose mx-auto">

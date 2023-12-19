@@ -3,7 +3,7 @@
 @section ('content')
     <div id="new-posts">
         <div class="mt-6">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
                 <div class="flex items-center justify-between">
                     <div class="min-w-0 flex-1">
                         <h2 class="mb-3 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
@@ -23,8 +23,7 @@
                             {{ trans('forum::threads.none_found') }}
                         </div>
                     </div>
-                @endif
-            </div>
+                @endif                    
         </div>
     </div>
 @stop

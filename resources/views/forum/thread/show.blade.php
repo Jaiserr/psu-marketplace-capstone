@@ -2,8 +2,6 @@
 
 @section ('content')
     <div id="thread" class="v-thread">
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
                     <div class="min-w-0 flex-1">
                         <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
@@ -184,9 +182,7 @@
                             </form>
                         </div>
                     @endcan
-                @endif
-            </div>
-        </div>  
+                @endif 
     </div>
 
     @if ($thread->trashed() && Gate::allows('restoreThreads', $thread->category) && Gate::allows('restore', $thread))

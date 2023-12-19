@@ -132,7 +132,7 @@
                 @endif
             </button>
             <div
-                class="hidden overflow-hidden shadow-lg rounded-lg z-50 my-4 max-w-sm text-base list-none bg-white divide-y divide-gray-100 shadow-lg dark:divide-gray-600 dark:bg-gray-700"
+                class="hidden overflow-hidden shadow-lg rounded-lg z-50 my-4 max-w-sm text-base list-none bg-white divide-y divide-gray-100 dark:divide-gray-600 dark:bg-gray-700"
                 id="notification-dropdown"
                 >
                 <div
