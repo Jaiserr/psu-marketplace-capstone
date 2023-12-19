@@ -127,7 +127,7 @@
             </div>
         </div>
     </div> --}}
-    <div class="rounded-lg shadow-lg bg-indigo-50 p-4 mb-5">
+    <div class="rounded-lg shadow-lg bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 p-4 mb-5">
         <div class="flex">
           <div class="flex-shrink-0">
             <!-- Heroicon name: solid/exclamation -->

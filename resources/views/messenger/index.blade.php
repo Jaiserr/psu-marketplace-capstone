@@ -16,7 +16,7 @@
                     <div class="grid grid-cols-12 gap-x-4">
                         <div class="col-span-12 rounded">
                             <table class="min-w-full leading-normal">
-                                <thead class="bg-indigo-50">
+                                <thead class="bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200">
                                     <th
                                         class="px-3 py-3 text-xs font-normal text-left text-gray-900 uppercase align-middle rounded-l">
                                         Sender

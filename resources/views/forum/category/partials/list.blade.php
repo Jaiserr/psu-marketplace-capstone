@@ -1,5 +1,5 @@
 <div class="my-4">
-    <div class="bg-gradient-to-r from-sky-500 to-indigo-500 shadow-md rounded-md relative">
+    <div class="bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-md rounded-md relative">
         <div class="flex flex-col md:items-start md:flex-row md:justify-between md:gap-4 p-4">
             <div class="md:w-3/6 text-center md:text-left">
                 <h5 class="text-lg font-bold">

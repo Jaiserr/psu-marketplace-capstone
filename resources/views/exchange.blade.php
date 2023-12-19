@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="bg-transparent">
-        <div class="overflow-hidden mb-4 border-b border-gray-200">
-            <div class="pl-2">
+        <div class="overflow-hidden mb-8 border-b border-gray-200">
+            <div class="px-2 bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
                 <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Academic Resource Exchange Items</h2>
             </div>      
             <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">

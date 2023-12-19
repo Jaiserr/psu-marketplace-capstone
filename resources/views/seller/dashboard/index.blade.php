@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
                 <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Newly Added Items</h2>
             </div>
           <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
@@ -37,8 +37,8 @@
         </div>
     </div>
     <div class="bg-transparent">
-        <div class="overflow-x-auto mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+        <div class="overflow-hidden mb-8 border-b border-gray-200">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Academic Resource Exchange Items</h2>
               <a href="{{ url('academic-resource-exchange-products')}}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>    
@@ -70,9 +70,9 @@
               </div>
         </div>
     </div>
-    <div class="bg-transparent overflow-y-auto max-h-screen">
+    <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">School Uniforms & Supplies</h2>
               <a href="{{ route('products.by.category', 'School Uniforms & Supplies') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
           </div>     
@@ -107,7 +107,7 @@
     </div>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Mobile Phones & Gadgets</h2>
               <a href="{{ route('products.by.category', 'Mobile Phones & Gadgets') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>     
@@ -142,7 +142,7 @@
     </div>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Men's Fashion</h2>
               <a href="{{ route('products.by.category', 'Men Fashion') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>  
@@ -177,7 +177,7 @@
     </div>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Women's Fashion</h2>
               <a href="{{ route('products.by.category', 'Women Fashion') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>     
@@ -212,7 +212,7 @@
     </div>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">  
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Computer & Techs</h2>
               <a href="{{ route('products.by.category', 'Computer & Techs') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>   
@@ -247,7 +247,7 @@
     </div>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Food & Drinks</h2>
               <a href="{{ route('products.by.category', 'Food & Drinks') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>    
@@ -282,7 +282,7 @@
     </div>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Home Appliances</h2>
               <a href="{{ route('products.by.category', 'Home Appliances') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>    
@@ -317,7 +317,7 @@
     </div>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Musical Instruments</h2>
               <a href="{{ route('products.by.category', 'Musical Instruments') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>    
@@ -352,7 +352,7 @@
     </div>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">  
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Sports Equipment</h2>
               <a href="{{ route('products.by.category', 'Sports Equipment') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>   
@@ -387,7 +387,7 @@
     </div>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Toys & Games</h2>
               <a href="{{ route('products.by.category', 'Toys & Games') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>    
@@ -422,7 +422,7 @@
     </div>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Furniture & Home Living</h2>
               <a href="{{ route('products.by.category', 'Furniture & Home Living') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>     
@@ -457,7 +457,7 @@
     </div>
     <div class="bg-transparent">
         <div class="overflow-hidden mb-8 border-b border-gray-200"> 
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
               <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Vehicles & Components</h2>
               <a href="{{ route('products.by.category', 'Vehicles & Components') }}"><h2 class="text-md underline font-medium tracking-tight text-blue-600">See All</h2></a>
             </div>   

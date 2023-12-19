@@ -117,8 +117,8 @@
     </div>
     <div class="bg-white">
         <div class="overflow-hidden mb-8 border-b border-gray-200">
-            <div class="px-2 flex justify-between bg-white shadow-lg py-3 rounded-full mb-2">
-                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Simmilar Items</h2>
+            <div class="px-2 flex justify-between bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-2">
+                <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Similar Items</h2>
             </div> 
           <div class="grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-6">
             @foreach ($similarProducts as $product)

@@ -8,8 +8,8 @@
             <div class="">
                 <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
                     <div class="absolute inset-0">
-                        <img class="h-full w-full object-cover"
-                            src="{{ asset('forum.png') }}"
+                        <img class=""
+                            src="{{ asset('forumpic.png') }}"
                             alt="pangasinan state university">
                         <div
                             class="absolute inset-0 bg-gradient-to-r from-purple-300 to-indigo-200 mix-blend-multiply">
@@ -24,10 +24,10 @@
                 </div>
             </div>
         </div>
-        <div class="px-4 sm:px-6 lg:px-8">
+        <div class="">
             <div class="flex items-center justify-between">
-                <div class="min-w-0 flex-1">
-                    <h2 class="mb-3 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+                <div class="min-w-0 flex-1 shadow-lg rounded-lg">
+                    <h2 class="ml-2 mb-3 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
                         {{ trans('forum::general.index') }}
                     </h2>
                 </div>
