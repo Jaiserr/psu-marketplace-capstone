@@ -21,14 +21,14 @@
             </li>
         </ol>
     </nav>
-    <div class="bg-white">
+    <div class="bg-transparent">
         @foreach ($productsByCategory as $category => $products)
         <div class="py-10 sm:py-10 lg:max-w-7xl lg:mx-auto lg:px-8">
             <div class="px-4 flex items-center justify-between sm:px-6 lg:px-0">
                 <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">{{ $category }}</h2>
             </div>
             <div class="mt-8 relative">
-                <div class="relative w-full pb-6 -mb-6 overflow-x-auto">
+                <div class="relative shadow-lg shadow-indigo-500/50 w-full pb-6 -mb-6 overflow-x-auto">
                     <ul role="list" class="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0 lg:space-x-0 lg:grid lg:grid-cols-4 lg:gap-x-8">
                         @foreach ($products as $product)
                         @php

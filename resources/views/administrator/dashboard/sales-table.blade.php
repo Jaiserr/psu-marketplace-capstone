@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="py-12">
+    {{-- <div class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center mt-10 justify-between">
                 <div class="min-w-0 flex-1">
@@ -69,11 +69,18 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+    <div class="flex items-center justify-between mb-4">
+        <div class="min-w-0 flex-1">
+            <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+                {{ $sales->name }}'s Sales
+            </h2>
+        </div>
     </div>
     <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
         <div class="overflow-x-auto">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <thead class="text-xs text-white uppercase bg-gray-400 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-4 py-3">Product Name</th>
                         <th scope="col" class="px-4 py-3">Category</th>
@@ -90,7 +97,15 @@
                         <td class="px-4 py-3">{{ $product->category }}</td>
                         <td class="px-4 py-3">{{ $product->price }}</td>
                     </tr>
+                    @php
+                    $totalSales += $product->price;
+                    @endphp
                     @endforeach
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3"></td>
+                        <td class="px-4 py-4 flex justify-end font-extrabold text-blue-600">Total Sales:</td>
+                        <td class="px-4 py-3font-extrabold">{{ $totalSales }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

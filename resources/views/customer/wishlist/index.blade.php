@@ -1,13 +1,13 @@
 <x-app-layout>
-    <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-2">Saved products</h1>
-    <div class="bg-white shadow-lg rounded-lg">
+    <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 mb-2">Saved products</h2>
+    <div class="bg-indigo-50 shadow-lg rounded-lg">
         <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <section aria-labelledby="cart-heading" class="lg:col-span-12">
                     <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
                     <ul role="list">
                         @if($wishlistItems->isEmpty())
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">No Saved products</h2>
+                            <h2 class="text-2xl text-center font-extrabold tracking-tight text-gray-900 py-5">No Saved products</h2>
                         </div>
                         @else
                         @foreach($wishlistItems as $wishlistItem)
@@ -23,15 +23,15 @@
                                     <div>
                                         <div class="flex justify-between">
                                             <h3 class="text-sm">
-                                                <a href="#" class="font-medium text-white"> {{ $wishlistItem->product->product_name }} </a>
+                                                <a href="#" class="font-medium text-gray-900"> {{ $wishlistItem->product->product_name }} </a>
                                             </h3>
                                         </div>
                                         <div class="mt-1 flex text-sm">
-                                            <p class="text-white">{{ $wishlistItem->product->category }}</p>
-                                            <p class="ml-4 pl-4 border-l border-gray-200 text-white">{{ $wishlistItem->product->condition }}</p>
+                                            <p class="text-gray-900">{{ $wishlistItem->product->category }}</p>
+                                            <p class="ml-4 pl-4 border-l border-gray-200 text-gray-900">{{ $wishlistItem->product->condition }}</p>
                                         </div>
-                                        <p class="mt-1 text-sm font-medium text-white">₱{{ $wishlistItem->product->price }}</p>
-                                        <p class="mt-4 flex text-sm text-white space-x-2">
+                                        <p class="mt-1 text-sm font-medium text-gray-900">₱{{ $wishlistItem->product->price }}</p>
+                                        <p class="mt-4 flex text-sm text-gray-900 space-x-2">
                                             @if($wishlistItem->product->availability == 'Available')
                                             <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

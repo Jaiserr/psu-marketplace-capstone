@@ -10,7 +10,7 @@
             @csrf
             @method('DELETE')
 
-            <x-primary-button>Delete</x-primary-button>
+            <x-primary-button class="bg-indigo-600 hover:bg-indigo-800">Delete</x-primary-button>
         </form>
     </td>
 </tr>

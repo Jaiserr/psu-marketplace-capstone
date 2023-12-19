@@ -16,17 +16,17 @@
                     <div class="grid grid-cols-12 gap-x-4">
                         <div class="col-span-12 rounded">
                             <table class="min-w-full leading-normal">
-                                <thead class="bg-gray-50">
+                                <thead class="bg-indigo-50">
                                     <th
-                                        class="px-3 py-3 text-xs font-normal text-left text-gray-500 uppercase align-middle rounded-l">
+                                        class="px-3 py-3 text-xs font-normal text-left text-gray-900 uppercase align-middle rounded-l">
                                         Sender
                                     </th>
                                     <th
-                                        class="px-3 py-3 text-xs font-normal text-left text-gray-500 uppercase align-middle">
+                                        class="px-3 py-3 text-xs font-normal text-left text-gray-900 uppercase align-middle">
                                         Subject
                                     </th>
                                     <th
-                                        class="px-3 py-3 text-xs font-normal text-left text-gray-500 uppercase align-middle rounded-r">
+                                        class="px-3 py-3 text-xs font-normal text-left text-gray-900 uppercase align-middle rounded-r">
                                     </th>
                                 </thead>
                                 <tbody>

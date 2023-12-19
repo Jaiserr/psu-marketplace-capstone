@@ -253,7 +253,7 @@
                                             <path d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
                                         </svg>
                                     </a>
-                            <form class="inline" method="POST" action="">
+                            <form class="inline" method="POST" action="{{ route('admin-products.destroy', $product) }}">
                                 @csrf
                                 @method('delete')
                                 <button class="inline-flex items-center px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded-lg text-white">

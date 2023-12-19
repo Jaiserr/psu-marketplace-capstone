@@ -1,6 +1,6 @@
-<div x-data="{makeOpen:false}" class="inline text-white">and
+<div x-data="{makeOpen:false}" class="inline text-dark">and
     <button type="button" x-on:click="makeOpen = true">
-        <strong class="text-white underline">Privacy Policy</strong>
+        <strong class="text-indigo-600">Privacy Policy</strong>
     </button>
     <div x-show="makeOpen" x-cloak x-on:click="makeOpen = false"
         class="bg-black/40 z-[500] fixed top-0 bottom-0 right-0 left-0">

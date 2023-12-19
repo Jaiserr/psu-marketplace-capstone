@@ -52,7 +52,7 @@
             </div>
         </div>
 </div> --}}
-<div x-show="activeTab === 'tab1'" class="bg-white">
+<div x-show="activeTab === 'tab1'" class="bg-transparent">
     <div class="overflow-hidden mb-8 border-b border-gray-200">
         <div class="px-2 flex justify-between">
             <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Seller Listing</h2>
@@ -64,7 +64,7 @@
         @endphp
         <div class="group relative p-2">
             
-          <div class="relative w-full h-72 rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
+          <div class="relative shadow-lg shadow-indigo-500/50 w-full h-72 rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
             <a href="{{ route('product.details', $product->id) }}">
                 <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="TODO" class="w-full h-full object-center object-cover">
             </a>

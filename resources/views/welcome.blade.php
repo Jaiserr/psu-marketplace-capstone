@@ -13,15 +13,19 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div>
-            <header>
-                <div class="top-0 right-0 left-0 z-[50]">
-                    <div class=" flex justify-between items-center max-w-7xl mx-auto px-4  sm:px-6 md:justify-start md:space-x-10 lg:px-8">
-                        <div class="flex justify-start items-center gap-2 lg:w-0 lg:flex-1">
-                            <img src="{{ asset('logo.png') }}" alt="Logo" class="h-10" />
-                        </div>
-                        <div class="flex items-center justify-end md:flex-1 lg:w-0">
-                            @if (Route::has('login'))
+            {{-- <nav class="bg-transparent px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
+                <div class="flex flex-wrap justify-between items-center">
+                    <div class="flex justify-start items-center">
+                        <a href="{{ url('/') }}" class="flex items-center justify-between mr-4">
+                        <img
+                            src="{{ asset('logo.png')}}"
+                            class="mr-3 h-10"
+                            alt="Flowbite Logo"
+                            />
+                        </a>
+                    </div>
+                    <div class="flex items-center lg:order-2">
+                        @if (Route::has('login'))
                             <div class=" py-6 text-right z-10">
                                 @auth
                                 <a href="{{ url('/dashboard') }}"
@@ -29,7 +33,7 @@
                                 Dashboard </a>
                                 @else
                                 <a href="{{ route('login') }}"
-                                    class=" whitespace-nowrap inline-flex items-center justify-center bg-yellow-500 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-yellow-700 hover:to-yellow-700">
+                                    class=" whitespace-nowrap inline-flex items-center font-extrabold justify-centerbg-origin-border px-4 py-2 border border-transparent rounded-md text-lg text-dark">
                                 Sign in </a>
                                 @if (Route::has('register'))
                                 <a href="{{ route('register') }}"
@@ -38,59 +42,86 @@
                                 @endif
                                 @endauth
                             </div>
+                        @endif
+                    </div>
+                </div>
+            </nav> --}}
+            <header>
+                <nav class="bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 px-4 lg:px-6 py-2.5">
+                    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+                        <a href="{{ url('/') }}" class="flex items-center">
+                            <img src="{{ asset('logo.png') }}" class="mr-2 h-6 sm:h-9" alt="Flowbite Logo" />
+                            <span class="self-center text-xl font-semibold whitespace-nowrap text-gray-900">PSU Marketplace</span>
+                        </a>
+                        <div class="flex items-center lg:order-2">
+                            @if (Route::has('login'))
+                            <div class=" py-6 text-right z-10">
+                                @auth
+                                <a href="{{ url('/dashboard') }}"
+                                    class="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700">
+                                Marketplace</a>
+                                @else
+                                <a href="{{ route('login') }}" class="text-gray-800 dark:text-white font-extrabold rounded-lg text-lg px-1 py-2.5">Log in</a>
+                                @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign Up</a>
+                                @endif
+                                @endauth
+                            </div>
                             @endif
+                            {{-- <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
+                                <span class="sr-only">Open main menu</span>
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                                <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </button> --}}
                         </div>
+                        {{-- <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+                            <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                                <li>
+                                    <a href="#" class="block py-2 pr-4 pl-3 text-white rounded bg-blue-700 lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Company</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Marketplace</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Features</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                                </li>
+                            </ul>
+                        </div> --}}
                     </div>
-                </div>
+                </nav>
             </header>
-            <main>
-                <!-- Hero section -->
-                <div class="relative">
-                    <div class="absolute inset-x-0 bottom-0 h-1/2"></div>
-                    <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                        <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
-                            <div class="absolute inset-0">
-                                <img class="h-full w-full object-cover" src="{{ asset('psumarketplacebanner.png') }}"
-                                    alt="pangasinan state university">
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 mix-blend-multiply">
-                                </div>
-                            </div>
-                            <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-                                <h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                                    <span class="block text-white">Pangasinan State University Marketplace</span>
-                                </h1>
-                                <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">"Elevate
-                                    your university experience with our specialized marketplace platform. From textbooks to
-                                    tech essentials, find everything you need for success in one convenient place. Simplify
-                                    campus life and shop smart at our PSU Marketplace.".
-                                </p>
-                                <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-                                    <a href="{{route('login')}}"
-                                        class="flex items-center justify-center px-4 py-3 border border-transparent font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-700 hover:text-white sm:px-8">
-                                    Get Started</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-            <footer>
-                <div class="max-w-7xl mx-auto pb-8 px-4 overflow-hidden sm:px-6 lg:px-8">
-                    <div class="mt-8 flex justify-center space-x-6">
-                        <a href="https://www.facebook.com/profile.php?id=61553673545550&mibextid=vk8aRt" class="text-indigo-700 hover:text-indigo-700">
-                            <span class="sr-only">Facebook</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                    clip-rule="evenodd" />
-                            </svg>
+            {{-- <div class="flex items-center justify-start min-h-screen pr-60">
+                <img src="{{ asset('hero.png')}}" alt="" class=""> <!-- Adjust the height as needed -->
+            </div> 
+            <div class="flex items-center justify-end min-h-screen pr-60">
+                <img src="{{ asset('hero.png')}}" alt="" class=""> <!-- Adjust the height as needed -->
+            </div>  --}}
+            <section class="bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200  dark:bg-gray-900 pt-28 min-h-screen">
+                <div class="grid max-w-screen-xl px-4 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
+                    <div class="mr-auto place-self-center lg:col-span-7">
+                        <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">PSU Marketplace</h1>
+                        <p class="max-w-2xl mb-6 font-light text-gray-900 lg:mb-8 md:text-lg lg:text-xl">"Elevate
+                            your university experience with our specialized marketplace platform. From textbooks to
+                            tech essentials, find everything you need for success in one convenient place. Simplify
+                            campus life and shop smart at our PSU Marketplace.".</p>
+                        <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                            Get started
+                            <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                         </a>
                     </div>
-                    <p class="mt-8 text-center text-base text-indigo-700">&copy; 2023 Pangasinan State University Marketplace.
-                    </p>
+                    <div class="lg:mt-0 lg:col-span-5 lg:flex order-first lg:order-last">
+                        <img src="{{ asset('hero.png')}}" class="animate-bounce" alt="mockup">
+                    </div>                
                 </div>
-            </footer>
-        </div>
+            </section> 
     </body>
 </html>

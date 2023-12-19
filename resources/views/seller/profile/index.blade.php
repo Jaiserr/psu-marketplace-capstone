@@ -104,7 +104,7 @@
                         <main class="flex-1 relative z-0  overflow-y-auto focus:outline-none xl:order-last rounded">
                             <article x-data="{ activeTab: 'tab1' }">
                                 <!-- Tabs -->
-                                <div class="mt-6 mb-8 sm:mt-2 2xl:mt-5 shadow bg-gray-800 rounded-lg  ">
+                                <div class="mt-6 mb-8 sm:mt-2 2xl:mt-5 shadow bg-blue-900 rounded-lg  ">
                                     <div class="border-gray-200">
                                         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                                             <nav class="-mb-px flex justify-center space-x-8" aria-label="Tabs">

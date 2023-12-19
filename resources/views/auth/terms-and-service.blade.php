@@ -1,6 +1,6 @@
 <div x-data="{createOpen:false}" class="inline">
     <button type="button" x-on:click="createOpen = true">
-        <strong class="text-white underline">Terms and Conditions</strong>
+        <strong class="text-indigo-600">Terms and Conditions</strong>
     </button>
     <div x-show="createOpen" x-cloak x-on:click="createOpen = false"
         class="bg-black/40 z-[500] fixed top-0 bottom-0 right-0 left-0">
