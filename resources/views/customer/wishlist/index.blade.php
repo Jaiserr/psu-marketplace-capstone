@@ -1,5 +1,7 @@
 <x-app-layout>
-    <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 mb-2">Saved products</h2>
+    <div class="px-2 bg-gradient-to-r from-blue-100 via-violet-200 to-purple-200 shadow-lg py-3 rounded-full mb-3">
+        <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Save Items</h2>
+    </div>
     <div class="bg-indigo-50 shadow-lg rounded-lg">
         <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <section aria-labelledby="cart-heading" class="lg:col-span-12">

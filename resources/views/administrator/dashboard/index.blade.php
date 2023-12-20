@@ -10,7 +10,7 @@
                     </span>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-xl font-bold text-white">Total Registered Sellers</h4>
+                    <h4 class="mb-2 text-3xl font-bold text-white">Total Registered Sellers</h4>
                     <h2 class="text-4xl font-extrabold text-white">
                         {{$sellersCount}}</h2>
                 </div>
@@ -25,7 +25,7 @@
                     </span>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-xl font-bold text-white">Approved Sellers</h4>
+                    <h4 class="mb-2 text-3xl font-bold text-white">Approved Sellers</h4>
                     <h2 class="text-4xl font-extrabold text-white">
                         {{$sellersApproved}}</h2>
                 </div>
@@ -40,7 +40,7 @@
                     </span>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-xl font-bold text-white">Not Approve Sellers</h4>
+                    <h4 class="mb-2 text-3xl font-bold text-white">Not Approve Sellers</h4>
                     <h2 class="text-4xl font-extrabold text-white">
                         {{$sellersPending}}</h2>
                 </div>
@@ -55,7 +55,7 @@
                     </span>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-xl font-bold text-white">Total Products</h4>
+                    <h4 class="mb-2 text-3xl font-bold text-white">Total Products</h4>
                     <h2 class="text-4xl font-extrabold text-white">
                         {{$productsCount}}</h2>
                 </div>
@@ -70,7 +70,7 @@
                     </span>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-xl font-bold text-white">Approved Products</h4>
+                    <h4 class="mb-2 text-3xl font-bold text-white">Approved Products</h4>
                     <h2 class="text-4xl font-extrabold text-white">
                         {{$productsApproved}}</h2>
                 </div>
@@ -85,7 +85,7 @@
                     </span>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-xl font-bold text-white">Not Approve Products</h4>
+                    <h4 class="mb-2 text-3xl font-bold text-white">Not Approve Products</h4>
                     <h2 class="text-4xl font-extrabold text-white">
                         {{$productsPending}}</h2>
                 </div>
@@ -100,7 +100,7 @@
                     </span>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-xl font-bold text-white">Available Products</h4>
+                    <h4 class="mb-2 text-3xl font-bold text-white">Available Products</h4>
                     <h2 class="text-4xl font-extrabold text-white">
                         {{$productsAvailable}}</h2>
                 </div>
@@ -115,7 +115,7 @@
                     </span>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-xl font-bold text-white">Sold Products</h4>
+                    <h4 class="mb-2 text-3xl font-bold text-white">Sold Products</h4>
                     <h2 class="text-4xl font-extrabold text-white">
                         {{$productsSold}}</h2>
                 </div>
@@ -130,7 +130,7 @@
                     </span>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-xl font-bold text-white">Total Registered Customers</h4>
+                    <h4 class="mb-2 text-3xl font-bold text-white">Total Registered Customers</h4>
                     <h2 class="text-4xl font-extrabold text-white">
                         {{$customersCount}}</h2>
                 </div>
