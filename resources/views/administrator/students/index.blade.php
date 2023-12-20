@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="bg-white dark:bg-gray-800 relative shadow-lg rounded-lg overflow-hidden">
-        <div class="flex flex-col md:flex-row  space-y-3 md:space-y-0 md:space-x-4 p-4">
+        <div class="flex flex-col justify-end md:flex-row  space-y-3 md:space-y-0 md:space-x-4 p-4">
             <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                 <a href="{{ route('students.create') }}" class="flex items-center justify-center text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                     <svg class="h-3.5 w-3.5 mr-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
