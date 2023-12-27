@@ -180,4 +180,15 @@ class ProductsController extends Controller
         $admin_product->delete();
         return redirect()->back()->with('danger-message', 'Product Deleted');
     }
+
+    public function approvedProducts() {
+        $approvedProducts = Products::where('approved',1)->get();
+        return view('seller.products.approved-products', compact('approvedProducts'));
+    }
+
+    public function toBeReviewProducts() {
+        $toBeReviewProducts = Products::where('approved', null)->get();
+        return view('seller.products.to-be-review-products', compact('toBeReviewProducts'));
+
+    }
 }

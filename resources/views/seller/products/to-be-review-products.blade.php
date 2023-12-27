@@ -183,7 +183,7 @@
                             <a href="{{ url('approved-products')}}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Approved Items</a>
                         </div>
                         <div class="py-1">
-                            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">To Be Review Items</a>
+                            <a href="{{ url('to-be-review-products')}}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">To Be Review Items</a>
                         </div>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $product)
+                    @foreach ($toBeReviewProducts as $product)
                             @php
                             $imagePathsArray = explode('|', $product->images);
                             @endphp
@@ -217,13 +217,7 @@
                         <td class="px-4 py-3">{{ $product->condition }}</td>
                         <td class="px-4 py-3">{{ $product->availability }}</td>
                         <td class="px-4 py-3">{{ $product->price }}</td>
-                        <td class="px-4 py-3">
-                            @if ($product->approved == "1")
-                            <h1 class="text-green-500">Approved</h1>                    
-                            @else
-                            <h1 class="text-red-500">Not yet approve</h1>                         
-                            @endif
-                        </td>   
+                        <td class="px-4 py-3 text-red-500">Not yet approved</td>  
                         <td class="px-4 py-3">
                             <a href="{{ route('admin-products.edit', $product) }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-primary-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-primary-800">
                                 <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg>

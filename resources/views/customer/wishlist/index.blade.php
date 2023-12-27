@@ -18,14 +18,15 @@
                         @endphp
                         <li class="flex py-6 sm:py-10">
                             <div class="flex-shrink-0">
-                                <img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="Front of men&#039;s Basic Tee in sienna." class="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48">
+                                <a href="{{ route('product.details', $wishlistItem->product->id) }}"><img src="{{ asset('storage/' . $imagePathsArray[0]) }}" alt="Front of men&#039;s Basic Tee in sienna." class="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48">
+                                </a>
                             </div>
                             <div class="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
                                 <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
                                     <div>
                                         <div class="flex justify-between">
                                             <h3 class="text-sm">
-                                                <a href="#" class="font-medium text-gray-900"> {{ $wishlistItem->product->product_name }} </a>
+                                                <a href="{{ route('product.details', $wishlistItem->product->id) }}" class="font-medium text-gray-900"> {{ $wishlistItem->product->product_name }} </a>
                                             </h3>
                                         </div>
                                         <div class="mt-1 flex text-sm">

@@ -57,6 +57,9 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     // Route::get('product/category/{id}', [ProductsController::class, 'product-category'])->show('product.category');
     Route::get('/products/{category}', [ProductsController::class, 'indexByCategory'])->name('products.by.category');
     Route::get('/search', [ProductsController::class, 'search'])->name('product.search');
+    Route::get('/approved-products',[ProductsController::class, 'approvedProducts'])->name('approved-products');
+    Route::get('/to-be-review-products',[ProductsController::class, 'toBeReviewProducts'])->name('to-be-review-products');
+
 });
 
 // ** Route for superadministrator
